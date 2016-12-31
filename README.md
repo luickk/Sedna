@@ -12,7 +12,7 @@ It will be available on many platforms such as: Browser, IOS, Android. Teachers 
 ----------
 
 
-Documents
+Info
 -------------
 
 It s programmed in **C# .NET** and uses MYSQL as DataBase.
