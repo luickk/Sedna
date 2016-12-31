@@ -656,6 +656,6 @@ namespace academic
 
 
 
-        public static String pw = "pete";
+        public static String pw = "";
     }
 }

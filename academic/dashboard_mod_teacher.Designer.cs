@@ -377,7 +377,7 @@
             this.panel_pupup_class.Controls.Add(this.t_info_email);
             this.panel_pupup_class.Controls.Add(this.t_info_school);
             this.panel_pupup_class.Controls.Add(this.t_class_name);
-            this.panel_pupup_class.Location = new System.Drawing.Point(974, 103);
+            this.panel_pupup_class.Location = new System.Drawing.Point(974, 101);
             this.panel_pupup_class.Name = "panel_pupup_class";
             this.panel_pupup_class.Size = new System.Drawing.Size(321, 440);
             this.panel_pupup_class.TabIndex = 36;
