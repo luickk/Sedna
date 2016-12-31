@@ -6,7 +6,7 @@ Sedna is a program for better communication and planning between teachers and pu
 It will be available on many platforms such as: Browser, IOS, Android. Teachers can create classes and adapt them to their needs.
 
 > You can download the Alpha Version here: <i class="icon-download"></i>[Sedna Alpha_Version](https://www.dropbox.com/sh/g7akle3yfvwe4zg/AAAW773kzOcryETKo7MmbLBEa?dl=0).
->  And checkout the Website <i class="icon-refresh"></i>[Sedna Alpha_Version](http://sedna-alpha.tk/)!
+>  And checkout the Website [<i class="icon-refresh"></i>](http://sedna-alpha.tk/)!
 
 
 ----------
