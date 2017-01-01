@@ -135,6 +135,12 @@
     <Compile Include="mails.Designer.cs">
       <DependentUpon>mails.cs</DependentUpon>
     </Compile>
+    <Compile Include="no_internet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="no_internet.Designer.cs">
+      <DependentUpon>no_internet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PUPIL_OBJ.cs" />
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mails.resx">
       <DependentUpon>mails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="no_internet.resx">
+      <DependentUpon>no_internet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

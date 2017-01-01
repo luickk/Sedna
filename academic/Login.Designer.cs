@@ -44,6 +44,8 @@
             this.line = new Bunifu.Framework.UI.BunifuSeparator();
             this.btn_reg_sel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel_reg = new System.Windows.Forms.Panel();
+            this.tb_tel = new Bunifu.Framework.UI.BunifuTextbox();
+            this.tb_email = new Bunifu.Framework.UI.BunifuTextbox();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tb_age = new Bunifu.Framework.UI.BunifuTextbox();
             this.dd_te_or_pup = new Bunifu.Framework.UI.BunifuDropdown();
@@ -57,8 +59,6 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tb_fn = new Bunifu.Framework.UI.BunifuTextbox();
             this.tb_pw1 = new Bunifu.Framework.UI.BunifuTextbox();
-            this.tb_tel = new Bunifu.Framework.UI.BunifuTextbox();
-            this.tb_email = new Bunifu.Framework.UI.BunifuTextbox();
             this.top_bar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -309,6 +309,32 @@
             this.panel_reg.TabIndex = 8;
             this.panel_reg.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_reg_Paint);
             // 
+            // tb_tel
+            // 
+            this.tb_tel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.tb_tel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_tel.BackgroundImage")));
+            this.tb_tel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tb_tel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.tb_tel.Icon = ((System.Drawing.Image)(resources.GetObject("tb_tel.Icon")));
+            this.tb_tel.Location = new System.Drawing.Point(262, 344);
+            this.tb_tel.Name = "tb_tel";
+            this.tb_tel.Size = new System.Drawing.Size(192, 48);
+            this.tb_tel.TabIndex = 20;
+            this.tb_tel.text = "Telephone number";
+            // 
+            // tb_email
+            // 
+            this.tb_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.tb_email.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_email.BackgroundImage")));
+            this.tb_email.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tb_email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.tb_email.Icon = ((System.Drawing.Image)(resources.GetObject("tb_email.Icon")));
+            this.tb_email.Location = new System.Drawing.Point(44, 344);
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(192, 48);
+            this.tb_email.TabIndex = 19;
+            this.tb_email.text = "Email";
+            // 
             // bunifuCustomLabel3
             // 
             this.bunifuCustomLabel3.AutoSize = true;
@@ -487,32 +513,6 @@
             this.tb_pw1.TabIndex = 6;
             this.tb_pw1.text = "Password";
             // 
-            // tb_tel
-            // 
-            this.tb_tel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.tb_tel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_tel.BackgroundImage")));
-            this.tb_tel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tb_tel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.tb_tel.Icon = ((System.Drawing.Image)(resources.GetObject("tb_tel.Icon")));
-            this.tb_tel.Location = new System.Drawing.Point(262, 344);
-            this.tb_tel.Name = "tb_tel";
-            this.tb_tel.Size = new System.Drawing.Size(192, 48);
-            this.tb_tel.TabIndex = 20;
-            this.tb_tel.text = "Telephone number";
-            // 
-            // tb_email
-            // 
-            this.tb_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.tb_email.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_email.BackgroundImage")));
-            this.tb_email.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tb_email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.tb_email.Icon = ((System.Drawing.Image)(resources.GetObject("tb_email.Icon")));
-            this.tb_email.Location = new System.Drawing.Point(44, 344);
-            this.tb_email.Name = "tb_email";
-            this.tb_email.Size = new System.Drawing.Size(192, 48);
-            this.tb_email.TabIndex = 19;
-            this.tb_email.text = "Email";
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -526,7 +526,9 @@
             this.Controls.Add(this.panel_login);
             this.Controls.Add(this.top_bar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.top_bar.ResumeLayout(false);
