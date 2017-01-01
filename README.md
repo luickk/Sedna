@@ -22,7 +22,9 @@ It s programmed in **C# .NET** and uses MYSQL as DataBase.
 > - It is an alpha version and not yet released for use.
 > - The idea as well as the program code are legally protected.
 > - If you are interested in this idea, please contact: <i class="icon-mail"></i>gelberdev@gmail.com.
-#### <i class="icon-login"></i> Register as teacher
+
+
+#### <i class="icon-login"></i>Register as teacher
 A key is required to register as a teacher. This is obtained from the school or from our website for a one-off purchase price. 
 
 #### <i class="icon-login"></i> Register as pupil
