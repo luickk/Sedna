@@ -8,6 +8,6 @@ namespace academic
 {
     class data
     {
-        public static String pw = "pete";
+        public static String pw = "";
     }
 }
