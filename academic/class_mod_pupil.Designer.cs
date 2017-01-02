@@ -52,7 +52,7 @@
             // 
             this.panel_lv_men.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.panel_lv_men.Controls.Add(this.pictureBox1);
-            this.panel_lv_men.Location = new System.Drawing.Point(589, 308);
+            this.panel_lv_men.Location = new System.Drawing.Point(459, 57);
             this.panel_lv_men.Name = "panel_lv_men";
             this.panel_lv_men.Size = new System.Drawing.Size(1002, 50);
             this.panel_lv_men.TabIndex = 33;
@@ -74,7 +74,7 @@
             this.tv_user.FullRowSelect = true;
             this.tv_user.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.tv_user.HideSelection = false;
-            this.tv_user.Location = new System.Drawing.Point(589, 364);
+            this.tv_user.Location = new System.Drawing.Point(469, 113);
             this.tv_user.Name = "tv_user";
             this.tv_user.Size = new System.Drawing.Size(825, 401);
             this.tv_user.TabIndex = 32;
@@ -88,7 +88,7 @@
             this.lv_teacher.FullRowSelect = true;
             this.lv_teacher.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lv_teacher.HideSelection = false;
-            this.lv_teacher.Location = new System.Drawing.Point(1430, 365);
+            this.lv_teacher.Location = new System.Drawing.Point(1300, 113);
             this.lv_teacher.Name = "lv_teacher";
             this.lv_teacher.Size = new System.Drawing.Size(161, 401);
             this.lv_teacher.TabIndex = 34;
@@ -106,7 +106,7 @@
             this.panel_teacher_pupil_info_popup.Controls.Add(this.t_info_school);
             this.panel_teacher_pupil_info_popup.Controls.Add(this.t_info_class);
             this.panel_teacher_pupil_info_popup.Controls.Add(this.t__popup_user_name);
-            this.panel_teacher_pupil_info_popup.Location = new System.Drawing.Point(953, 259);
+            this.panel_teacher_pupil_info_popup.Location = new System.Drawing.Point(755, 19);
             this.panel_teacher_pupil_info_popup.Name = "panel_teacher_pupil_info_popup";
             this.panel_teacher_pupil_info_popup.Size = new System.Drawing.Size(321, 440);
             this.panel_teacher_pupil_info_popup.TabIndex = 35;

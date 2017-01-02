@@ -191,30 +191,50 @@ namespace academic
         private void btn_homework_Click(object sender, EventArgs e)
         {
 
+
+
             if (TEACHER_OBJ.checkIfIsTeacher())
             {
 
-                if (!CONTENT.Controls.Contains(homework.Instance))
+                if (dashboard_mod_teacher.selected == "")
                 {
-                    CONTENT.Controls.Add(homework.Instance);
-                    homework.Instance.Dock = DockStyle.Fill;
-                    homework.Instance.BringToFront();
-                }
-                else
+
+                    if (!CONTENT.Controls.Contains(homework.Instance))
+                    {
+                        CONTENT.Controls.Add(homework.Instance);
+                        homework.Instance.Dock = DockStyle.Fill;
+                        homework.Instance.BringToFront();
+                    }
+                    else
+                    {
+                        homework.Instance.BringToFront();
+                    }
+
+                } else
                 {
-                    homework.Instance.BringToFront();
+                    hw_meths.check_and_create();
+                    if (!CONTENT.Controls.Contains(homework_teacher.Instance))
+                    {
+                        CONTENT.Controls.Add(homework_teacher.Instance);
+                        homework_teacher.Instance.Dock = DockStyle.Fill;
+                        homework_teacher.Instance.BringToFront();
+                    }
+                    else
+                    {
+                        homework_teacher.Instance.BringToFront();
+                    }
                 }
             } else
                 {
-                    if (!CONTENT.Controls.Contains(homework.Instance))
+                    if (!CONTENT.Controls.Contains(homework_pupil.Instance))
                 {
-                    CONTENT.Controls.Add(homework.Instance);
-                    homework.Instance.Dock = DockStyle.Fill;
-                    homework.Instance.BringToFront();
+                    CONTENT.Controls.Add(homework_pupil.Instance);
+                    homework_pupil.Instance.Dock = DockStyle.Fill;
+                    homework_pupil.Instance.BringToFront();
                 }
                 else
                 {
-                    homework.Instance.BringToFront();
+                    homework_pupil.Instance.BringToFront();
                     }
 
             }

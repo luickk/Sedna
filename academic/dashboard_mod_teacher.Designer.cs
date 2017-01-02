@@ -82,7 +82,7 @@
             this.btn_join_class.Iconimage_Selected = null;
             this.btn_join_class.IconZoom = 90D;
             this.btn_join_class.IsTab = false;
-            this.btn_join_class.Location = new System.Drawing.Point(985, 609);
+            this.btn_join_class.Location = new System.Drawing.Point(753, 520);
             this.btn_join_class.Name = "btn_join_class";
             this.btn_join_class.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btn_join_class.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -109,7 +109,7 @@
             this.btn_create_class.Iconimage_Selected = null;
             this.btn_create_class.IconZoom = 90D;
             this.btn_create_class.IsTab = false;
-            this.btn_create_class.Location = new System.Drawing.Point(1287, 609);
+            this.btn_create_class.Location = new System.Drawing.Point(1035, 520);
             this.btn_create_class.Name = "btn_create_class";
             this.btn_create_class.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btn_create_class.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -128,7 +128,7 @@
             this.pan_create_class.Controls.Add(this.btn_create);
             this.pan_create_class.Controls.Add(this.tb_class_pw);
             this.pan_create_class.Controls.Add(this.tb_class_name);
-            this.pan_create_class.Location = new System.Drawing.Point(1274, 594);
+            this.pan_create_class.Location = new System.Drawing.Point(1035, 579);
             this.pan_create_class.Name = "pan_create_class";
             this.pan_create_class.Size = new System.Drawing.Size(375, 277);
             this.pan_create_class.TabIndex = 2;
@@ -216,7 +216,7 @@
             this.btn_dash_update.Iconimage_Selected = null;
             this.btn_dash_update.IconZoom = 90D;
             this.btn_dash_update.IsTab = false;
-            this.btn_dash_update.Location = new System.Drawing.Point(705, 609);
+            this.btn_dash_update.Location = new System.Drawing.Point(470, 520);
             this.btn_dash_update.Name = "btn_dash_update";
             this.btn_dash_update.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btn_dash_update.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -235,7 +235,7 @@
             this.tv_classes.FullRowSelect = true;
             this.tv_classes.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.tv_classes.HideSelection = false;
-            this.tv_classes.Location = new System.Drawing.Point(705, 187);
+            this.tv_classes.Location = new System.Drawing.Point(469, 113);
             this.tv_classes.Name = "tv_classes";
             this.tv_classes.Size = new System.Drawing.Size(825, 401);
             this.tv_classes.TabIndex = 5;
@@ -250,7 +250,7 @@
             this.pan_join.Controls.Add(this.t_join_class_alert);
             this.pan_join.Controls.Add(this.tb_join_pw);
             this.pan_join.Controls.Add(this.tb_join_name);
-            this.pan_join.Location = new System.Drawing.Point(954, 594);
+            this.pan_join.Location = new System.Drawing.Point(733, 579);
             this.pan_join.Name = "pan_join";
             this.pan_join.Size = new System.Drawing.Size(296, 277);
             this.pan_join.TabIndex = 23;
@@ -329,7 +329,7 @@
             this.panel_lv_men.Controls.Add(this.pb_join_class);
             this.panel_lv_men.Controls.Add(this.pb_class_delet);
             this.panel_lv_men.Controls.Add(this.t_selected_class);
-            this.panel_lv_men.Location = new System.Drawing.Point(705, 131);
+            this.panel_lv_men.Location = new System.Drawing.Point(470, 57);
             this.panel_lv_men.Name = "panel_lv_men";
             this.panel_lv_men.Size = new System.Drawing.Size(825, 50);
             this.panel_lv_men.TabIndex = 24;
@@ -377,7 +377,7 @@
             this.panel_pupup_class.Controls.Add(this.t_info_email);
             this.panel_pupup_class.Controls.Add(this.t_info_school);
             this.panel_pupup_class.Controls.Add(this.t_class_name);
-            this.panel_pupup_class.Location = new System.Drawing.Point(974, 101);
+            this.panel_pupup_class.Location = new System.Drawing.Point(733, 3);
             this.panel_pupup_class.Name = "panel_pupup_class";
             this.panel_pupup_class.Size = new System.Drawing.Size(321, 440);
             this.panel_pupup_class.TabIndex = 36;
@@ -506,12 +506,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_create_class);
+            this.Controls.Add(this.btn_join_class);
             this.Controls.Add(this.panel_pupup_class);
             this.Controls.Add(this.panel_lv_men);
             this.Controls.Add(this.tv_classes);
             this.Controls.Add(this.btn_dash_update);
-            this.Controls.Add(this.btn_create_class);
-            this.Controls.Add(this.btn_join_class);
             this.Controls.Add(this.pan_join);
             this.Controls.Add(this.pan_create_class);
             this.Name = "dashboard_mod_teacher";

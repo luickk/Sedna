@@ -40,11 +40,11 @@
             this.bunifuCustomLabel_err.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuCustomLabel_err.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel_err.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.bunifuCustomLabel_err.Location = new System.Drawing.Point(853, 558);
+            this.bunifuCustomLabel_err.Location = new System.Drawing.Point(876, 558);
             this.bunifuCustomLabel_err.Name = "bunifuCustomLabel_err";
-            this.bunifuCustomLabel_err.Size = new System.Drawing.Size(245, 19);
+            this.bunifuCustomLabel_err.Size = new System.Drawing.Size(141, 19);
             this.bunifuCustomLabel_err.TabIndex = 10;
-            this.bunifuCustomLabel_err.Text = "Homework is not available yet!";
+            this.bunifuCustomLabel_err.Text = "No class selected";
             this.bunifuCustomLabel_err.Click += new System.EventHandler(this.bunifuCustomLabel_err_Click);
             // 
             // class_pic

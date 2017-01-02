@@ -47,7 +47,7 @@
             this.tb_send_msg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tb_send_msg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
             this.tb_send_msg.Icon = ((System.Drawing.Image)(resources.GetObject("tb_send_msg.Icon")));
-            this.tb_send_msg.Location = new System.Drawing.Point(466, 563);
+            this.tb_send_msg.Location = new System.Drawing.Point(462, 461);
             this.tb_send_msg.Name = "tb_send_msg";
             this.tb_send_msg.Size = new System.Drawing.Size(294, 50);
             this.tb_send_msg.TabIndex = 0;
@@ -60,7 +60,7 @@
             this.btn_send_msg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.btn_send_msg.Image = ((System.Drawing.Image)(resources.GetObject("btn_send_msg.Image")));
             this.btn_send_msg.ImageActive = null;
-            this.btn_send_msg.Location = new System.Drawing.Point(778, 563);
+            this.btn_send_msg.Location = new System.Drawing.Point(771, 461);
             this.btn_send_msg.Name = "btn_send_msg";
             this.btn_send_msg.Size = new System.Drawing.Size(185, 50);
             this.btn_send_msg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -77,7 +77,7 @@
             this.lb_msgs.ForeColor = System.Drawing.Color.AliceBlue;
             this.lb_msgs.FormattingEnabled = true;
             this.lb_msgs.ItemHeight = 19;
-            this.lb_msgs.Location = new System.Drawing.Point(463, 215);
+            this.lb_msgs.Location = new System.Drawing.Point(459, 113);
             this.lb_msgs.Name = "lb_msgs";
             this.lb_msgs.Size = new System.Drawing.Size(563, 342);
             this.lb_msgs.TabIndex = 2;
@@ -97,7 +97,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(463, 165);
+            this.panel1.Location = new System.Drawing.Point(459, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 44);
             this.panel1.TabIndex = 28;
@@ -108,7 +108,7 @@
             this.t_alert_login.AutoSize = true;
             this.t_alert_login.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.t_alert_login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.t_alert_login.Location = new System.Drawing.Point(46, 633);
+            this.t_alert_login.Location = new System.Drawing.Point(456, 529);
             this.t_alert_login.Name = "t_alert_login";
             this.t_alert_login.Size = new System.Drawing.Size(255, 33);
             this.t_alert_login.TabIndex = 29;

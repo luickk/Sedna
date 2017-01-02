@@ -44,7 +44,7 @@
             this.panel1.Controls.Add(this.bunifuThinButton1);
             this.panel1.Controls.Add(this.rtb_msg_mail);
             this.panel1.Controls.Add(this.tb_mail_first_name);
-            this.panel1.Location = new System.Drawing.Point(368, 47);
+            this.panel1.Location = new System.Drawing.Point(469, 113);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(830, 526);
             this.panel1.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.bunifuThinButton1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuThinButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton1.BackgroundImage")));
             this.bunifuThinButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuThinButton1.ButtonText = "Bunifu Button";
+            this.bunifuThinButton1.ButtonText = "Send";
             this.bunifuThinButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuThinButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
             this.bunifuThinButton1.ForeColorHoverState = System.Drawing.Color.White;

@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(show_msg));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rtb_answer_val = new System.Windows.Forms.RichTextBox();
+            this.btn_answer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_answer = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.rtb_answer_val = new System.Windows.Forms.RichTextBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,32 +43,19 @@
             this.panel2.Controls.Add(this.btn_answer);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(548, 277);
+            this.panel2.Location = new System.Drawing.Point(469, 113);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(827, 526);
             this.panel2.TabIndex = 2;
             // 
-            // label2
+            // rtb_answer_val
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(3, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(51, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.rtb_answer_val.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtb_answer_val.Location = new System.Drawing.Point(54, 281);
+            this.rtb_answer_val.Name = "rtb_answer_val";
+            this.rtb_answer_val.Size = new System.Drawing.Size(682, 159);
+            this.rtb_answer_val.TabIndex = 4;
+            this.rtb_answer_val.Text = "";
             // 
             // btn_answer
             // 
@@ -97,14 +84,27 @@
             this.btn_answer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_answer.Click += new System.EventHandler(this.btn_answer_Click);
             // 
-            // rtb_answer_val
+            // label2
             // 
-            this.rtb_answer_val.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_answer_val.Location = new System.Drawing.Point(54, 281);
-            this.rtb_answer_val.Name = "rtb_answer_val";
-            this.rtb_answer_val.Size = new System.Drawing.Size(682, 159);
-            this.rtb_answer_val.TabIndex = 4;
-            this.rtb_answer_val.Text = "";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(3, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(51, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
             // show_msg
             // 
