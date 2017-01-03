@@ -174,10 +174,6 @@ namespace academic
 
         }
 
-        private void bunifuTextbox1_OnTextChange_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void bunifuTextbox3_OnTextChange(object sender, EventArgs e)
         {
@@ -389,23 +385,115 @@ namespace academic
         }
         // Window drag and drop funcs.
 
-        private void tb_login_first_name_OnTextChange(object sender, EventArgs e)
+        //<----------Clear TextBoxes when clicked------------->
+        bool tb_l_fn =false;
+        private void tb_login_first_name_Enter_1(object sender, EventArgs e)
         {
-
+            if(!tb_l_fn)
+                tb_login_first_name.text = "";
+                tb_l_fn = true;
         }
 
-        private void tb_login_first_name_MouseDown(object sender, MouseEventArgs e)
+        bool tb_l_ln = false;
+        private void tb_login_last_name_Enter_(object sender, EventArgs e)
         {
+            if (!tb_l_ln)
+                tb_login_last_name.text = "";
+                tb_l_ln = true;
         }
 
-        private void tb_login_first_name_MouseEnter(object sender, EventArgs e)
+        bool tb_l_pw = false;
+        private void tb_pw_Enter_(object sender, EventArgs e)
         {
+            if (!tb_l_pw)
+                tb_pw.text = "";
+                tb_l_pw = true;
         }
 
-        private void tb_login_first_name_Click(object sender, EventArgs e)
+        bool tb_reg_fn = false;
+        private void tb_fn_Enter(object sender, EventArgs e)
         {
+            if (!tb_reg_fn)
+                tb_fn.text = "";
+                tb_reg_fn = true;
+        }
+
+        bool tb_reg_ln = false;
+        private void tb_ln_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_ln)
+                tb_ln.text = "";
+                tb_reg_ln = true;
+        }
+
+        bool tb_reg_school = false;
+        private void tb_school_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_school)
+                tb_school.text = "";
+                tb_reg_school = true;
+        }
+
+        bool tb_reg_pw1 = false;
+        private void tb_pw1_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_pw1)
+                tb_pw1.text = "";
+                tb_reg_pw1 = true;
+        }
+
+        bool tb_reg_pw2 = false;
+        private void tb_pw2_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_pw2)
+                tb_pw2.text = "";
+                tb_reg_pw2 = true;
+        }
+
+        bool tb_reg_class = false;
+        private void tb_class_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_class)
+                tb_class.text = "";
+                tb_reg_class = true;
+        }
+
+        bool tb_reg_class_pw = false;
+        private void tb_class_pw_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_class_pw)
+                tb_class_pw.text = "";
+                tb_reg_class_pw = true;
+        }
+
+        bool tb_reg_age = false;
+        private void tb_age_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_age)
+                tb_age.text = "";
+                tb_reg_age = true;
+        }
+
+        bool tb_reg_email = false;
+        private void tb_email_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_email)
+                tb_email.text = "";
+                tb_reg_email = true;
 
         }
+        
+        bool tb_reg_tel = false;
+        private void tb_tel_Enter(object sender, EventArgs e)
+        {
+            if (!tb_reg_tel)
+                tb_tel.text = "";
+                tb_reg_tel = true;
+        }
+
+        //<----------Clear TextBoxes when clicked------------->
+
+
 
         /// <summary>
         /// Methode to Slide to Login

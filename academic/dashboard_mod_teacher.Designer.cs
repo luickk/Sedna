@@ -187,6 +187,7 @@
             this.tb_class_pw.Size = new System.Drawing.Size(272, 70);
             this.tb_class_pw.TabIndex = 20;
             this.tb_class_pw.text = "Class Password";
+            this.tb_class_pw.Enter += new System.EventHandler(this.tb_class_pw_Enter);
             // 
             // tb_class_name
             // 
@@ -200,6 +201,7 @@
             this.tb_class_name.Size = new System.Drawing.Size(272, 65);
             this.tb_class_name.TabIndex = 19;
             this.tb_class_name.text = "Class name";
+            this.tb_class_name.Enter += new System.EventHandler(this.tb_class_name_Enter);
             // 
             // btn_dash_update
             // 
@@ -309,6 +311,7 @@
             this.tb_join_pw.Size = new System.Drawing.Size(272, 70);
             this.tb_join_pw.TabIndex = 20;
             this.tb_join_pw.text = "Class Password";
+            this.tb_join_pw.Enter += new System.EventHandler(this.tb_join_pw_Enter);
             // 
             // tb_join_name
             // 
@@ -322,6 +325,7 @@
             this.tb_join_name.Size = new System.Drawing.Size(272, 65);
             this.tb_join_name.TabIndex = 19;
             this.tb_join_name.text = "Class name";
+            this.tb_join_name.Enter += new System.EventHandler(this.tb_join_name_Enter);
             // 
             // panel_lv_men
             // 

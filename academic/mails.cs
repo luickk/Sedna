@@ -45,7 +45,7 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuThinButton1_Click(object sender, EventArgs e)
         {
-            String name = tb_mail_first_name.text + "," +tb_mail_last_name.text;
+            String name = tb_mail_first_name.text+","+tb_mail_last_name.text;
             String msg = rtb_msg_mail.Text;
             Program.send_MSG(name, msg);
             msg = "";
@@ -63,5 +63,23 @@ namespace academic
         {
 
         }
+
+        //<----------Clear TextBoxes when clicked------------->
+        bool tb_send_fname = false;
+        private void tb_mail_first_name_Enter(object sender, EventArgs e)
+        {
+            if (!tb_send_fname)
+                tb_mail_first_name.text = "";
+                tb_send_fname = true;
+        }
+
+        bool tb_send_lname = false;
+        private void tb_mail_last_name_Enter(object sender, EventArgs e)
+        {
+            if (!tb_send_lname)
+                tb_mail_last_name.text = "";
+                tb_send_lname = true;
+        }
+        //<----------Clear TextBoxes when clicked------------->
     }
 }

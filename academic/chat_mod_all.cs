@@ -92,7 +92,7 @@ namespace academic
         }
 
         /// <summary>
-        /// Update ListBoy from MYSQL
+        /// Update ListBox from MYSQL database
         /// </summary>
         public void UPDATE_LB_MSGS()
         {

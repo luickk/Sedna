@@ -102,14 +102,13 @@ namespace academic
                 Program.runMYSQL("INSERT INTO CLASSES (	class_name,class_pw,class_school,class_teacher,created_date,class_id,teachers) VALUES ('" + name + "','" + pw + "','" + TEACHER_OBJ.get_teacher_school() + "','" + TEACHER_OBJ.name + "','"+ System.DateTime.Now.ToShortDateString() + "','" + TEACHER_OBJ.get_tid() + "','')", Program.connection);
                 Program.runMYSQL("UPDATE TEACHER SET user_class='" + name + "',user_class_pw='" + pw + "' WHERE user_name='" + TEACHER_OBJ.name + "'", Program.connection);
                 Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
+                btn_create_class.Hide();
+                pan_create_class.Hide();
             }
             else
             {
-                alert_create.Text = "Name Already in use";
-
+                bunifuCustomLabel_err.Text = "Name Already in use";
             }
-            btn_create_class.Hide();
-            pan_create_class.Hide();
         }
 
         /// <summary>
@@ -289,5 +288,42 @@ namespace academic
         {
 
         }
+
+
+        //<----------Clear TextBoxes when clicked------------->
+
+
+        bool tb_name = false;
+        private void tb_join_name_Enter(object sender, EventArgs e)
+        {
+            if (!tb_name)
+                tb_join_name.text = "";
+                tb_name = true;
+        }
+
+        bool tb_pw = false;
+        private void tb_join_pw_Enter(object sender, EventArgs e)
+        {
+            if (!tb_pw)
+                tb_join_pw.text = "";
+                tb_pw = true;
+        }
+
+        bool tb_create_name = false;
+        private void tb_class_name_Enter(object sender, EventArgs e)
+        {
+            if (!tb_create_name)
+                tb_class_name.text = "";
+                tb_create_name = true;
+        }
+
+        bool tb_create_pw = false;
+        private void tb_class_pw_Enter(object sender, EventArgs e)
+        {
+            if (!tb_create_pw)
+                tb_class_pw.text = "";
+                tb_create_pw = true;
+        }
+        //<----------Clear TextBoxes when clicked------------->
     }
 }

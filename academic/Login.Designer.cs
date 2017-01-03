@@ -75,7 +75,7 @@
             this.top_bar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.top_bar.Location = new System.Drawing.Point(0, 0);
             this.top_bar.Name = "top_bar";
-            this.top_bar.Size = new System.Drawing.Size(532, 36);
+            this.top_bar.Size = new System.Drawing.Size(531, 36);
             this.top_bar.TabIndex = 1;
             this.top_bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.top_bar_MouseDown);
             this.top_bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.top_bar_MouseMove);
@@ -132,6 +132,7 @@
             this.tb_pw.TabIndex = 6;
             this.tb_pw.text = "User Password";
             this.tb_pw.OnTextChange += new System.EventHandler(this.tb_pw_OnTextChange);
+            this.tb_pw.Enter += new System.EventHandler(this.tb_pw_Enter_);
             // 
             // panel_login
             // 
@@ -188,6 +189,7 @@
             this.tb_login_last_name.Size = new System.Drawing.Size(272, 65);
             this.tb_login_last_name.TabIndex = 19;
             this.tb_login_last_name.text = "Last Name";
+            this.tb_login_last_name.Enter += new System.EventHandler(this.tb_login_last_name_Enter_);
             // 
             // t_login
             // 
@@ -213,10 +215,7 @@
             this.tb_login_first_name.Size = new System.Drawing.Size(272, 65);
             this.tb_login_first_name.TabIndex = 18;
             this.tb_login_first_name.text = "First Name";
-            this.tb_login_first_name.OnTextChange += new System.EventHandler(this.tb_login_first_name_OnTextChange);
-            this.tb_login_first_name.Click += new System.EventHandler(this.tb_login_first_name_Click);
-            this.tb_login_first_name.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tb_login_first_name_MouseDown);
-            this.tb_login_first_name.MouseEnter += new System.EventHandler(this.tb_login_first_name_MouseEnter);
+            this.tb_login_first_name.Enter += new System.EventHandler(this.tb_login_first_name_Enter_1);
             // 
             // btn_login_sel
             // 
@@ -321,6 +320,7 @@
             this.tb_tel.Size = new System.Drawing.Size(192, 48);
             this.tb_tel.TabIndex = 20;
             this.tb_tel.text = "Telephone number";
+            this.tb_tel.Enter += new System.EventHandler(this.tb_tel_Enter);
             // 
             // tb_email
             // 
@@ -334,6 +334,7 @@
             this.tb_email.Size = new System.Drawing.Size(192, 48);
             this.tb_email.TabIndex = 19;
             this.tb_email.text = "Email";
+            this.tb_email.Enter += new System.EventHandler(this.tb_email_Enter);
             // 
             // bunifuCustomLabel3
             // 
@@ -360,6 +361,7 @@
             this.tb_age.TabIndex = 17;
             this.tb_age.Tag = "tb_age";
             this.tb_age.text = "Age";
+            this.tb_age.Enter += new System.EventHandler(this.tb_age_Enter);
             // 
             // dd_te_or_pup
             // 
@@ -400,6 +402,7 @@
             this.tb_school.Size = new System.Drawing.Size(194, 57);
             this.tb_school.TabIndex = 14;
             this.tb_school.text = "School name";
+            this.tb_school.Enter += new System.EventHandler(this.tb_school_Enter);
             // 
             // tb_class_pw
             // 
@@ -413,7 +416,7 @@
             this.tb_class_pw.Size = new System.Drawing.Size(194, 57);
             this.tb_class_pw.TabIndex = 13;
             this.tb_class_pw.text = "Class Password";
-            this.tb_class_pw.OnTextChange += new System.EventHandler(this.tb_class_pw_OnTextChange);
+            this.tb_class_pw.Enter += new System.EventHandler(this.tb_class_pw_Enter);
             // 
             // tb_class
             // 
@@ -429,6 +432,7 @@
             this.tb_class.TabIndex = 12;
             this.tb_class.Tag = "tb_class";
             this.tb_class.text = "Class name";
+            this.tb_class.Enter += new System.EventHandler(this.tb_class_Enter);
             // 
             // btn_reg
             // 
@@ -460,6 +464,7 @@
             this.tb_pw2.Size = new System.Drawing.Size(194, 57);
             this.tb_pw2.TabIndex = 10;
             this.tb_pw2.text = "Password Confirm";
+            this.tb_pw2.Enter += new System.EventHandler(this.tb_pw2_Enter);
             // 
             // tb_ln
             // 
@@ -474,6 +479,7 @@
             this.tb_ln.TabIndex = 9;
             this.tb_ln.text = "Last Name";
             this.tb_ln.OnTextChange += new System.EventHandler(this.bunifuTextbox4_OnTextChange);
+            this.tb_ln.Enter += new System.EventHandler(this.tb_ln_Enter);
             // 
             // bunifuCustomLabel2
             // 
@@ -498,7 +504,7 @@
             this.tb_fn.Size = new System.Drawing.Size(192, 48);
             this.tb_fn.TabIndex = 5;
             this.tb_fn.text = "First Name";
-            this.tb_fn.OnTextChange += new System.EventHandler(this.bunifuTextbox1_OnTextChange_1);
+            this.tb_fn.Enter += new System.EventHandler(this.tb_fn_Enter);
             // 
             // tb_pw1
             // 
@@ -512,13 +518,14 @@
             this.tb_pw1.Size = new System.Drawing.Size(194, 57);
             this.tb_pw1.TabIndex = 6;
             this.tb_pw1.text = "Password";
+            this.tb_pw1.Enter += new System.EventHandler(this.tb_pw1_Enter);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(532, 624);
+            this.ClientSize = new System.Drawing.Size(531, 624);
             this.Controls.Add(this.panel_reg);
             this.Controls.Add(this.btn_reg_sel);
             this.Controls.Add(this.line);

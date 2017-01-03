@@ -61,6 +61,7 @@
             this.tb_mail_last_name.Size = new System.Drawing.Size(250, 42);
             this.tb_mail_last_name.TabIndex = 3;
             this.tb_mail_last_name.text = "Last Name";
+            this.tb_mail_last_name.Enter += new System.EventHandler(this.tb_mail_last_name_Enter);
             // 
             // bunifuThinButton1
             // 
@@ -102,6 +103,7 @@
             this.tb_mail_first_name.Size = new System.Drawing.Size(250, 42);
             this.tb_mail_first_name.TabIndex = 0;
             this.tb_mail_first_name.text = "First Name";
+            this.tb_mail_first_name.Enter += new System.EventHandler(this.tb_mail_first_name_Enter);
             // 
             // mails
             // 
