@@ -74,9 +74,9 @@
             this.tv_user.FullRowSelect = true;
             this.tv_user.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.tv_user.HideSelection = false;
-            this.tv_user.Location = new System.Drawing.Point(469, 113);
+            this.tv_user.Location = new System.Drawing.Point(459, 113);
             this.tv_user.Name = "tv_user";
-            this.tv_user.Size = new System.Drawing.Size(825, 401);
+            this.tv_user.Size = new System.Drawing.Size(835, 401);
             this.tv_user.TabIndex = 32;
             this.tv_user.UseCompatibleStateImageBehavior = false;
             this.tv_user.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tv_user_MouseDoubleClick);
@@ -143,6 +143,7 @@
             this.btn_send_msg_name.TabIndex = 40;
             this.btn_send_msg_name.Textcolor = System.Drawing.Color.White;
             this.btn_send_msg_name.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_send_msg_name.Click += new System.EventHandler(this.btn_send_msg_name_Click);
             // 
             // pictureBox2
             // 

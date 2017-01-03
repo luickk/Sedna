@@ -11,9 +11,14 @@ namespace academic
 {
     public partial class homework_pupil : UserControl
     {
-
+        /// <summary>
+        /// Instance
+        /// </summary>
         private static homework_pupil homework_pupil_inst;
 
+        /// <summary>
+        /// Instance const.
+        /// </summary>
         public static homework_pupil Instance
         {
             get
@@ -24,7 +29,9 @@ namespace academic
             }
         }
 
-
+        /// <summary>
+        /// Const.
+        /// </summary>
         public homework_pupil()
         {
             InitializeComponent();
@@ -33,6 +40,11 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Event-> Reloading hw text
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             if (!TEACHER_OBJ.checkIfIsTeacher())

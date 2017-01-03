@@ -12,8 +12,19 @@ namespace academic
 {
     public partial class class_mod_teacher : UserControl
     {
+        /// <summary>
+        /// Instance
+        /// </summary>
         private static class_mod_teacher class_mod_teacher_inst;
+
+        /// <summary>
+        /// Selected Item
+        /// </summary>
         String selected;
+
+        /// <summary>
+        /// Instance const.
+        /// </summary>
         public static class_mod_teacher Instance
         {
             get
@@ -23,18 +34,31 @@ namespace academic
                 return class_mod_teacher_inst;
             }
         }
+
+        /// <summary>
+        /// Returns selected user name
+        /// </summary>
+        /// <returns></returns>
         public String getSelectedUser()
         {
             ListViewItem selectedItem = tv_user.SelectedItems[0];
             return selectedItem.SubItems[1].Text;
         }
+
+        /// <summary>
+        /// Const.
+        /// </summary>
         public class_mod_teacher()
         {
             InitializeComponent();
             panel_teacher_pupil_info_popup.Hide();
         }
 
-
+        /// <summary>
+        /// Event -> If user is selected -> SETs selected var
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tv_user_Click(object sender, EventArgs e)
         {
             ListViewItem selectedItem = tv_user.SelectedItems[0];
@@ -43,6 +67,9 @@ namespace academic
             t_selected_user.Text = "Selected User: " + selected;
         }
 
+        /// <summary>
+        /// Methode for reloading user lists
+        /// </summary>
         public void reload()
         {
                 Program.INSERT_LIST_VIEW_USER(tv_user, "SELECT * FROM USER WHERE user_class = '" + dashboard_mod_teacher.selected + "'");
@@ -53,11 +80,20 @@ namespace academic
 
         }
 
+        /// <summary>
+        /// Event-> Reload clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             reload();
         }
 
+        /// <summary>
+        /// Metohde for loading and rendering pupil info pppup
+        /// </summary>
+        /// <param name="name"></param>
         public void load_popup_teacher_info(String name)
         {
             panel_teacher_pupil_info_popup.Show();
@@ -74,6 +110,11 @@ namespace academic
             t_chat_ban_text.Text = t_chat_ban;
         }
 
+        /// <summary>
+        /// Event-> Closes popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             panel_teacher_pupil_info_popup.Hide();
@@ -83,6 +124,11 @@ namespace academic
             t_info_tel.Text = "";
         }
 
+        /// <summary>
+        /// Loads popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tv_user_DoubleClick(object sender, EventArgs e)
         {
             ListViewItem selectedItem = tv_user.SelectedItems[0];
@@ -99,6 +145,11 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Enables/Disables Chatban
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_chatban_Click(object sender, EventArgs e)
         {
             if (Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + selected + "'", Program.connection, "chat_ban") == "on")

@@ -15,14 +15,30 @@ namespace academic
 
     public partial class Login : Form
     {
+        /// <summary>
+        /// Var teacher
+        /// </summary>
         public static bool teacher = false;
+
+        /// <summary>
+        /// Var login teacher
+        /// </summary>
         public static bool teacher_login = false;
+
+        /// <summary>
+        /// Login const.
+        /// </summary>
         public Login()
         {
             InitializeComponent();
             dd_te_or_pup.Text = "Pupil";
         }
 
+        /// <summary>
+        /// Event-> Exit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -39,6 +55,11 @@ namespace academic
         
          }
 
+        /// <summary>
+        /// Event-> Minimize
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -61,8 +82,14 @@ namespace academic
 
 
         //LOGIN
+
         String user_username;
         String user_pw;
+        /// <summary>
+        /// Event-> Login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuThinButton1_Click(object sender, EventArgs e)
         {
             user_username = this.tb_login_first_name.text + "," + this.tb_login_last_name.text;
@@ -113,7 +140,12 @@ namespace academic
         private void bunifuTextbox1_OnTextChange(object sender, EventArgs e)
         {
         }
-        //---------------------------
+
+        /// <summary>
+        /// Slide login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_login_sel_Click(object sender, EventArgs e)
         {
             if (panel_login.Left >= 20)
@@ -122,6 +154,11 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Slide reg
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_reg_sel_Click(object sender, EventArgs e)
         {
             if (panel_reg.Left >= 20)
@@ -168,6 +205,11 @@ namespace academic
         String teacher_id;
         String email;
         String tel;
+        /// <summary>
+        /// Event-> Reg
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_reg_Click(object sender, EventArgs e)
         {
             name = this.tb_fn.text + "," + this.tb_ln.text;
@@ -283,7 +325,11 @@ namespace academic
         {
 
         }
-
+        /// <summary>
+        /// Event-> Selected item 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dd_te_or_pup_onItemSelected(object sender, EventArgs e)
         {
             int row = int.Parse(dd_te_or_pup.selectedIndex.ToString());
@@ -314,6 +360,7 @@ namespace academic
 
         }
 
+        // Window drag and drop funcs.
         private void top_bar_MouseUp(object sender, MouseEventArgs e)
         {
             mousDown = false;
@@ -340,6 +387,7 @@ namespace academic
                 teacher_login = false;
             }
         }
+        // Window drag and drop funcs.
 
         private void tb_login_first_name_OnTextChange(object sender, EventArgs e)
         {
@@ -359,6 +407,9 @@ namespace academic
 
         }
 
+        /// <summary>
+        /// Methode to Slide to Login
+        /// </summary>
         private void toLogin()
         {
 
@@ -372,6 +423,9 @@ namespace academic
             panel_login.Refresh();
         }
 
+        /// <summary>
+        /// Methode for Slide to Reg 
+        /// </summary>
         private void toReg()
         {
             line.Left = 297;

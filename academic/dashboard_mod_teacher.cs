@@ -11,11 +11,21 @@ namespace academic
 {
     public partial class dashboard_mod_teacher : UserControl
     {
-
+        /// <summary>
+        /// String for selected class
+        /// </summary>
         public static String selected="";
+
+        /// <summary>
+        /// Instance
+        /// </summary>
         private static dashboard_mod_teacher dashboard_mod_inst;
 
         private static Control c = new Control();
+
+        /// <summary>
+        /// Instance const.
+        /// </summary>
         public static dashboard_mod_teacher Instance
         {
             get
@@ -31,6 +41,9 @@ namespace academic
         {
         }
 
+        /// <summary>
+        /// Const.
+        /// </summary>
         public dashboard_mod_teacher()
         {
             InitializeComponent();
@@ -64,12 +77,22 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Event-> Creat class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_create_class_Click(object sender, EventArgs e)
         {
             pan_create_class.Show();
             btn_create_class.Hide();
         }
 
+        /// <summary>
+        /// Evemt-> Creats class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_create_Click(object sender, EventArgs e)
         {
             String name = tb_class_name.text;
@@ -89,10 +112,16 @@ namespace academic
             pan_create_class.Hide();
         }
 
+        /// <summary>
+        /// Event-> Inserts classes into class list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_dash_update_Click(object sender, EventArgs e)
         {
-            Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '"+TEACHER_OBJ.name+ "' OR teachers LIKE '%" + TEACHER_OBJ.name+ "%'");
+            Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" +TEACHER_OBJ.name+ "' OR teachers LIKE '%" + TEACHER_OBJ.name+ "%'");
         }
+
 
         private void tv_classes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -100,22 +129,29 @@ namespace academic
             Console.WriteLine(selectedItem.SubItems[1].Text);
         }
 
+        /// <summary>
+        /// Event-> Joins class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_join_class_Click(object sender, EventArgs e)
         {
             btn_join_class.Hide();
             pan_join.Show();
         }
 
+        /// <summary>
+        /// Event-> Joins class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuThinButton1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("STARTED_JOIN");
             if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text + "' AND class_pw = '" + tb_join_pw.text + "'", Program.connection))
             {
-                Console.WriteLine("EXISTING");
                 t_join_class_alert.Text = "Joined! Please Update list to see the class.";
                 Program.runMYSQL("UPDATE CLASSES SET teachers= CONCAT(teachers,'" + TEACHER_OBJ.name + "." + "') WHERE class_name='" + tb_join_name.text + "' AND class_pw='" + tb_join_pw.text + "'", Program.connection);
                 //FINISH OK
-                Console.WriteLine("finishising");
                 t_join_class_alert.Text = "Join a random class!";
                 tb_join_name.text = "Class name";
                 tb_join_pw.text = "Class Password";
@@ -130,12 +166,23 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Event-> Left class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pb_class_delet_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Deleting: " + getSelectedClass());
             Program.runMYSQL("UPDATE CLASSES SET teachers=REPLACE(teachers,'"+TEACHER_OBJ.name+"."+ "','') WHERE class_name='" + getSelectedClass() + "'", Program.connection);
             Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
         }
+
+        /// <summary>
+        /// Event-> Selecting class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pb_join_class_Click(object sender, EventArgs e)
         {
             ListViewItem selectedItem = tv_classes.SelectedItems[0];
@@ -159,6 +206,11 @@ namespace academic
 
         }
 
+        /// <summary>
+        /// Event-> Selecting class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tv_classes_Click(object sender, EventArgs e)
         {
             ListViewItem selectedItem = tv_classes.SelectedItems[0];
@@ -167,6 +219,10 @@ namespace academic
             t_selected_class.Text = "Selected Class: "+selected;
         }
 
+        /// <summary>
+        /// Methode for getting selected class 
+        /// </summary>
+        /// <returns></returns>
         public String getSelectedClass()
         {
             ListViewItem selectedItem = tv_classes.SelectedItems[0];
@@ -174,7 +230,10 @@ namespace academic
             return selectedItem.SubItems[1].Text;
         }
 
-
+        /// <summary>
+        /// Methode for loading popup
+        /// </summary>
+        /// <param name="name"></param>
         public void load_popup_teacher_info(String name)
         {
             panel_pupup_class.Show();
@@ -187,6 +246,11 @@ namespace academic
             t_info_email.Text = cl_email;
         }
 
+        /// <summary>
+        /// Event-> Loading Popup for class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tv_classes_MouseDoubleClick_1(object sender, MouseEventArgs e)
         {
             ListViewItem selectedItem = tv_classes.SelectedItems[0];
@@ -195,12 +259,22 @@ namespace academic
             load_popup_teacher_info(selected);
         }
 
+        /// <summary>
+        /// Closing popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             panel_pupup_class.Hide();
 
         }
 
+        /// <summary>
+        /// Event-> Methode for selecting class with popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             ListViewItem selectedItem = tv_classes.SelectedItems[0];

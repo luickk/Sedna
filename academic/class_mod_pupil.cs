@@ -13,9 +13,14 @@ namespace academic
     {
 
 
-
+        /// <summary>
+        /// Instance
+        /// </summary>
         private static class_mod_pupil class_mod_pupil_inst;
 
+        /// <summary>
+        /// Instance const.
+        /// </summary>
         public static class_mod_pupil Instance
         {
             get
@@ -27,23 +32,37 @@ namespace academic
         }
 
 
-
+        /// <summary>
+        /// Const.
+        /// </summary>
         public class_mod_pupil()
         {
             InitializeComponent();
             panel_teacher_pupil_info_popup.Hide();
         }
+        /// <summary>
+        /// Methode for reloading pupil list
+        /// </summary>
         public void reload_pupil()
         {
            Program.INSERT_LIST_VIEW_USER(tv_user, "SELECT * FROM USER WHERE user_class = '" + PUPIL_OBJ.get_user_class() + "'");
         }
 
+        /// <summary>
+        /// Event -> click button -> reloading pupil/teacher list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             reload_pupil();
             realod_teacher_lv();
         }
 
+        /// <summary>
+        /// Methode for loading pupup (pupils)
+        /// </summary>
+        /// <param name="name"></param>
         public void load_popup_teacher_info(String name)
         {
             panel_teacher_pupil_info_popup.Show();
@@ -75,6 +94,9 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Methode for reloading teacher list
+        /// </summary>
         String[] substrings;
         private void realod_teacher_lv()
         {
@@ -99,7 +121,12 @@ namespace academic
             }
 
         }
-
+        
+        /// <summary>
+        /// Event -> doubleclick teacher list and loading popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lv_teacher_DoubleClick(object sender, EventArgs e)
         {
             ListViewItem selectedItem = lv_teacher.SelectedItems[0];
@@ -108,6 +135,11 @@ namespace academic
             load_popup_teacher_info(selected);
         }
 
+        /// <summary>
+        /// Methode for closing pupup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             panel_teacher_pupil_info_popup.Hide();
@@ -117,6 +149,10 @@ namespace academic
             t_info_tel.Text = "";
         }
 
+        /// <summary>
+        /// Methode for loading pupup (teachers)
+        /// </summary>
+        /// <param name="name"></param>
         public void load_pup_popup_teacher_info(String name)
         {
             panel_teacher_pupil_info_popup.Show();
@@ -131,13 +167,22 @@ namespace academic
             t_info_tel.Text = t_tel;
             t_info_email.Text = t_email;
         }
-
+        /// <summary>
+        /// Event -> doubleclick pupils list and loading popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tv_user_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewItem selectedItem = tv_user.SelectedItems[0];
             String selected = selectedItem.SubItems[1].Text;
 
             load_pup_popup_teacher_info(selected);
+        }
+
+        private void btn_send_msg_name_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

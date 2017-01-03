@@ -11,12 +11,29 @@ namespace academic
 {   
     public partial class Form1 : Form
     {
+
+        /// <summary>
+        /// MSG Sender name
+        /// </summary>
         public static String msg_name;
+
+        /// <summary>
+        /// MSG value
+        /// </summary>
         public static String msg_msg;
+
+
+        /// <summary>
+        /// Form1 const.
+        /// </summary>
         public Form1()
         {
+            //Methode for Initializing Methodes 
             InitializeComponent();
+            //Hiding panel for new incoming panels.
             panel_alert.Hide();
+            
+            //Checked if loged in correctly 
             if (TEACHER_OBJ.name=="" && PUPIL_OBJ.name == "")
             {
                 //NEUTRAL STARTUP (ERROR)
@@ -27,10 +44,11 @@ namespace academic
                 Console.WriteLine("----------------------------------ERROR--------------------------------");
                 //NEUTRAL STARTUP (ERROR)
             }
+            //Checke if is teacher
             if(TEACHER_OBJ.name != "")
             {
                 Console.WriteLine("----------------------------------TEACHER STARTUP--------------------------------");
-                //TEACHER STARTUP
+                //TEACHER STARTUP -> Loading Dashboard
                 t_user_name.Text = TEACHER_OBJ.name;
 
                 CONTENT.Controls.Remove(dashboard_mod_teacher.Instance);
@@ -48,20 +66,24 @@ namespace academic
 
                 //TEACHER STARTUP                                                                                                                                      
             }
-            if(PUPIL_OBJ.name != "")
+            //Cheack if is pupil
+            if (PUPIL_OBJ.name != "")
             {
                 Console.WriteLine("----------------------------------PUPIL STARTUP--------------------------------");
-                //PUPIL STARTUP
+                //PUPIL STARTUP -> No Dashboard
                 t_user_name.Text = PUPIL_OBJ.name;
                 //PUPIL STARTUP
             }
         }
 
-            private void Form1_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Event-> Form load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            Console.WriteLine(this.Width+","+this.Height);
-
         }
 
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
@@ -73,9 +95,14 @@ namespace academic
         {
 
         }
-
+        /// <summary>
+        /// Loading class_user_controll in Form1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dash_Click(object sender, EventArgs e)
         {
+            //Check if is teacher
             if (TEACHER_OBJ.checkIfIsTeacher())
             {
                 if (dashboard_mod_teacher.selected == "")
@@ -91,7 +118,9 @@ namespace academic
                     {
                         class_mod_pupil.Instance.BringToFront();
                     }
-                } else
+                }
+                //If is not teacher
+                else
                 {
                     if (!CONTENT.Controls.Contains(class_mod_teacher.Instance))
                     {
@@ -120,6 +149,11 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Loading chat_view_user_controll in Form1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             if (dashboard_mod_teacher.selected == "")
@@ -163,6 +197,11 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Loading settings_view_user_controll in Form1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
 
@@ -188,11 +227,13 @@ namespace academic
 
         }
 
+        /// <summary>
+        /// Loading homework_view_user_controll in Form1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_homework_Click(object sender, EventArgs e)
         {
-
-
-
             if (TEACHER_OBJ.checkIfIsTeacher())
             {
 
@@ -240,6 +281,11 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Loading dashboard_view_user_controll in Form1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton1_Click_1(object sender, EventArgs e)
         {
             if (TEACHER_OBJ.checkIfIsTeacher())
@@ -381,7 +427,11 @@ namespace academic
         {
 
         }
-
+        /// <summary>
+        /// Loading mails_view_user_controll in Form1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_mail_Click(object sender, EventArgs e)
         {
             //////////////---------------
@@ -412,6 +462,11 @@ namespace academic
             mousDown = false;
         }
 
+        /// <summary>
+        /// Event-> Message List double clicked -> Open expanded message view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lb_msgs_alert_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             String text = lb_msgs_alert.SelectedItem.ToString();
@@ -436,12 +491,26 @@ namespace academic
             msg_msg = msg;
         }
 
+        /// <summary>
+        /// Event-> Opens mail view in Form1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_sendMSG_alert_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void top_bar2_MouseDown(object sender, MouseEventArgs e)
         {
             mousDown = true;
         }
 
-
+        /// <summary>
+        /// Methode for loaing messages into expanded message view
+        /// </summary>
+        /// <param name="MSG"></param>
+        /// <param name="name"></param>
         public void load_msg(String MSG, String name)
         {
             if (!CONTENT.Controls.Contains(show_msg.Instance))

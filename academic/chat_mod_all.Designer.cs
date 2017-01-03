@@ -73,13 +73,13 @@
             // 
             this.lb_msgs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.lb_msgs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lb_msgs.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_msgs.Font = new System.Drawing.Font("Source Code Pro", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_msgs.ForeColor = System.Drawing.Color.AliceBlue;
             this.lb_msgs.FormattingEnabled = true;
-            this.lb_msgs.ItemHeight = 19;
+            this.lb_msgs.ItemHeight = 22;
             this.lb_msgs.Location = new System.Drawing.Point(459, 113);
             this.lb_msgs.Name = "lb_msgs";
-            this.lb_msgs.Size = new System.Drawing.Size(563, 342);
+            this.lb_msgs.Size = new System.Drawing.Size(563, 330);
             this.lb_msgs.TabIndex = 2;
             this.lb_msgs.SelectedIndexChanged += new System.EventHandler(this.lb_msgs_SelectedIndexChanged);
             // 
@@ -99,7 +99,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(459, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 44);
+            this.panel1.Size = new System.Drawing.Size(563, 44);
             this.panel1.TabIndex = 28;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 

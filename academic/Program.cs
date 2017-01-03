@@ -14,10 +14,15 @@ namespace academic
     static class Program
     {
         /// <summary>
-        /// Der Haupteinstiegspunkt für die Anwendung.
+        /// Mainenterpoint
         /// </summary>
+       
         public static MySqlConnection connection;
-        public static bool wasNOINT = false;
+
+
+        /// <summary>
+        /// Mainfunction
+        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -32,34 +37,61 @@ namespace academic
                 System.Windows.Forms.MessageBox.Show("No internet!");
             }
         }
+
+        /// <summary>
+        /// Methode to start MYSQL Thread
+        /// </summary>
         public static void connectMYSQL()
         {
             Thread workerThread = new Thread(DoMysql);
             workerThread.Start();
         }
+
+        /// <summary>
+        /// MYSQL Management
+        /// </summary>
         public static void DoMysql()
         {
+            //Check internetconnection
             if (Program.CheckForInternetConnection())
             {
                     //RUN -> OK
-                    
+                    //Define connection
                     connection = new MySqlConnection(@"Server=134.255.234.216;Uid=root;Pwd=" + data.pw + ";Database=academic;");
+                    //Open connection
                     connection.Open();
+                    //Create tables
+                    
+                    //Table for teacher ids
                     runMYSQL("CREATE TABLE IF NOT EXISTS IDs(id INT NOT NULL AUTO_INCREMENT, name VARCHAR (128) default NULL, school VARCHAR (64) default NULL , tid VARCHAR (64) default NULL, used VARCHAR (64) default NULL , blocked VARCHAR (64) default NULL ,PRIMARY KEY (id))", connection);
+                    //Table for pupils
                     runMYSQL("CREATE TABLE IF NOT EXISTS USER(id INT NOT NULL AUTO_INCREMENT, user_name VARCHAR (128) default NULL, user_pass VARCHAR (64) default NULL, user_class VARCHAR (64) default NULL, user_class_pw VARCHAR (64) default NULL, user_age VARCHAR (64) default NULL, user_school VARCHAR (64) default NULL, email VARCHAR (64) default NULL, chat_ban VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
+                    //Table for teachers
                     runMYSQL("CREATE TABLE IF NOT EXISTS TEACHER(id INT NOT NULL AUTO_INCREMENT, user_name VARCHAR (128) default NULL, user_pass VARCHAR (64) default NULL, user_class VARCHAR (64) default NULL , user_class_pw VARCHAR (64) default NULL, user_age VARCHAR (64) default NULL, user_school VARCHAR (64) default NULL, email VARCHAR (64) default NULL, tel VARCHAR (64) default NULL, email_seeable VARCHAR (64) default NULL, tel_seeable VARCHAR (64) default NULL, tid VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
+                    //Table for classes
                     runMYSQL("CREATE TABLE IF NOT EXISTS CLASSES(id INT NOT NULL AUTO_INCREMENT, class_name VARCHAR (128) default NULL, class_pw VARCHAR (64) default NULL, class_school VARCHAR (64) default NULL , class_teacher VARCHAR (64) default NULL, created_date VARCHAR (64) default NULL, class_id VARCHAR (64) default NULL, teachers VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
+                    //Table for chat
                     runMYSQL("CREATE TABLE IF NOT EXISTS CHAT(id INT NOT NULL AUTO_INCREMENT, class VARCHAR (128) default NULL, msg VARCHAR (64) default NULL , sender VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
+                    //Table for msg system
                     runMYSQL("CREATE TABLE IF NOT EXISTS MSG_SYS(id INT NOT NULL AUTO_INCREMENT, sender VARCHAR (128) default NULL, msg VARCHAR (64) default NULL , reciever VARCHAR (64) default NULL, checked VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
+                    //Table for homeworkss
                     runMYSQL("CREATE TABLE IF NOT EXISTS HOMEWORK(id INT NOT NULL AUTO_INCREMENT, hw VARCHAR (128) default NULL, class_name VARCHAR (64) default NULL , PRIMARY KEY (id))", connection);
 
                 //RUN -> OK
             }
             else
             {
+                //No internet
                 System.Windows.Forms.MessageBox.Show("No internet!");
             }
          }
+
+
+        /// <summary>
+        /// Methode to run Mysql commands
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="connection"></param>
         public static void runMYSQL(String cmd, MySqlConnection connection)
         {
             no_internet no_internet = new no_internet();
@@ -80,7 +112,12 @@ namespace academic
             }
         }
 
-
+        /// <summary>
+        /// Methode to run Mysql and return data
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="connection"></param>
+        /// <returns></returns>
         public static String runMYSQL_RET(String cmd, MySqlConnection connection)
         {
             MySqlCommand readCommand = new MySqlCommand(cmd, connection);
@@ -95,6 +132,14 @@ namespace academic
 
             return datatable.ToString();
         }
+
+
+        /// <summary>
+        /// Methode to check Mysql data
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="connection"></param>
+        /// <returns></returns>
         public static bool runMYSQL_EXISTS(String cmd, MySqlConnection connection)
         {
             bool b = false;
@@ -103,17 +148,6 @@ namespace academic
                 if (Program.CheckForInternetConnection())
                 {
                 //RUN -> OK
-                if (Program.wasNOINT == true)
-                {
-                    //RESTART
-                    ProcessStartInfo Info = new ProcessStartInfo();
-                    Info.Arguments = "/C ping 127.0.0.1 -n 2 && \"" + Application.ExecutablePath + "\"";
-                    Info.WindowStyle = ProcessWindowStyle.Hidden;
-                    Info.CreateNoWindow = true;
-                    Info.FileName = "cmd.exe";
-                    Process.Start(Info);
-                    Application.Exit();
-                }
 
                 MySqlCommand check_User_Name = new MySqlCommand(cmd, connection);
                     int UserExist = Convert.ToInt32(check_User_Name.ExecuteScalar());
@@ -140,6 +174,14 @@ namespace academic
 
             return b;
         }
+
+        /// <summary>
+        /// Methode to get data from Mysql
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="connection"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public static String runMYSQL_GET(String cmd, MySqlConnection connection, String item)
         {
             String res = "";
@@ -164,6 +206,12 @@ namespace academic
             return res;
         }
 
+        /// <summary>
+        /// Methode to count Mysql data
+        /// </summary>
+        /// <param name="cmd"></param>
+        /// <param name="connection"></param>
+        /// <returns></returns>
         public static int runMYSQL_COUNT(String cmd, MySqlConnection connection)
         {
             int c = 0;
@@ -191,7 +239,11 @@ namespace academic
             return c;
         }
 
-
+        /// <summary>
+        /// Methode to insert Mysqldata into ListView
+        /// </summary>
+        /// <param name="myListView"></param>
+        /// <param name="query"></param>
         public static void INSERT_LIST_VIEW(ListView myListView, string query)
         {
             myListView.Items.Clear();
@@ -241,6 +293,11 @@ namespace academic
 
 
 
+        /// <summary>
+        /// Methode to insert Mysqldata into pupil ListView
+        /// </summary>
+        /// <param name="myListView"></param>
+        /// <param name="query"></param>
         public static void INSERT_LIST_VIEW_USER(ListView myListView, string query)
         {
             myListView.Items.Clear();
@@ -296,6 +353,11 @@ namespace academic
 
 
 
+        /// <summary>
+        /// Methode to insert Mysqldata into Listbox
+        /// </summary>
+        /// <param name="myListView"></param>
+        /// <param name="query"></param>
         public static void INSERT_LB_MSG_ALERT(ListBox myListBox, string query)
         {
             myListBox.Items.Clear();
@@ -348,6 +410,11 @@ namespace academic
             }
         }
 
+        /// <summary>
+        /// Methode to insert Mysqldata into chat ListBox
+        /// </summary>
+        /// <param name="myListView"></param>
+        /// <param name="query"></param>
         public static void INSERT_LB_CHAT(ListBox myListBox, string query)
         {
             myListBox.Items.Clear();
@@ -396,6 +463,11 @@ namespace academic
         }
 
 
+        /// <summary>
+        /// Methode to send MSGs
+        /// </summary>
+        /// <param name="myListView"></param>
+        /// <param name="query"></param>
         public static void send_MSG(String to, String MSG)
         {
             String from;
@@ -407,8 +479,13 @@ namespace academic
             {
                 from = PUPIL_OBJ.name;
             }
-            Program.runMYSQL("INSERT INTO MSG_SYS (sender, msg, reciever, checked) VALUES ('" + from + "','" + MSG + "','" + to + "','0')", Program.connection);
+            Program.runMYSQL(@"INSERT INTO MSG_SYS (sender, msg, reciever, checked) VALUES ('" + from + "','" + MSG + "','" + to + "','0')", Program.connection);
         }
+
+        /// <summary>
+        /// Check if new MSGs available
+        /// </summary>
+        /// <returns></returns>
         public static int checkMSGS_AVAILABLE()
         {
             String from;
@@ -431,6 +508,11 @@ namespace academic
             }
             return b;
         }
+
+        /// <summary>
+        /// Methode to check for internet connection
+        /// </summary>
+        /// <returns></returns>
         public static bool CheckForInternetConnection()
         {
             try
