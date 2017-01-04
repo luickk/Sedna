@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace academic
 {
@@ -45,7 +46,8 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuThinButton1_Click(object sender, EventArgs e)
         {
-            String name = tb_mail_first_name.text+","+tb_mail_last_name.text;
+            String name = tb_mail_first_name.text.Trim()+","+tb_mail_last_name.text.Trim();
+            name.Trim();
             String msg = rtb_msg_mail.Text;
             Program.send_MSG(name, msg);
             msg = "";

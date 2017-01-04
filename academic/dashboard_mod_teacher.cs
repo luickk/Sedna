@@ -97,11 +97,11 @@ namespace academic
         {
             String name = tb_class_name.text;
             String pw = tb_class_pw.text;
-            if (!Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + name + "'", Program.connection))
+            if (!Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + name.Trim() + "'", Program.connection))
             {
-                Program.runMYSQL("INSERT INTO CLASSES (	class_name,class_pw,class_school,class_teacher,created_date,class_id,teachers) VALUES ('" + name + "','" + pw + "','" + TEACHER_OBJ.get_teacher_school() + "','" + TEACHER_OBJ.name + "','"+ System.DateTime.Now.ToShortDateString() + "','" + TEACHER_OBJ.get_tid() + "','')", Program.connection);
-                Program.runMYSQL("UPDATE TEACHER SET user_class='" + name + "',user_class_pw='" + pw + "' WHERE user_name='" + TEACHER_OBJ.name + "'", Program.connection);
-                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
+                Program.runMYSQL("INSERT INTO CLASSES (	class_name,class_pw,class_school,class_teacher,created_date,class_id,teachers) VALUES ('" + name.Trim() + "','" + pw.Trim() + "','" + TEACHER_OBJ.get_teacher_school().Trim() + "','" + TEACHER_OBJ.name.Trim() + "','"+ System.DateTime.Now.ToShortDateString().Trim() + "','" + TEACHER_OBJ.get_tid().Trim() + "','')", Program.connection);
+                Program.runMYSQL("UPDATE TEACHER SET user_class='" + name.Trim() + "',user_class_pw='" + pw.Trim() + "' WHERE user_name='" + TEACHER_OBJ.name.Trim() + "'", Program.connection);
+                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name.Trim() + "' OR teachers LIKE '%" + TEACHER_OBJ.name.Trim() + "%'");
                 btn_create_class.Hide();
                 pan_create_class.Hide();
             }
@@ -146,10 +146,10 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuThinButton1_Click(object sender, EventArgs e)
         {
-            if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text + "' AND class_pw = '" + tb_join_pw.text + "'", Program.connection))
+            if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND class_pw = '" + tb_join_pw.text.Trim() + "'", Program.connection))
             {
                 t_join_class_alert.Text = "Joined! Please Update list to see the class.";
-                Program.runMYSQL("UPDATE CLASSES SET teachers= CONCAT(teachers,'" + TEACHER_OBJ.name + "." + "') WHERE class_name='" + tb_join_name.text + "' AND class_pw='" + tb_join_pw.text + "'", Program.connection);
+                Program.runMYSQL("UPDATE CLASSES SET teachers= CONCAT(teachers,'" + TEACHER_OBJ.name.Trim() + "." + "') WHERE class_name='" + tb_join_name.text.Trim() + "' AND class_pw='" + tb_join_pw.text.Trim() + "'", Program.connection);
                 //FINISH OK
                 t_join_class_alert.Text = "Join a random class!";
                 tb_join_name.text = "Class name";
@@ -157,7 +157,7 @@ namespace academic
                 pan_join.Hide();
                 btn_join_class.Show();
                 //FINISH
-                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
+                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name.Trim() + "' OR teachers LIKE '%" + TEACHER_OBJ.name.Trim() + "%'");
             }
             else
             {
