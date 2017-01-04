@@ -92,8 +92,8 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuThinButton1_Click(object sender, EventArgs e)
         {
-            user_username = this.tb_login_first_name.text + "," + this.tb_login_last_name.text;
-            user_pw = this.tb_pw.text;
+            user_username = this.tb_login_first_name.text.Trim() + "," + this.tb_login_last_name.text.Trim();
+            user_pw = this.tb_pw.text.Trim();
             //dd_login
             if (teacher_login)
             {
