@@ -321,13 +321,13 @@ namespace academic
 
             if (!maxi)
             {
-                WindowState = FormWindowState.Maximized;
-                maxi = true;
+                this.Size = new Size(300, 300);
+                maxi = false;
             }
             else
             {
-                this.Size = new Size(300, 300);
-                maxi = false;
+                WindowState = FormWindowState.Maximized;
+                maxi = true;
             }
         }
 

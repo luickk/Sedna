@@ -243,8 +243,6 @@ namespace academic
                         if (!Program.runMYSQL_EXISTS("SELECT count(*) FROM TEACHER WHERE user_name = '" + name.Trim() + "'", Program.connection))
                         {
                         user_class_pw = "";
-                        if (teacher_id.Any(x => !char.IsLetter(x)))
-                        {
                             age = "0";
                             if (Program.runMYSQL_EXISTS("SELECT count(*) FROM IDs WHERE tid = '" + teacher_id.Trim() + "'", Program.connection))
                             {
@@ -255,7 +253,7 @@ namespace academic
                                 {
                                     Program.runMYSQL("UPDATE IDs SET name='" + name.Trim() + "',school='" + school.Trim() + "',tid='" + teacher_id.Trim() + "',used='1',blocked='0' WHERE tid='" + teacher_id.Trim() + "'", Program.connection);
                                     //UPDATE sss SET lastname='Doe'                                                                            WHERE id=2
-                                    Program.runMYSQL("INSERT INTO TEACHER (user_name,user_pass,user_class,user_class_pw,user_age,user_school,email,tel,email_seeable,tel_seeable,tid) VALUES ('" + name.Trim() + "','" + pw1.Trim() + "','" + user_class.Trim() + "','" + user_class_pw.Trim() + "','" + age.Trim() + "','" + school.Trim() + "','" + email.Trim() + "','" + tel.Trim() + "',' ',' ','" + teacher_id.Trim() + "')", Program.connection);
+                                    Program.runMYSQL("INSERT INTO TEACHER (user_name,user_pass,user_class,user_class_pw,user_age,user_school,email,tel,email_seeable,tel_seeable,tid) VALUES ('" + name + "','" + pw1 + "','" + user_class + "','" + user_class_pw + "','" + age + "','" + school + "','" + email + "','" + tel + "','off','off','" + teacher_id + "')", Program.connection);
                                     reg_alert.Text = "Registered successfully";
                                     toLogin();
                                 }
@@ -263,10 +261,6 @@ namespace academic
                             else
                             {
                                 reg_alert.Text = "No ID Found";
-                            }
-                        } else
-                        {
-                            reg_alert.Text = "ID Contains Letter!";
                             }
                         } else
                         {
