@@ -320,21 +320,26 @@ namespace academic
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        bool isteach =false;
         private void dd_te_or_pup_onItemSelected(object sender, EventArgs e)
         {
             int row = int.Parse(dd_te_or_pup.selectedIndex.ToString());
             if (row == 0)
             {
+                isteach = true;
                 tb_class_pw.Hide();
                 tb_age.Hide();
                 tb_class.text = "Teacher ID";
                 tb_class.Width = 414;
                 tb_class.Height = 67;
-                //414; 67
-                teacher = true;
+                tb_reg_class = false;
+                 //414; 67
+                 teacher = true;
             }
             else if (row == 1)
             {
+                isteach = false;
                 tb_class.text = "Class name";
                 tb_class.Width = 194;
                 tb_class.Height = 57;
@@ -450,6 +455,8 @@ namespace academic
             if (!tb_reg_class)
                 tb_class.text = "";
                 tb_reg_class = true;
+                if(isteach)
+                    System.Diagnostics.Process.Start("http://134.255.234.216/createKey.php");
         }
 
         bool tb_reg_class_pw = false;

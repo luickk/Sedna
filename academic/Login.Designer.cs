@@ -75,7 +75,7 @@
             this.top_bar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.top_bar.Location = new System.Drawing.Point(0, 0);
             this.top_bar.Name = "top_bar";
-            this.top_bar.Size = new System.Drawing.Size(531, 36);
+            this.top_bar.Size = new System.Drawing.Size(1186, 36);
             this.top_bar.TabIndex = 1;
             this.top_bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.top_bar_MouseDown);
             this.top_bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.top_bar_MouseMove);
@@ -525,7 +525,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(531, 624);
+            this.ClientSize = new System.Drawing.Size(1186, 624);
             this.Controls.Add(this.panel_reg);
             this.Controls.Add(this.btn_reg_sel);
             this.Controls.Add(this.line);
