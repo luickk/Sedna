@@ -1,6 +1,6 @@
 ﻿namespace academic
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.MENU2 = new System.Windows.Forms.Panel();
+            this.panel_pop = new System.Windows.Forms.Panel();
+            this.t_pop_msg = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.t_head_line = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel_alert = new System.Windows.Forms.Panel();
+            this.lb_msgs_alert = new System.Windows.Forms.ListBox();
+            this.btn_sendMSG_alert = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_mail = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,9 +50,6 @@
             this.btn_chat = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_class = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panel_alert = new System.Windows.Forms.Panel();
-            this.lb_msgs_alert = new System.Windows.Forms.ListBox();
-            this.btn_sendMSG_alert = new Bunifu.Framework.UI.BunifuFlatButton();
             this.CONTENT = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.top_bar = new System.Windows.Forms.Panel();
@@ -54,10 +57,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MENU2.SuspendLayout();
+            this.panel_pop.SuspendLayout();
+            this.panel_alert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_alert)).BeginInit();
-            this.panel_alert.SuspendLayout();
             this.CONTENT.SuspendLayout();
             this.top_bar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -68,6 +72,7 @@
             // MENU2
             // 
             this.MENU2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.MENU2.Controls.Add(this.panel_pop);
             this.MENU2.Controls.Add(this.panel_alert);
             this.MENU2.Controls.Add(this.btn_mail);
             this.MENU2.Controls.Add(this.pictureBox4);
@@ -85,6 +90,95 @@
             this.MENU2.Name = "MENU2";
             this.MENU2.Size = new System.Drawing.Size(301, 602);
             this.MENU2.TabIndex = 2;
+            this.MENU2.Paint += new System.Windows.Forms.PaintEventHandler(this.MENU2_Paint);
+            // 
+            // panel_pop
+            // 
+            this.panel_pop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.panel_pop.Controls.Add(this.t_pop_msg);
+            this.panel_pop.Controls.Add(this.t_head_line);
+            this.panel_pop.Location = new System.Drawing.Point(0, 395);
+            this.panel_pop.Name = "panel_pop";
+            this.panel_pop.Size = new System.Drawing.Size(131, 147);
+            this.panel_pop.TabIndex = 2;
+            // 
+            // t_pop_msg
+            // 
+            this.t_pop_msg.AutoSize = true;
+            this.t_pop_msg.BackColor = System.Drawing.Color.Transparent;
+            this.t_pop_msg.Cursor = System.Windows.Forms.Cursors.Default;
+            this.t_pop_msg.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
+            this.t_pop_msg.ForeColor = System.Drawing.Color.White;
+            this.t_pop_msg.Location = new System.Drawing.Point(13, 46);
+            this.t_pop_msg.Name = "t_pop_msg";
+            this.t_pop_msg.Size = new System.Drawing.Size(23, 16);
+            this.t_pop_msg.TabIndex = 13;
+            this.t_pop_msg.Text = "HL";
+            // 
+            // t_head_line
+            // 
+            this.t_head_line.AutoSize = true;
+            this.t_head_line.BackColor = System.Drawing.Color.Transparent;
+            this.t_head_line.Cursor = System.Windows.Forms.Cursors.Default;
+            this.t_head_line.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t_head_line.ForeColor = System.Drawing.Color.White;
+            this.t_head_line.Location = new System.Drawing.Point(3, 13);
+            this.t_head_line.Name = "t_head_line";
+            this.t_head_line.Size = new System.Drawing.Size(27, 19);
+            this.t_head_line.TabIndex = 12;
+            this.t_head_line.Text = "HL";
+            // 
+            // panel_alert
+            // 
+            this.panel_alert.BackColor = System.Drawing.Color.White;
+            this.panel_alert.Controls.Add(this.lb_msgs_alert);
+            this.panel_alert.Controls.Add(this.btn_sendMSG_alert);
+            this.panel_alert.Location = new System.Drawing.Point(3, 39);
+            this.panel_alert.Name = "panel_alert";
+            this.panel_alert.Size = new System.Drawing.Size(287, 270);
+            this.panel_alert.TabIndex = 1;
+            this.panel_alert.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel_alert_MouseDoubleClick);
+            // 
+            // lb_msgs_alert
+            // 
+            this.lb_msgs_alert.BackColor = System.Drawing.Color.White;
+            this.lb_msgs_alert.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lb_msgs_alert.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_msgs_alert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.lb_msgs_alert.FormattingEnabled = true;
+            this.lb_msgs_alert.ItemHeight = 19;
+            this.lb_msgs_alert.Location = new System.Drawing.Point(17, 10);
+            this.lb_msgs_alert.Name = "lb_msgs_alert";
+            this.lb_msgs_alert.Size = new System.Drawing.Size(241, 171);
+            this.lb_msgs_alert.TabIndex = 3;
+            this.lb_msgs_alert.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lb_msgs_alert_MouseDoubleClick);
+            // 
+            // btn_sendMSG_alert
+            // 
+            this.btn_sendMSG_alert.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_sendMSG_alert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.btn_sendMSG_alert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_sendMSG_alert.BorderRadius = 0;
+            this.btn_sendMSG_alert.ButtonText = "SendMessage";
+            this.btn_sendMSG_alert.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btn_sendMSG_alert.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_sendMSG_alert.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_sendMSG_alert.Iconimage")));
+            this.btn_sendMSG_alert.Iconimage_right = null;
+            this.btn_sendMSG_alert.Iconimage_right_Selected = null;
+            this.btn_sendMSG_alert.Iconimage_Selected = null;
+            this.btn_sendMSG_alert.IconZoom = 90D;
+            this.btn_sendMSG_alert.IsTab = false;
+            this.btn_sendMSG_alert.Location = new System.Drawing.Point(17, 195);
+            this.btn_sendMSG_alert.Name = "btn_sendMSG_alert";
+            this.btn_sendMSG_alert.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.btn_sendMSG_alert.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.btn_sendMSG_alert.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_sendMSG_alert.selected = false;
+            this.btn_sendMSG_alert.Size = new System.Drawing.Size(241, 48);
+            this.btn_sendMSG_alert.TabIndex = 0;
+            this.btn_sendMSG_alert.Textcolor = System.Drawing.Color.White;
+            this.btn_sendMSG_alert.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sendMSG_alert.Click += new System.EventHandler(this.btn_sendMSG_alert_Click);
             // 
             // btn_mail
             // 
@@ -338,58 +432,6 @@
             this.bunifuCustomLabel1.Text = "Main";
             this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
-            // panel_alert
-            // 
-            this.panel_alert.BackColor = System.Drawing.Color.White;
-            this.panel_alert.Controls.Add(this.lb_msgs_alert);
-            this.panel_alert.Controls.Add(this.btn_sendMSG_alert);
-            this.panel_alert.Location = new System.Drawing.Point(3, 39);
-            this.panel_alert.Name = "panel_alert";
-            this.panel_alert.Size = new System.Drawing.Size(287, 270);
-            this.panel_alert.TabIndex = 1;
-            this.panel_alert.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel_alert_MouseDoubleClick);
-            // 
-            // lb_msgs_alert
-            // 
-            this.lb_msgs_alert.BackColor = System.Drawing.Color.White;
-            this.lb_msgs_alert.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lb_msgs_alert.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_msgs_alert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.lb_msgs_alert.FormattingEnabled = true;
-            this.lb_msgs_alert.ItemHeight = 19;
-            this.lb_msgs_alert.Location = new System.Drawing.Point(17, 10);
-            this.lb_msgs_alert.Name = "lb_msgs_alert";
-            this.lb_msgs_alert.Size = new System.Drawing.Size(241, 171);
-            this.lb_msgs_alert.TabIndex = 3;
-            this.lb_msgs_alert.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lb_msgs_alert_MouseDoubleClick);
-            // 
-            // btn_sendMSG_alert
-            // 
-            this.btn_sendMSG_alert.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_sendMSG_alert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.btn_sendMSG_alert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_sendMSG_alert.BorderRadius = 0;
-            this.btn_sendMSG_alert.ButtonText = "SendMessage";
-            this.btn_sendMSG_alert.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btn_sendMSG_alert.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_sendMSG_alert.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_sendMSG_alert.Iconimage")));
-            this.btn_sendMSG_alert.Iconimage_right = null;
-            this.btn_sendMSG_alert.Iconimage_right_Selected = null;
-            this.btn_sendMSG_alert.Iconimage_Selected = null;
-            this.btn_sendMSG_alert.IconZoom = 90D;
-            this.btn_sendMSG_alert.IsTab = false;
-            this.btn_sendMSG_alert.Location = new System.Drawing.Point(17, 195);
-            this.btn_sendMSG_alert.Name = "btn_sendMSG_alert";
-            this.btn_sendMSG_alert.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.btn_sendMSG_alert.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.btn_sendMSG_alert.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_sendMSG_alert.selected = false;
-            this.btn_sendMSG_alert.Size = new System.Drawing.Size(241, 48);
-            this.btn_sendMSG_alert.TabIndex = 0;
-            this.btn_sendMSG_alert.Textcolor = System.Drawing.Color.White;
-            this.btn_sendMSG_alert.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sendMSG_alert.Click += new System.EventHandler(this.btn_sendMSG_alert_Click);
-            // 
             // CONTENT
             // 
             this.CONTENT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
@@ -459,7 +501,7 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -468,17 +510,19 @@
             this.Controls.Add(this.CONTENT);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MENU2.ResumeLayout(false);
             this.MENU2.PerformLayout();
+            this.panel_pop.ResumeLayout(false);
+            this.panel_pop.PerformLayout();
+            this.panel_alert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_alert)).EndInit();
-            this.panel_alert.ResumeLayout(false);
             this.CONTENT.ResumeLayout(false);
             this.top_bar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -513,6 +557,9 @@
         private System.Windows.Forms.ListBox lb_msgs_alert;
         private Bunifu.Framework.UI.BunifuFlatButton btn_mail;
         private System.Windows.Forms.Panel panel3;
+        private Bunifu.Framework.UI.BunifuCustomLabel t_head_line;
+        private System.Windows.Forms.Panel panel_pop;
+        private Bunifu.Framework.UI.BunifuCustomLabel t_pop_msg;
     }
 }
 

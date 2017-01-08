@@ -324,6 +324,13 @@ namespace academic
                 tb_class_pw.text = "";
                 tb_create_pw = true;
         }
+
+        private void btn_send_msg_name_Click(object sender, EventArgs e)
+        {
+            String msg = tb_msg.Text;
+            Program.sendMSG_SPE(msg, getSelectedClass());
+            tb_msg.Text = "";
+        }
         //<----------Clear TextBoxes when clicked------------->
     }
 }

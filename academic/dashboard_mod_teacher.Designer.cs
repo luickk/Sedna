@@ -50,7 +50,7 @@
             this.pb_class_delet = new System.Windows.Forms.PictureBox();
             this.t_selected_class = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel_pupup_class = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_msg = new System.Windows.Forms.TextBox();
             this.Beitreten = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_send_msg_name = new Bunifu.Framework.UI.BunifuFlatButton();
             this.t_date = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -373,7 +373,7 @@
             // panel_pupup_class
             // 
             this.panel_pupup_class.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
-            this.panel_pupup_class.Controls.Add(this.textBox1);
+            this.panel_pupup_class.Controls.Add(this.tb_msg);
             this.panel_pupup_class.Controls.Add(this.Beitreten);
             this.panel_pupup_class.Controls.Add(this.btn_send_msg_name);
             this.panel_pupup_class.Controls.Add(this.t_date);
@@ -386,13 +386,13 @@
             this.panel_pupup_class.Size = new System.Drawing.Size(321, 440);
             this.panel_pupup_class.TabIndex = 36;
             // 
-            // textBox1
+            // tb_msg
             // 
-            this.textBox1.Location = new System.Drawing.Point(33, 284);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
-            this.textBox1.TabIndex = 39;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tb_msg.Location = new System.Drawing.Point(33, 284);
+            this.tb_msg.Name = "tb_msg";
+            this.tb_msg.Size = new System.Drawing.Size(243, 20);
+            this.tb_msg.TabIndex = 39;
+            this.tb_msg.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Beitreten
             // 
@@ -446,6 +446,7 @@
             this.btn_send_msg_name.TabIndex = 37;
             this.btn_send_msg_name.Textcolor = System.Drawing.Color.White;
             this.btn_send_msg_name.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_send_msg_name.Click += new System.EventHandler(this.btn_send_msg_name_Click);
             // 
             // t_date
             // 
@@ -566,6 +567,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel t_date;
         private Bunifu.Framework.UI.BunifuFlatButton Beitreten;
         private Bunifu.Framework.UI.BunifuFlatButton btn_send_msg_name;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_msg;
     }
 }

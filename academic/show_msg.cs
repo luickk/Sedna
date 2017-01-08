@@ -70,8 +70,13 @@ namespace academic
         private void btn_answer_Click(object sender, EventArgs e)
         {
             String msg = rtb_answer_val.Text;
-            Program.send_MSG(name, msg);
-            rtb_answer_val.Text = "";
+            if (msg.Equals(""))
+            {} else
+            {
+                Program.send_MSG(name, msg);
+                rtb_answer_val.Text = "";
+            }
+            msg = "";
         }
     }
 }

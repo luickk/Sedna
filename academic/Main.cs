@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace academic
 {   
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
 
         /// <summary>
@@ -26,7 +28,7 @@ namespace academic
         /// <summary>
         /// Form1 const.
         /// </summary>
-        public Form1()
+        public Main()
         {
             //Methode for Initializing Methodes 
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace academic
                 //NEUTRAL STARTUP (ERROR)
                 Login login = new Login();
                 login.Show();
-                Form1 f = new Form1();
+                Main f = new Main();
                 f.Hide();
                 Console.WriteLine("----------------------------------ERROR--------------------------------");
                 //NEUTRAL STARTUP (ERROR)
@@ -84,6 +86,7 @@ namespace academic
         private void Form1_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+            panel_pop.Width = 0;
         }
 
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
@@ -95,6 +98,8 @@ namespace academic
         {
 
         }
+
+
         /// <summary>
         /// Loading class_user_controll in Form1
         /// </summary>
@@ -418,10 +423,59 @@ namespace academic
             }
         }
 
+
+
+        public int pop_up_width
+        {
+            get { return panel_pop.Width; }
+            set { panel_pop.Width = value; }
+        }
+
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             REFRESH_ALERT_MSG();
         }
+
+        /// <summary>
+        /// Methode to load a popup in main screen 
+        /// </summary>
+        /// <param name="head_line">The Headline</param>
+        /// <param name="msg">The Message</param>
+        public void load_popup(String head_line, String msg)
+        {
+            t_head_line.Text = head_line;
+            t_pop_msg.Text = msg;
+            //--------------------
+
+            while (pop_up_width < 200)
+            {
+                wait_mill_sec(50);
+                pop_up_width++;
+                Application.DoEvents();
+            }
+            Thread.Sleep(500);
+            while (pop_up_width > 0)
+            {
+                wait_mill_sec(50);
+                pop_up_width--;
+                Application.DoEvents();
+            }
+            //--------------------
+        }
+        /// <summary>
+        /// Methode to wait less than mill seconds.
+        /// </summary>
+        /// <param name="durationTicks"></param>
+        private static void wait_mill_sec(long durationTicks)
+        {
+            var sw = Stopwatch.StartNew();
+
+            while (sw.ElapsedTicks < durationTicks)
+            {
+
+            }
+        }
+
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
@@ -497,6 +551,11 @@ namespace academic
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btn_sendMSG_alert_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MENU2_Paint(object sender, PaintEventArgs e)
         {
 
         }

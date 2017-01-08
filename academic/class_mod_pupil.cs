@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.Diagnostics;
 
 namespace academic
 {
@@ -17,6 +19,9 @@ namespace academic
         /// Instance
         /// </summary>
         private static class_mod_pupil class_mod_pupil_inst;
+
+
+        bool isteacher;
 
         /// <summary>
         /// Instance const.
@@ -39,6 +44,7 @@ namespace academic
         {
             InitializeComponent();
             panel_teacher_pupil_info_popup.Hide();
+            panel_pop.Height = 0;
         }
         /// <summary>
         /// Methode for reloading pupil list
@@ -63,8 +69,9 @@ namespace academic
         /// Methode for loading pupup (pupils)
         /// </summary>
         /// <param name="name"></param>
-        public void load_popup_teacher_info(String name)
+        public void load_popup_teacher_info(String name, bool teacher)
         {
+            isteacher = teacher;
             panel_teacher_pupil_info_popup.Show();
             t__popup_user_name.Text = name;
             String t_class = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='"+name+"'", Program.connection, "user_class");
@@ -131,10 +138,18 @@ namespace academic
         {
             ListViewItem selectedItem = lv_teacher.SelectedItems[0];
             String selected = selectedItem.SubItems[1].Text;
-
-            load_popup_teacher_info(selected);
+            load_popup_teacher_info(selected,true);
         }
-
+        public String getSelectedTeacher()
+        {
+            ListViewItem selectedItem = lv_teacher.SelectedItems[0];
+            return selectedItem.SubItems[1].Text;
+        }
+        public String getSelectedPupil()
+        {
+            ListViewItem selectedItem = tv_user.SelectedItems[0];
+            return selectedItem.SubItems[1].Text;
+        }
         /// <summary>
         /// Methode for closing pupup
         /// </summary>
@@ -153,8 +168,9 @@ namespace academic
         /// Methode for loading pupup (teachers)
         /// </summary>
         /// <param name="name"></param>
-        public void load_pup_popup_teacher_info(String name)
+        public void load_pup_popup_teacher_info(String name,bool b)
         {
+            isteacher = b;
             panel_teacher_pupil_info_popup.Show();
             t__popup_user_name.Text = name;
             String t_class = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_class");
@@ -177,12 +193,69 @@ namespace academic
             ListViewItem selectedItem = tv_user.SelectedItems[0];
             String selected = selectedItem.SubItems[1].Text;
 
-            load_pup_popup_teacher_info(selected);
+            load_pup_popup_teacher_info(selected,false);
         }
 
         private void btn_send_msg_name_Click(object sender, EventArgs e)
         {
-
+            String msg = tb_msg.Text;
+            String name;
+            if (isteacher)
+            {
+                name = getSelectedTeacher();
+            } else
+            {
+                name = getSelectedPupil();
+            }
+            Program.send_MSG(name, msg);
+            load_popup("MSG sent!", "You sent MSG to:" + name);
+            tb_msg.Text = "";
         }
+
+
+
+
+        /// <summary>
+        /// Methode to load a popup in main screen 
+        /// </summary>
+        /// <param name="head_line">The Headline</param>
+        /// <param name="msg">The Message</param>
+        public void load_popup(String head_line, String msg)
+        {
+            t_head_line.Text = head_line;
+            t_pop_msg.Text = msg;
+            //--------------------
+
+            while (panel_pop.Height < 100)
+            {
+                wait_mill_sec(50);
+                panel_pop.Height++;
+                Application.DoEvents();
+            }
+            Thread.Sleep(1000);
+            while (panel_pop.Height > 0)
+            {
+                wait_mill_sec(50);
+                panel_pop.Height--;
+                Application.DoEvents();
+            }
+            //--------------------
+        }
+        /// <summary>
+        /// Methode to wait less than mill seconds.
+        /// </summary>
+        /// <param name="durationTicks"></param>
+        private static void wait_mill_sec(long durationTicks)
+        {
+            var sw = Stopwatch.StartNew();
+
+            while (sw.ElapsedTicks < durationTicks)
+            {
+
+            }
+        }
+
+
+
     }
 }

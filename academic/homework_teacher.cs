@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.Diagnostics;
 
 namespace academic
 {
@@ -36,6 +38,7 @@ namespace academic
         {
             InitializeComponent();
             reload();
+            panel_pop.Height = 0;
         }
 
         /// <summary>
@@ -67,6 +70,52 @@ namespace academic
             String class_name = dashboard_mod_teacher.selected;
             hw_meths.push_set_hw(rtb_hw.Text, class_name);
             reload();
+            load_popup("Homework Update", "You updated the homework!");
         }
+
+
+
+        /// <summary>
+        /// Methode to load a popup in main screen 
+        /// </summary>
+        /// <param name="head_line">The Headline</param>
+        /// <param name="msg">The Message</param>
+        public void load_popup(String head_line, String msg)
+        {
+            t_head_line.Text = head_line;
+            t_pop_msg.Text = msg;
+            //--------------------
+
+            while (panel_pop.Height < 100)
+            {
+                wait_mill_sec(50);
+                panel_pop.Height++;
+                Application.DoEvents();
+            }
+            Thread.Sleep(1000);
+            while (panel_pop.Height > 0)
+            {
+                wait_mill_sec(50);
+                panel_pop.Height--;
+                Application.DoEvents();
+            }
+            //--------------------
+        }
+        /// <summary>
+        /// Methode to wait less than mill seconds.
+        /// </summary>
+        /// <param name="durationTicks"></param>
+        private static void wait_mill_sec(long durationTicks)
+        {
+            var sw = Stopwatch.StartNew();
+
+            while (sw.ElapsedTicks < durationTicks)
+            {
+
+            }
+        }
+
+
+
     }
 }

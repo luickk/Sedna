@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Diagnostics;
 
 namespace academic
 {
@@ -37,6 +39,7 @@ namespace academic
         public mails()
         {
             InitializeComponent();
+            panel_pop.Height = 0;
         }
 
         /// <summary>
@@ -49,12 +52,19 @@ namespace academic
             String name = tb_mail_first_name.text.Trim()+","+tb_mail_last_name.text.Trim();
             name.Trim();
             String msg = rtb_msg_mail.Text;
-            Program.send_MSG(name, msg);
-            msg = "";
-            name = "";
-            tb_mail_first_name.text = "";
-            tb_mail_last_name.text = "";
-            rtb_msg_mail.Text = "";
+
+            if (msg.Equals(""))
+            { }
+            else
+            {
+                Program.send_MSG(name, msg);
+                load_popup("Message sent!", "You sent the MSG to " + name);
+                msg = "";
+                name = "";
+                tb_mail_first_name.text = "";
+                tb_mail_last_name.text = "";
+                rtb_msg_mail.Text = "";
+            }
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -83,5 +93,58 @@ namespace academic
                 tb_send_lname = true;
         }
         //<----------Clear TextBoxes when clicked------------->
+
+
+
+
+
+
+        /// <summary>
+        /// Methode to load a popup in main screen 
+        /// </summary>
+        /// <param name="head_line">The Headline</param>
+        /// <param name="msg">The Message</param>
+        public void load_popup(String head_line, String msg)
+        {
+            t_head_line.Text = head_line;
+            t_pop_msg.Text = msg;
+            //--------------------
+
+            while (panel_pop.Height  < 100)
+            {
+                wait_mill_sec(50);
+                panel_pop.Height++;
+                Application.DoEvents();
+            }
+            Thread.Sleep(1000);
+            while (panel_pop.Height > 0)
+            {
+                wait_mill_sec(50);
+                panel_pop.Height--;
+                Application.DoEvents();
+            }
+            //--------------------
+        }
+        /// <summary>
+        /// Methode to wait less than mill seconds.
+        /// </summary>
+        /// <param name="durationTicks"></param>
+        private static void wait_mill_sec(long durationTicks)
+        {
+            var sw = Stopwatch.StartNew();
+
+            while (sw.ElapsedTicks < durationTicks)
+            {
+
+            }
+        }
+
+
+
+
+
+
+
+
     }
 }

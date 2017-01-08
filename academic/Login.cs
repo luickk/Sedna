@@ -101,7 +101,7 @@ namespace academic
                 {
                     TEACHER_OBJ.name = user_username;
                     TEACHER_OBJ.pass= user_pw;
-                    Form1 main_form = new Form1();
+                    Main main_form = new Main();
                     main_form.Show();
                     this.Hide();
                 }
@@ -117,7 +117,7 @@ namespace academic
                     
                     PUPIL_OBJ.name = user_username;
                     PUPIL_OBJ.pass = user_pw;
-                    Form1 main_form = new Form1();
+                    Main main_form = new Main();
                     main_form.Show();
                     this.Hide();
                     Console.WriteLine(PUPIL_OBJ.name);

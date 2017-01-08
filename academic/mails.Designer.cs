@@ -34,7 +34,11 @@
             this.bunifuThinButton1 = new WindowsFormsControlLibrary1.BunifuThinButton();
             this.rtb_msg_mail = new System.Windows.Forms.RichTextBox();
             this.tb_mail_first_name = new Bunifu.Framework.UI.BunifuTextbox();
+            this.panel_pop = new System.Windows.Forms.Panel();
+            this.t_pop_msg = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.t_head_line = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1.SuspendLayout();
+            this.panel_pop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,14 +109,53 @@
             this.tb_mail_first_name.text = "First Name";
             this.tb_mail_first_name.Enter += new System.EventHandler(this.tb_mail_first_name_Enter);
             // 
+            // panel_pop
+            // 
+            this.panel_pop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.panel_pop.Controls.Add(this.t_pop_msg);
+            this.panel_pop.Controls.Add(this.t_head_line);
+            this.panel_pop.Location = new System.Drawing.Point(996, 0);
+            this.panel_pop.Name = "panel_pop";
+            this.panel_pop.Size = new System.Drawing.Size(303, 87);
+            this.panel_pop.TabIndex = 4;
+            // 
+            // t_pop_msg
+            // 
+            this.t_pop_msg.AutoSize = true;
+            this.t_pop_msg.BackColor = System.Drawing.Color.Transparent;
+            this.t_pop_msg.Cursor = System.Windows.Forms.Cursors.Default;
+            this.t_pop_msg.Font = new System.Drawing.Font("Century Gothic", 9.25F, System.Drawing.FontStyle.Bold);
+            this.t_pop_msg.ForeColor = System.Drawing.Color.White;
+            this.t_pop_msg.Location = new System.Drawing.Point(13, 46);
+            this.t_pop_msg.Name = "t_pop_msg";
+            this.t_pop_msg.Size = new System.Drawing.Size(23, 16);
+            this.t_pop_msg.TabIndex = 13;
+            this.t_pop_msg.Text = "HL";
+            // 
+            // t_head_line
+            // 
+            this.t_head_line.AutoSize = true;
+            this.t_head_line.BackColor = System.Drawing.Color.Transparent;
+            this.t_head_line.Cursor = System.Windows.Forms.Cursors.Default;
+            this.t_head_line.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t_head_line.ForeColor = System.Drawing.Color.White;
+            this.t_head_line.Location = new System.Drawing.Point(3, 13);
+            this.t_head_line.Name = "t_head_line";
+            this.t_head_line.Size = new System.Drawing.Size(27, 19);
+            this.t_head_line.TabIndex = 12;
+            this.t_head_line.Text = "HL";
+            // 
             // mails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel_pop);
             this.Controls.Add(this.panel1);
             this.Name = "mails";
             this.Size = new System.Drawing.Size(1920, 1080);
             this.panel1.ResumeLayout(false);
+            this.panel_pop.ResumeLayout(false);
+            this.panel_pop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -124,5 +167,8 @@
         private WindowsFormsControlLibrary1.BunifuThinButton bunifuThinButton1;
         private System.Windows.Forms.RichTextBox rtb_msg_mail;
         private Bunifu.Framework.UI.BunifuTextbox tb_mail_last_name;
+        private System.Windows.Forms.Panel panel_pop;
+        private Bunifu.Framework.UI.BunifuCustomLabel t_pop_msg;
+        private Bunifu.Framework.UI.BunifuCustomLabel t_head_line;
     }
 }

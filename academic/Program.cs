@@ -16,7 +16,6 @@ namespace academic
         /// <summary>
         /// Mainenterpoint
         /// </summary>
-       
         public static MySqlConnection connection;
 
 
@@ -464,7 +463,7 @@ namespace academic
 
 
         /// <summary>
-        /// Methode to send MSGs
+        /// Methode to send MSGs to specific person 
         /// </summary>
         /// <param name="myListView"></param>
         /// <param name="query"></param>
@@ -528,6 +527,38 @@ namespace academic
             catch
             {
                 return false;
+            }
+        }
+
+
+        /// <summary>
+        /// Methode to send MSG to other classes chats
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="class_name"></param>
+        public static void sendMSG_SPE(String msg,String class_name)
+        {
+            //Check if is empty
+            if (!(msg == ""))
+            {
+                //String oname-> name
+                String oname;
+                //Check if is teacher
+                if (TEACHER_OBJ.checkIfIsTeacher())
+                {
+                    //Define name
+                    oname = TEACHER_OBJ.name;
+                }
+                else
+                {
+                    //Define name
+                    oname = PUPIL_OBJ.name;
+                }
+                //Insert into MYSQL database
+                Program.runMYSQL("INSERT INTO CHAT (class,msg,sender) VALUES ('" + class_name + "','" + msg + "','" + oname + "')", Program.connection);
+                //Program.runMYSQL("INSERT INTO TEAC (tel_seeable,tidf) VALUES ('" + name + "','" + pw1 + "','" + user_class + "','" + user_class_pw + "','" + age + "','" + school + "','" + email + "','" + tel + "',' ',' ','" + teacher_id + "')", Program.connection);
+               //Empty String msg
+                msg = "";
             }
         }
     }

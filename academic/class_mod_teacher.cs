@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
 
 namespace academic
 {
@@ -52,6 +53,7 @@ namespace academic
         {
             InitializeComponent();
             panel_teacher_pupil_info_popup.Hide();
+            panel_pop.Height = 0;
         }
 
         /// <summary>
@@ -63,10 +65,13 @@ namespace academic
         {
             ListViewItem selectedItem = tv_user.SelectedItems[0];
             String selected = selectedItem.SubItems[1].Text;
-            Console.WriteLine(selected);
             t_selected_user.Text = "Selected User: " + selected;
         }
-
+        public String getSelectedTeacher()
+        {
+            ListViewItem selectedItem = tv_user.SelectedItems[0];
+            return selectedItem.SubItems[1].Text;
+        }
         /// <summary>
         /// Methode for reloading user lists
         /// </summary>
@@ -156,11 +161,65 @@ namespace academic
             {
                 Program.runMYSQL("UPDATE USER SET chat_ban='off' WHERE user_name='" + selected + "'", Program.connection);
                 btn_chatban.ButtonText = "ChatBan ON";
+                load_popup("User ban removed!", "You unbanned: " + selected);
             } else
             {
                 Program.runMYSQL("UPDATE USER SET chat_ban='on' WHERE user_name='" + selected + "'", Program.connection);
                 btn_chatban.ButtonText = "ChatBan OFF";
+                load_popup("User banned!", "You banned: " + selected);
             }
         }
+
+        private void btn_send_msg_name_Click(object sender, EventArgs e)
+        {
+            String name = getSelectedTeacher();
+            String msg = tb_msg.Text;
+            Program.send_MSG(getSelectedTeacher(),msg);
+            load_popup("MSGS sent!", "MSG sent to: " + getSelectedTeacher());
+
+            tb_msg.Text = "";
+        }
+
+
+        /// <summary>
+        /// Methode to load a popup in main screen 
+        /// </summary>
+        /// <param name="head_line">The Headline</param>
+        /// <param name="msg">The Message</param>
+        public void load_popup(String head_line, String msg)
+        {
+            t_head_line.Text = head_line;
+            t_pop_msg.Text = msg;
+            //--------------------
+
+            while (panel_pop.Height < 100)
+            {
+                wait_mill_sec(50);
+                panel_pop.Height++;
+                Application.DoEvents();
+            }
+            Thread.Sleep(1000);
+            while (panel_pop.Height > 0)
+            {
+                wait_mill_sec(50);
+                panel_pop.Height--;
+                Application.DoEvents();
+            }
+            //--------------------
+        }
+        /// <summary>
+        /// Methode to wait less than mill seconds.
+        /// </summary>
+        /// <param name="durationTicks"></param>
+        private static void wait_mill_sec(long durationTicks)
+        {
+            var sw = Stopwatch.StartNew();
+
+            while (sw.ElapsedTicks < durationTicks)
+            {
+
+            }
+        }
+
     }
 }
