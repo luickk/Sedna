@@ -37,8 +37,10 @@
             this.panel_pop = new System.Windows.Forms.Panel();
             this.t_pop_msg = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.t_head_line = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel_pop.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -46,19 +48,20 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.tb_mail_last_name);
             this.panel1.Controls.Add(this.bunifuThinButton1);
-            this.panel1.Controls.Add(this.rtb_msg_mail);
             this.panel1.Controls.Add(this.tb_mail_first_name);
-            this.panel1.Location = new System.Drawing.Point(469, 113);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.panel1.Location = new System.Drawing.Point(263, 93);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(830, 526);
+            this.panel1.Size = new System.Drawing.Size(830, 458);
             this.panel1.TabIndex = 0;
             // 
             // tb_mail_last_name
             // 
-            this.tb_mail_last_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.tb_mail_last_name.BackColor = System.Drawing.Color.White;
             this.tb_mail_last_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_mail_last_name.BackgroundImage")));
             this.tb_mail_last_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tb_mail_last_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.tb_mail_last_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tb_mail_last_name.Icon = ((System.Drawing.Image)(resources.GetObject("tb_mail_last_name.Icon")));
             this.tb_mail_last_name.Location = new System.Drawing.Point(17, 88);
             this.tb_mail_last_name.Name = "tb_mail_last_name";
@@ -74,13 +77,13 @@
             this.bunifuThinButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuThinButton1.ButtonText = "Send";
             this.bunifuThinButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.bunifuThinButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.bunifuThinButton1.ForeColorHoverState = System.Drawing.Color.White;
             this.bunifuThinButton1.Iconimage = null;
             this.bunifuThinButton1.IconVisible = true;
             this.bunifuThinButton1.IconZoom = 90D;
             this.bunifuThinButton1.ImageIconOverlay = false;
-            this.bunifuThinButton1.Location = new System.Drawing.Point(17, 464);
+            this.bunifuThinButton1.Location = new System.Drawing.Point(17, 404);
             this.bunifuThinButton1.Name = "bunifuThinButton1";
             this.bunifuThinButton1.Size = new System.Drawing.Size(223, 46);
             this.bunifuThinButton1.TabIndex = 2;
@@ -89,18 +92,19 @@
             // rtb_msg_mail
             // 
             this.rtb_msg_mail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_msg_mail.Location = new System.Drawing.Point(17, 164);
+            this.rtb_msg_mail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.rtb_msg_mail.Location = new System.Drawing.Point(-1, -1);
             this.rtb_msg_mail.Name = "rtb_msg_mail";
-            this.rtb_msg_mail.Size = new System.Drawing.Size(755, 294);
+            this.rtb_msg_mail.Size = new System.Drawing.Size(755, 234);
             this.rtb_msg_mail.TabIndex = 1;
             this.rtb_msg_mail.Text = "";
             // 
             // tb_mail_first_name
             // 
-            this.tb_mail_first_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.tb_mail_first_name.BackColor = System.Drawing.Color.White;
             this.tb_mail_first_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_mail_first_name.BackgroundImage")));
             this.tb_mail_first_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tb_mail_first_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.tb_mail_first_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tb_mail_first_name.Icon = ((System.Drawing.Image)(resources.GetObject("tb_mail_first_name.Icon")));
             this.tb_mail_first_name.Location = new System.Drawing.Point(17, 16);
             this.tb_mail_first_name.Name = "tb_mail_first_name";
@@ -111,10 +115,10 @@
             // 
             // panel_pop
             // 
-            this.panel_pop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.panel_pop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.panel_pop.Controls.Add(this.t_pop_msg);
             this.panel_pop.Controls.Add(this.t_head_line);
-            this.panel_pop.Location = new System.Drawing.Point(996, 0);
+            this.panel_pop.Location = new System.Drawing.Point(263, 0);
             this.panel_pop.Name = "panel_pop";
             this.panel_pop.Size = new System.Drawing.Size(303, 87);
             this.panel_pop.TabIndex = 4;
@@ -145,6 +149,15 @@
             this.t_head_line.TabIndex = 12;
             this.t_head_line.Text = "HL";
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.rtb_msg_mail);
+            this.panel2.Location = new System.Drawing.Point(17, 164);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(755, 234);
+            this.panel2.TabIndex = 5;
+            // 
             // mails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +169,7 @@
             this.panel1.ResumeLayout(false);
             this.panel_pop.ResumeLayout(false);
             this.panel_pop.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -170,5 +184,6 @@
         private System.Windows.Forms.Panel panel_pop;
         private Bunifu.Framework.UI.BunifuCustomLabel t_pop_msg;
         private Bunifu.Framework.UI.BunifuCustomLabel t_head_line;
+        private System.Windows.Forms.Panel panel2;
     }
 }

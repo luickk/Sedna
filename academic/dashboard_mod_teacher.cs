@@ -47,7 +47,6 @@ namespace academic
         public dashboard_mod_teacher()
         {
             InitializeComponent();
-            panel_pupup_class.Hide();
             if (TEACHER_OBJ.checkIfIsTeacher())
                 {
                 Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
@@ -70,9 +69,7 @@ namespace academic
                 btn_create_class.Hide();
                 pan_create_class.Hide();
                 btn_join_class.Hide();
-                tv_classes.Hide();
                 pan_join.Hide();
-                panel_lv_men.Hide();
                 btn_dash_update.Hide();
             }
         }
@@ -187,7 +184,6 @@ namespace academic
             ListViewItem selectedItem = tv_classes.SelectedItems[0];
             selected = selectedItem.SubItems[1].Text;
             //Console.WriteLine(selected);
-            t_selected_class.Text = "Selected Class: " + selected;
 
         }
         private void dashboard_mod_Load(object sender, EventArgs e)
@@ -215,7 +211,6 @@ namespace academic
             ListViewItem selectedItem = tv_classes.SelectedItems[0];
             //selected = selectedItem.SubItems[1].Text;
             //Console.WriteLine(selected);
-            t_selected_class.Text = "Selected Class: "+selected;
         }
 
         /// <summary>
@@ -235,12 +230,10 @@ namespace academic
         /// <param name="name"></param>
         public void load_popup_teacher_info(String name)
         {
-            panel_pupup_class.Show();
             t_class_name.Text = name;
             String school = Program.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='"+name+"'", Program.connection, "class_school");
             String date = Program.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='" + name + "'", Program.connection, "created_date");
             String cl_email = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_class='" + name + "'", Program.connection, "email");
-            t_date.Text = date;
             t_info_school.Text = school;
             t_info_email.Text = cl_email;
         }
@@ -253,21 +246,11 @@ namespace academic
         private void tv_classes_MouseDoubleClick_1(object sender, MouseEventArgs e)
         {
             ListViewItem selectedItem = tv_classes.SelectedItems[0];
-            String selected = selectedItem.SubItems[1].Text;
-
-            load_popup_teacher_info(selected);
+            String selectedd = selectedItem.SubItems[1].Text;
+            selected = selectedd;
+            load_popup_teacher_info(selectedd);
         }
-
-        /// <summary>
-        /// Closing popup
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            panel_pupup_class.Hide();
-
-        }
+        
 
         /// <summary>
         /// Event-> Methode for selecting class with popup
@@ -279,8 +262,6 @@ namespace academic
             ListViewItem selectedItem = tv_classes.SelectedItems[0];
             selected = selectedItem.SubItems[1].Text;
             //Console.WriteLine(selected);
-            t_selected_class.Text = "Selected Class: " + selected;
-            panel_pupup_class.Hide();
 
         }
 
@@ -330,6 +311,26 @@ namespace academic
             String msg = tb_msg.Text;
             Program.sendMSG_SPE(msg, getSelectedClass());
             tb_msg.Text = "";
+        }
+
+        private void bunifuCustomLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void t_class_name_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void t_selected_class_Click(object sender, EventArgs e)
+        {
+
         }
         //<----------Clear TextBoxes when clicked------------->
     }

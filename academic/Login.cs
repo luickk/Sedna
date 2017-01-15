@@ -388,7 +388,9 @@ namespace academic
         bool tb_l_fn =false;
         private void tb_login_first_name_Enter_1(object sender, EventArgs e)
         {
-            if(!tb_l_fn)
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_login_first_name.ForeColor = color;
+            if (!tb_l_fn)
                 tb_login_first_name.text = "";
                 tb_l_fn = true;
         }
@@ -396,6 +398,8 @@ namespace academic
         bool tb_l_ln = false;
         private void tb_login_last_name_Enter_(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_login_last_name.ForeColor = color;
             if (!tb_l_ln)
                 tb_login_last_name.text = "";
                 tb_l_ln = true;
@@ -404,6 +408,8 @@ namespace academic
         bool tb_l_pw = false;
         private void tb_pw_Enter_(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_pw.ForeColor = color;
             if (!tb_l_pw)
                 tb_pw.text = "";
                 tb_l_pw = true;
@@ -412,6 +418,8 @@ namespace academic
         bool tb_reg_fn = false;
         private void tb_fn_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_fn.ForeColor = color;
             if (!tb_reg_fn)
                 tb_fn.text = "";
                 tb_reg_fn = true;
@@ -420,6 +428,8 @@ namespace academic
         bool tb_reg_ln = false;
         private void tb_ln_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_ln.ForeColor = color;
             if (!tb_reg_ln)
                 tb_ln.text = "";
                 tb_reg_ln = true;
@@ -428,6 +438,8 @@ namespace academic
         bool tb_reg_school = false;
         private void tb_school_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_school.ForeColor = color;
             if (!tb_reg_school)
                 tb_school.text = "";
                 tb_reg_school = true;
@@ -436,6 +448,8 @@ namespace academic
         bool tb_reg_pw1 = false;
         private void tb_pw1_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_pw1.ForeColor = color;
             if (!tb_reg_pw1)
                 tb_pw1.text = "";
                 tb_reg_pw1 = true;
@@ -444,6 +458,8 @@ namespace academic
         bool tb_reg_pw2 = false;
         private void tb_pw2_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_pw2.ForeColor = color;
             if (!tb_reg_pw2)
                 tb_pw2.text = "";
                 tb_reg_pw2 = true;
@@ -452,6 +468,8 @@ namespace academic
         bool tb_reg_class = false;
         private void tb_class_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_class.ForeColor = color;
             if (!tb_reg_class)
                 tb_class.text = "";
                 tb_reg_class = true;
@@ -462,6 +480,8 @@ namespace academic
         bool tb_reg_class_pw = false;
         private void tb_class_pw_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_class_pw.ForeColor = color;
             if (!tb_reg_class_pw)
                 tb_class_pw.text = "";
                 tb_reg_class_pw = true;
@@ -470,6 +490,8 @@ namespace academic
         bool tb_reg_age = false;
         private void tb_age_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_age.ForeColor = color;
             if (!tb_reg_age)
                 tb_age.text = "";
                 tb_reg_age = true;
@@ -478,6 +500,8 @@ namespace academic
         bool tb_reg_email = false;
         private void tb_email_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_email.ForeColor = color;
             if (!tb_reg_email)
                 tb_email.text = "";
                 tb_reg_email = true;
@@ -487,9 +511,51 @@ namespace academic
         bool tb_reg_tel = false;
         private void tb_tel_Enter(object sender, EventArgs e)
         {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#4d89c1");
+            tb_tel.ForeColor = color;
             if (!tb_reg_tel)
                 tb_tel.text = "";
                 tb_reg_tel = true;
+        }
+
+        private void tb_login_last_name_OnTextChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_login_first_name_OnTextChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_fn_OnTextChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_login_first_name_Leave(object sender, EventArgs e)
+        {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#b7b7b7");
+            tb_login_first_name.ForeColor = color;
+
+        }
+
+        private void tb_login_last_name_Leave(object sender, EventArgs e)
+        {
+
+            Color color = System.Drawing.ColorTranslator.FromHtml("#b7b7b7");
+            tb_login_last_name.ForeColor = color;
+        }
+
+        private void tb_pw_Leave(object sender, EventArgs e)
+        {
+            Color color = System.Drawing.ColorTranslator.FromHtml("#b7b7b7");
+            tb_pw.ForeColor = color;
+        }
+
+        private void panel_login_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //<----------Clear TextBoxes when clicked------------->
@@ -502,12 +568,12 @@ namespace academic
         private void toLogin()
         {
 
-            line.Left = 124;
+            line.Left = 102;
             panel_reg.Visible = false;
             panel_reg.Left = 574;
 
             panel_login.Visible = false;
-            panel_login.Left = 53;
+            panel_login.Left = 43;
             panel_login.Visible = true;
             panel_login.Refresh();
         }
@@ -517,12 +583,12 @@ namespace academic
         /// </summary>
         private void toReg()
         {
-            line.Left = 297;
+            line.Left = 277;
             panel_login.Visible = false;
             panel_login.Left = 574;
 
             panel_reg.Visible = false;
-            panel_reg.Left = 23;
+            panel_reg.Left = -10;
             panel_reg.Visible = true;
             panel_reg.Refresh();
         }

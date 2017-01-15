@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(homework_teacher));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bunifuThinButton1 = new WindowsFormsControlLibrary1.BunifuThinButton();
             this.rtb_hw = new System.Windows.Forms.RichTextBox();
@@ -38,7 +37,6 @@
             this.t_pop_msg = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.t_head_line = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel_pop.SuspendLayout();
             this.SuspendLayout();
@@ -46,27 +44,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.bunifuThinButton1);
             this.panel1.Controls.Add(this.rtb_hw);
-            this.panel1.Location = new System.Drawing.Point(467, 139);
+            this.panel1.Location = new System.Drawing.Point(263, 106);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(830, 603);
+            this.panel1.Size = new System.Drawing.Size(1351, 372);
             this.panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(20, 34);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(755, 44);
-            this.panel2.TabIndex = 29;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(736, 287);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 28);
             this.pictureBox2.TabIndex = 27;
@@ -80,13 +69,13 @@
             this.bunifuThinButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuThinButton1.ButtonText = "Set";
             this.bunifuThinButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.bunifuThinButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.bunifuThinButton1.ForeColorHoverState = System.Drawing.Color.White;
             this.bunifuThinButton1.Iconimage = null;
             this.bunifuThinButton1.IconVisible = true;
             this.bunifuThinButton1.IconZoom = 90D;
             this.bunifuThinButton1.ImageIconOverlay = false;
-            this.bunifuThinButton1.Location = new System.Drawing.Point(20, 545);
+            this.bunifuThinButton1.Location = new System.Drawing.Point(14, 296);
             this.bunifuThinButton1.Name = "bunifuThinButton1";
             this.bunifuThinButton1.Size = new System.Drawing.Size(223, 46);
             this.bunifuThinButton1.TabIndex = 2;
@@ -95,18 +84,19 @@
             // rtb_hw
             // 
             this.rtb_hw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_hw.Location = new System.Drawing.Point(20, 84);
+            this.rtb_hw.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.rtb_hw.Location = new System.Drawing.Point(14, 24);
             this.rtb_hw.Name = "rtb_hw";
-            this.rtb_hw.Size = new System.Drawing.Size(755, 455);
+            this.rtb_hw.Size = new System.Drawing.Size(755, 257);
             this.rtb_hw.TabIndex = 1;
             this.rtb_hw.Text = "";
             // 
             // panel_pop
             // 
-            this.panel_pop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
+            this.panel_pop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.panel_pop.Controls.Add(this.t_pop_msg);
             this.panel_pop.Controls.Add(this.t_head_line);
-            this.panel_pop.Location = new System.Drawing.Point(982, 0);
+            this.panel_pop.Location = new System.Drawing.Point(263, 0);
             this.panel_pop.Name = "panel_pop";
             this.panel_pop.Size = new System.Drawing.Size(303, 87);
             this.panel_pop.TabIndex = 38;
@@ -145,8 +135,8 @@
             this.Controls.Add(this.panel1);
             this.Name = "homework_teacher";
             this.Size = new System.Drawing.Size(1920, 1080);
+            this.Load += new System.EventHandler(this.homework_teacher_Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel_pop.ResumeLayout(false);
             this.panel_pop.PerformLayout();
@@ -159,7 +149,6 @@
         private System.Windows.Forms.Panel panel1;
         private WindowsFormsControlLibrary1.BunifuThinButton bunifuThinButton1;
         private System.Windows.Forms.RichTextBox rtb_hw;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel_pop;
         private Bunifu.Framework.UI.BunifuCustomLabel t_pop_msg;

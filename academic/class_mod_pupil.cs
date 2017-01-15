@@ -43,8 +43,9 @@ namespace academic
         public class_mod_pupil()
         {
             InitializeComponent();
-            panel_teacher_pupil_info_popup.Hide();
             panel_pop.Height = 0;
+            reload_pupil();
+            realod_teacher_lv();
         }
         /// <summary>
         /// Methode for reloading pupil list
@@ -72,7 +73,6 @@ namespace academic
         public void load_popup_teacher_info(String name, bool teacher)
         {
             isteacher = teacher;
-            panel_teacher_pupil_info_popup.Show();
             t__popup_user_name.Text = name;
             String t_class = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='"+name+"'", Program.connection, "user_class");
             String t_school = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "user_school");
@@ -157,7 +157,6 @@ namespace academic
         /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            panel_teacher_pupil_info_popup.Hide();
             t_info_class.Text = "";
             t_info_school.Text = "";
             t_info_email.Text = "";
@@ -171,7 +170,6 @@ namespace academic
         public void load_pup_popup_teacher_info(String name,bool b)
         {
             isteacher = b;
-            panel_teacher_pupil_info_popup.Show();
             t__popup_user_name.Text = name;
             String t_class = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_class");
             String t_school = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_school");
@@ -255,7 +253,9 @@ namespace academic
             }
         }
 
+        private void t_info_school_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

@@ -115,7 +115,9 @@ namespace academic
             }
         }
 
+        private void homework_teacher_Load(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

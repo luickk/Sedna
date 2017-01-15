@@ -50,6 +50,8 @@ namespace academic
             if(TEACHER_OBJ.name != "")
             {
                 Console.WriteLine("----------------------------------TEACHER STARTUP--------------------------------");
+                hideall();
+                line_btn.Show();
                 //TEACHER STARTUP -> Loading Dashboard
                 t_user_name.Text = TEACHER_OBJ.name;
 
@@ -72,6 +74,7 @@ namespace academic
             if (PUPIL_OBJ.name != "")
             {
                 Console.WriteLine("----------------------------------PUPIL STARTUP--------------------------------");
+                hideall();
                 //PUPIL STARTUP -> No Dashboard
                 t_user_name.Text = PUPIL_OBJ.name;
                 //PUPIL STARTUP
@@ -85,8 +88,6 @@ namespace academic
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            panel_pop.Width = 0;
         }
 
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
@@ -108,6 +109,8 @@ namespace academic
         private void dash_Click(object sender, EventArgs e)
         {
             //Check if is teacher
+            hideall();
+            bunifuSeparator1.Show();
             if (TEACHER_OBJ.checkIfIsTeacher())
             {
                 if (dashboard_mod_teacher.selected == "")
@@ -161,6 +164,8 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
+            hideall();
+            bunifuSeparator2.Show();
             if (dashboard_mod_teacher.selected == "")
             {
                 if (!(TEACHER_OBJ.checkIfIsTeacher())){
@@ -209,7 +214,8 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
-
+            hideall();
+            bunifuSeparator6.Show();
 
             if (TEACHER_OBJ.checkIfIsTeacher())
             {
@@ -239,6 +245,8 @@ namespace academic
         /// <param name="e"></param>
         private void btn_homework_Click(object sender, EventArgs e)
         {
+            hideall();
+            bunifuSeparator3.Show();
             if (TEACHER_OBJ.checkIfIsTeacher())
             {
 
@@ -293,6 +301,8 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuFlatButton1_Click_1(object sender, EventArgs e)
         {
+            hideall();
+            line_btn.Show();
             if (TEACHER_OBJ.checkIfIsTeacher())
             {
                 CONTENT.Controls.Remove(dashboard_mod_teacher.Instance);
@@ -424,44 +434,12 @@ namespace academic
         }
 
 
-
-        public int pop_up_width
-        {
-            get { return panel_pop.Width; }
-            set { panel_pop.Width = value; }
-        }
-
+        
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             REFRESH_ALERT_MSG();
         }
 
-        /// <summary>
-        /// Methode to load a popup in main screen 
-        /// </summary>
-        /// <param name="head_line">The Headline</param>
-        /// <param name="msg">The Message</param>
-        public void load_popup(String head_line, String msg)
-        {
-            t_head_line.Text = head_line;
-            t_pop_msg.Text = msg;
-            //--------------------
-
-            while (pop_up_width < 200)
-            {
-                wait_mill_sec(50);
-                pop_up_width++;
-                Application.DoEvents();
-            }
-            Thread.Sleep(500);
-            while (pop_up_width > 0)
-            {
-                wait_mill_sec(50);
-                pop_up_width--;
-                Application.DoEvents();
-            }
-            //--------------------
-        }
         /// <summary>
         /// Methode to wait less than mill seconds.
         /// </summary>
@@ -488,8 +466,10 @@ namespace academic
         /// <param name="e"></param>
         private void btn_mail_Click(object sender, EventArgs e)
         {
+            hideall();
+            bunifuSeparator4.Show();
             //////////////---------------
-                if (!CONTENT.Controls.Contains(mails.Instance))
+            if (!CONTENT.Controls.Contains(mails.Instance))
                 {
                     CONTENT.Controls.Add(mails.Instance);
                     mails.Instance.Dock = DockStyle.Fill;
@@ -552,7 +532,16 @@ namespace academic
         /// <param name="e"></param>
         private void btn_sendMSG_alert_Click(object sender, EventArgs e)
         {
-
+            if (!CONTENT.Controls.Contains(mails.Instance))
+            {
+                CONTENT.Controls.Add(mails.Instance);
+                mails.Instance.Dock = DockStyle.Fill;
+                mails.Instance.BringToFront();
+            }
+            else
+            {
+                mails.Instance.BringToFront();
+            }
         }
 
         private void MENU2_Paint(object sender, PaintEventArgs e)
@@ -560,9 +549,39 @@ namespace academic
 
         }
 
+        private void line_btn_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void top_bar2_MouseDown(object sender, MouseEventArgs e)
         {
             mousDown = true;
+        }
+
+        private void bunifuSeparator2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuSeparator3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuSeparator6_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuSeparator4_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuSeparator7_Load(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -586,6 +605,15 @@ namespace academic
             show_msg.Instance.NAME = name;
         }
 
-
+        public void hideall()
+        {
+            line_btn.Hide();
+            bunifuSeparator1.Hide();
+            bunifuSeparator2.Hide();
+            bunifuSeparator3.Hide();
+            bunifuSeparator4.Hide();
+            bunifuSeparator5.Hide();
+            bunifuSeparator6.Hide();
+        }
     }
 }

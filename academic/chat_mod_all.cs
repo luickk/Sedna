@@ -39,6 +39,7 @@ namespace academic
         {
             InitializeComponent();
             t_alert_login.Hide();
+            UPDATE_LB_MSGS();
         }
 
         //Button send clicked.

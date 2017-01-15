@@ -52,8 +52,8 @@ namespace academic
         public class_mod_teacher()
         {
             InitializeComponent();
-            panel_teacher_pupil_info_popup.Hide();
             panel_pop.Height = 0;
+            reload();
         }
 
         /// <summary>
@@ -65,7 +65,6 @@ namespace academic
         {
             ListViewItem selectedItem = tv_user.SelectedItems[0];
             String selected = selectedItem.SubItems[1].Text;
-            t_selected_user.Text = "Selected User: " + selected;
         }
         public String getSelectedTeacher()
         {
@@ -101,7 +100,6 @@ namespace academic
         /// <param name="name"></param>
         public void load_popup_teacher_info(String name)
         {
-            panel_teacher_pupil_info_popup.Show();
             t__popup_user_name.Text = name;
             String t_class = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_class");
             String t_school = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_school");
@@ -113,6 +111,14 @@ namespace academic
             t_info_tel.Text = t_tel;
             t_info_email.Text = t_email;
             t_chat_ban_text.Text = t_chat_ban;
+            if (Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "chat_ban") == "on")
+            {
+                btn_chatban.ButtonText = "ChatBan ON";
+            }
+            else
+            {
+                btn_chatban.ButtonText = "ChatBan OFF";
+            }
         }
 
         /// <summary>
@@ -122,7 +128,6 @@ namespace academic
         /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            panel_teacher_pupil_info_popup.Hide();
             t_info_class.Text = "";
             t_info_school.Text = "";
             t_info_email.Text = "";
@@ -221,5 +226,19 @@ namespace academic
             }
         }
 
+        private void bunifuSeparator1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void t_chat_ban_text_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void t_info_tel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
