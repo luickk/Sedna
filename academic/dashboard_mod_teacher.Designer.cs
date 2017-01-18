@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboard_mod_teacher));
             this.pan_create_class = new System.Windows.Forms.Panel();
+            this.btn_create = new WindowsFormsControlLibrary1.BunifuThinButton();
             this.bunifuCustomLabel_err = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.alert_create = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tb_class_pw = new Bunifu.Framework.UI.BunifuTextbox();
             this.tb_class_name = new Bunifu.Framework.UI.BunifuTextbox();
             this.tv_classes = new System.Windows.Forms.ListView();
             this.pan_join = new System.Windows.Forms.Panel();
+            this.bunifuThinButton1 = new WindowsFormsControlLibrary1.BunifuThinButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.t_join_class_alert = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tb_join_pw = new Bunifu.Framework.UI.BunifuTextbox();
@@ -43,17 +45,17 @@
             this.pb_class_delet = new System.Windows.Forms.PictureBox();
             this.t_class_name = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel_pupup_class = new System.Windows.Forms.Panel();
+            this.btn_dash_update = new WindowsFormsControlLibrary1.BunifuThinButton();
+            this.btn_create_class = new WindowsFormsControlLibrary1.BunifuThinButton();
+            this.btn_join_class = new WindowsFormsControlLibrary1.BunifuThinButton();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.btn_send_msg_name = new System.Windows.Forms.PictureBox();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.t_info_school = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.t_info_email = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tb_msg = new System.Windows.Forms.TextBox();
-            this.btn_join_class = new WindowsFormsControlLibrary1.BunifuThinButton();
-            this.btn_create_class = new WindowsFormsControlLibrary1.BunifuThinButton();
-            this.btn_dash_update = new WindowsFormsControlLibrary1.BunifuThinButton();
-            this.btn_create = new WindowsFormsControlLibrary1.BunifuThinButton();
-            this.bunifuThinButton1 = new WindowsFormsControlLibrary1.BunifuThinButton();
+            this.tb_join_pw_class = new Bunifu.Framework.UI.BunifuTextbox();
+            this.tb_class_pw_class = new Bunifu.Framework.UI.BunifuTextbox();
             this.pan_create_class.SuspendLayout();
             this.pan_join.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_class_delet)).BeginInit();
@@ -63,6 +65,7 @@
             // 
             // pan_create_class
             // 
+            this.pan_create_class.Controls.Add(this.tb_class_pw_class);
             this.pan_create_class.Controls.Add(this.btn_create);
             this.pan_create_class.Controls.Add(this.bunifuCustomLabel_err);
             this.pan_create_class.Controls.Add(this.alert_create);
@@ -70,8 +73,27 @@
             this.pan_create_class.Controls.Add(this.tb_class_name);
             this.pan_create_class.Location = new System.Drawing.Point(671, 277);
             this.pan_create_class.Name = "pan_create_class";
-            this.pan_create_class.Size = new System.Drawing.Size(206, 216);
+            this.pan_create_class.Size = new System.Drawing.Size(206, 259);
             this.pan_create_class.TabIndex = 2;
+            // 
+            // btn_create
+            // 
+            this.btn_create.BackColor = System.Drawing.Color.Transparent;
+            this.btn_create.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_create.BackgroundImage")));
+            this.btn_create.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_create.ButtonText = "Create";
+            this.btn_create.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_create.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.btn_create.ForeColorHoverState = System.Drawing.Color.White;
+            this.btn_create.Iconimage = null;
+            this.btn_create.IconVisible = true;
+            this.btn_create.IconZoom = 90D;
+            this.btn_create.ImageIconOverlay = false;
+            this.btn_create.Location = new System.Drawing.Point(40, 197);
+            this.btn_create.Name = "btn_create";
+            this.btn_create.Size = new System.Drawing.Size(131, 36);
+            this.btn_create.TabIndex = 48;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
             // bunifuCustomLabel_err
             // 
@@ -104,11 +126,11 @@
             this.tb_class_pw.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_class_pw.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tb_class_pw.Icon = ((System.Drawing.Image)(resources.GetObject("tb_class_pw.Icon")));
-            this.tb_class_pw.Location = new System.Drawing.Point(20, 103);
+            this.tb_class_pw.Location = new System.Drawing.Point(20, 85);
             this.tb_class_pw.Name = "tb_class_pw";
             this.tb_class_pw.Size = new System.Drawing.Size(179, 50);
             this.tb_class_pw.TabIndex = 20;
-            this.tb_class_pw.text = "Class Password";
+            this.tb_class_pw.text = "Pupil Password";
             this.tb_class_pw.Enter += new System.EventHandler(this.tb_class_pw_Enter);
             // 
             // tb_class_name
@@ -118,7 +140,7 @@
             this.tb_class_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_class_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tb_class_name.Icon = ((System.Drawing.Image)(resources.GetObject("tb_class_name.Icon")));
-            this.tb_class_name.Location = new System.Drawing.Point(20, 41);
+            this.tb_class_name.Location = new System.Drawing.Point(20, 29);
             this.tb_class_name.Name = "tb_class_name";
             this.tb_class_name.Size = new System.Drawing.Size(179, 50);
             this.tb_class_name.TabIndex = 19;
@@ -142,6 +164,7 @@
             // 
             // pan_join
             // 
+            this.pan_join.Controls.Add(this.tb_join_pw_class);
             this.pan_join.Controls.Add(this.bunifuThinButton1);
             this.pan_join.Controls.Add(this.bunifuCustomLabel1);
             this.pan_join.Controls.Add(this.t_join_class_alert);
@@ -149,9 +172,28 @@
             this.pan_join.Controls.Add(this.tb_join_name);
             this.pan_join.Location = new System.Drawing.Point(457, 277);
             this.pan_join.Name = "pan_join";
-            this.pan_join.Size = new System.Drawing.Size(208, 216);
+            this.pan_join.Size = new System.Drawing.Size(208, 259);
             this.pan_join.TabIndex = 23;
             this.pan_join.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_join_Paint);
+            // 
+            // bunifuThinButton1
+            // 
+            this.bunifuThinButton1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuThinButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton1.BackgroundImage")));
+            this.bunifuThinButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuThinButton1.ButtonText = "Join";
+            this.bunifuThinButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.bunifuThinButton1.ForeColorHoverState = System.Drawing.Color.White;
+            this.bunifuThinButton1.Iconimage = null;
+            this.bunifuThinButton1.IconVisible = true;
+            this.bunifuThinButton1.IconZoom = 90D;
+            this.bunifuThinButton1.ImageIconOverlay = false;
+            this.bunifuThinButton1.Location = new System.Drawing.Point(38, 197);
+            this.bunifuThinButton1.Name = "bunifuThinButton1";
+            this.bunifuThinButton1.Size = new System.Drawing.Size(131, 36);
+            this.bunifuThinButton1.TabIndex = 47;
+            this.bunifuThinButton1.Click += new System.EventHandler(this.bunifuThinButton1_Click);
             // 
             // bunifuCustomLabel1
             // 
@@ -183,11 +225,12 @@
             this.tb_join_pw.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_join_pw.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tb_join_pw.Icon = ((System.Drawing.Image)(resources.GetObject("tb_join_pw.Icon")));
-            this.tb_join_pw.Location = new System.Drawing.Point(20, 103);
+            this.tb_join_pw.Location = new System.Drawing.Point(20, 85);
             this.tb_join_pw.Name = "tb_join_pw";
             this.tb_join_pw.Size = new System.Drawing.Size(179, 50);
             this.tb_join_pw.TabIndex = 20;
-            this.tb_join_pw.text = "Class Password";
+            this.tb_join_pw.text = "Pupil Password";
+            this.tb_join_pw.OnTextChange += new System.EventHandler(this.tb_join_pw_OnTextChange);
             this.tb_join_pw.Enter += new System.EventHandler(this.tb_join_pw_Enter);
             // 
             // tb_join_name
@@ -197,11 +240,12 @@
             this.tb_join_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_join_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tb_join_name.Icon = ((System.Drawing.Image)(resources.GetObject("tb_join_name.Icon")));
-            this.tb_join_name.Location = new System.Drawing.Point(20, 41);
+            this.tb_join_name.Location = new System.Drawing.Point(20, 29);
             this.tb_join_name.Name = "tb_join_name";
             this.tb_join_name.Size = new System.Drawing.Size(179, 50);
             this.tb_join_name.TabIndex = 19;
             this.tb_join_name.text = "Class name";
+            this.tb_join_name.OnTextChange += new System.EventHandler(this.tb_join_name_OnTextChange);
             this.tb_join_name.Enter += new System.EventHandler(this.tb_join_name_Enter);
             // 
             // pb_class_delet
@@ -245,6 +289,63 @@
             this.panel_pupup_class.Name = "panel_pupup_class";
             this.panel_pupup_class.Size = new System.Drawing.Size(357, 516);
             this.panel_pupup_class.TabIndex = 36;
+            // 
+            // btn_dash_update
+            // 
+            this.btn_dash_update.BackColor = System.Drawing.Color.Transparent;
+            this.btn_dash_update.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_dash_update.BackgroundImage")));
+            this.btn_dash_update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_dash_update.ButtonText = "Refresh";
+            this.btn_dash_update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_dash_update.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.btn_dash_update.ForeColorHoverState = System.Drawing.Color.White;
+            this.btn_dash_update.Iconimage = null;
+            this.btn_dash_update.IconVisible = true;
+            this.btn_dash_update.IconZoom = 90D;
+            this.btn_dash_update.ImageIconOverlay = false;
+            this.btn_dash_update.Location = new System.Drawing.Point(22, 232);
+            this.btn_dash_update.Name = "btn_dash_update";
+            this.btn_dash_update.Size = new System.Drawing.Size(129, 36);
+            this.btn_dash_update.TabIndex = 48;
+            this.btn_dash_update.Click += new System.EventHandler(this.btn_dash_update_Click);
+            // 
+            // btn_create_class
+            // 
+            this.btn_create_class.BackColor = System.Drawing.Color.Transparent;
+            this.btn_create_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_create_class.BackgroundImage")));
+            this.btn_create_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_create_class.ButtonText = "Create";
+            this.btn_create_class.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_create_class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.btn_create_class.ForeColorHoverState = System.Drawing.Color.White;
+            this.btn_create_class.Iconimage = null;
+            this.btn_create_class.IconVisible = true;
+            this.btn_create_class.IconZoom = 90D;
+            this.btn_create_class.ImageIconOverlay = false;
+            this.btn_create_class.Location = new System.Drawing.Point(22, 274);
+            this.btn_create_class.Name = "btn_create_class";
+            this.btn_create_class.Size = new System.Drawing.Size(129, 36);
+            this.btn_create_class.TabIndex = 47;
+            this.btn_create_class.Click += new System.EventHandler(this.btn_create_class_Click);
+            // 
+            // btn_join_class
+            // 
+            this.btn_join_class.BackColor = System.Drawing.Color.Transparent;
+            this.btn_join_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_join_class.BackgroundImage")));
+            this.btn_join_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_join_class.ButtonText = "Join";
+            this.btn_join_class.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_join_class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.btn_join_class.ForeColorHoverState = System.Drawing.Color.White;
+            this.btn_join_class.Iconimage = null;
+            this.btn_join_class.IconVisible = true;
+            this.btn_join_class.IconZoom = 90D;
+            this.btn_join_class.ImageIconOverlay = false;
+            this.btn_join_class.Location = new System.Drawing.Point(156, 232);
+            this.btn_join_class.Name = "btn_join_class";
+            this.btn_join_class.Size = new System.Drawing.Size(127, 36);
+            this.btn_join_class.TabIndex = 46;
+            this.btn_join_class.Click += new System.EventHandler(this.btn_join_class_Click);
             // 
             // bunifuSeparator1
             // 
@@ -316,100 +417,34 @@
             this.tb_msg.TabIndex = 39;
             this.tb_msg.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // btn_join_class
+            // tb_join_pw_class
             // 
-            this.btn_join_class.BackColor = System.Drawing.Color.Transparent;
-            this.btn_join_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_join_class.BackgroundImage")));
-            this.btn_join_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_join_class.ButtonText = "Join";
-            this.btn_join_class.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_join_class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.btn_join_class.ForeColorHoverState = System.Drawing.Color.White;
-            this.btn_join_class.Iconimage = null;
-            this.btn_join_class.IconVisible = true;
-            this.btn_join_class.IconZoom = 90D;
-            this.btn_join_class.ImageIconOverlay = false;
-            this.btn_join_class.Location = new System.Drawing.Point(156, 232);
-            this.btn_join_class.Name = "btn_join_class";
-            this.btn_join_class.Size = new System.Drawing.Size(127, 36);
-            this.btn_join_class.TabIndex = 46;
-            this.btn_join_class.Click += new System.EventHandler(this.btn_join_class_Click);
+            this.tb_join_pw_class.BackColor = System.Drawing.Color.White;
+            this.tb_join_pw_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_join_pw_class.BackgroundImage")));
+            this.tb_join_pw_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tb_join_pw_class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.tb_join_pw_class.Icon = ((System.Drawing.Image)(resources.GetObject("tb_join_pw_class.Icon")));
+            this.tb_join_pw_class.Location = new System.Drawing.Point(20, 141);
+            this.tb_join_pw_class.Name = "tb_join_pw_class";
+            this.tb_join_pw_class.Size = new System.Drawing.Size(179, 50);
+            this.tb_join_pw_class.TabIndex = 48;
+            this.tb_join_pw_class.text = "Teacher Password";
+            this.tb_join_pw_class.OnTextChange += new System.EventHandler(this.bunifuTextbox1_OnTextChange);
+            this.tb_join_pw_class.Enter += new System.EventHandler(this.tb_join_pw_classEnter);
             // 
-            // btn_create_class
+            // tb_class_pw_class
             // 
-            this.btn_create_class.BackColor = System.Drawing.Color.Transparent;
-            this.btn_create_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_create_class.BackgroundImage")));
-            this.btn_create_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_create_class.ButtonText = "Create";
-            this.btn_create_class.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_create_class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.btn_create_class.ForeColorHoverState = System.Drawing.Color.White;
-            this.btn_create_class.Iconimage = null;
-            this.btn_create_class.IconVisible = true;
-            this.btn_create_class.IconZoom = 90D;
-            this.btn_create_class.ImageIconOverlay = false;
-            this.btn_create_class.Location = new System.Drawing.Point(22, 274);
-            this.btn_create_class.Name = "btn_create_class";
-            this.btn_create_class.Size = new System.Drawing.Size(129, 36);
-            this.btn_create_class.TabIndex = 47;
-            this.btn_create_class.Click += new System.EventHandler(this.btn_create_class_Click);
-            // 
-            // btn_dash_update
-            // 
-            this.btn_dash_update.BackColor = System.Drawing.Color.Transparent;
-            this.btn_dash_update.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_dash_update.BackgroundImage")));
-            this.btn_dash_update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_dash_update.ButtonText = "Refresh";
-            this.btn_dash_update.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_dash_update.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.btn_dash_update.ForeColorHoverState = System.Drawing.Color.White;
-            this.btn_dash_update.Iconimage = null;
-            this.btn_dash_update.IconVisible = true;
-            this.btn_dash_update.IconZoom = 90D;
-            this.btn_dash_update.ImageIconOverlay = false;
-            this.btn_dash_update.Location = new System.Drawing.Point(22, 232);
-            this.btn_dash_update.Name = "btn_dash_update";
-            this.btn_dash_update.Size = new System.Drawing.Size(129, 36);
-            this.btn_dash_update.TabIndex = 48;
-            this.btn_dash_update.Click += new System.EventHandler(this.btn_dash_update_Click);
-            // 
-            // btn_create
-            // 
-            this.btn_create.BackColor = System.Drawing.Color.Transparent;
-            this.btn_create.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_create.BackgroundImage")));
-            this.btn_create.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_create.ButtonText = "Create";
-            this.btn_create.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_create.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.btn_create.ForeColorHoverState = System.Drawing.Color.White;
-            this.btn_create.Iconimage = null;
-            this.btn_create.IconVisible = true;
-            this.btn_create.IconZoom = 90D;
-            this.btn_create.ImageIconOverlay = false;
-            this.btn_create.Location = new System.Drawing.Point(38, 159);
-            this.btn_create.Name = "btn_create";
-            this.btn_create.Size = new System.Drawing.Size(131, 36);
-            this.btn_create.TabIndex = 48;
-            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
-            // 
-            // bunifuThinButton1
-            // 
-            this.bunifuThinButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuThinButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton1.BackgroundImage")));
-            this.bunifuThinButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuThinButton1.ButtonText = "Join";
-            this.bunifuThinButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.bunifuThinButton1.ForeColorHoverState = System.Drawing.Color.White;
-            this.bunifuThinButton1.Iconimage = null;
-            this.bunifuThinButton1.IconVisible = true;
-            this.bunifuThinButton1.IconZoom = 90D;
-            this.bunifuThinButton1.ImageIconOverlay = false;
-            this.bunifuThinButton1.Location = new System.Drawing.Point(38, 159);
-            this.bunifuThinButton1.Name = "bunifuThinButton1";
-            this.bunifuThinButton1.Size = new System.Drawing.Size(131, 36);
-            this.bunifuThinButton1.TabIndex = 47;
-            this.bunifuThinButton1.Click += new System.EventHandler(this.bunifuThinButton1_Click);
+            this.tb_class_pw_class.BackColor = System.Drawing.Color.White;
+            this.tb_class_pw_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_class_pw_class.BackgroundImage")));
+            this.tb_class_pw_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tb_class_pw_class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.tb_class_pw_class.Icon = ((System.Drawing.Image)(resources.GetObject("tb_class_pw_class.Icon")));
+            this.tb_class_pw_class.Location = new System.Drawing.Point(20, 141);
+            this.tb_class_pw_class.Name = "tb_class_pw_class";
+            this.tb_class_pw_class.Size = new System.Drawing.Size(179, 50);
+            this.tb_class_pw_class.TabIndex = 49;
+            this.tb_class_pw_class.text = "Teacher Password";
+            this.tb_class_pw_class.Enter += new System.EventHandler(this.tb_class_pw_class_Enter);
             // 
             // dashboard_mod_teacher
             // 
@@ -460,5 +495,7 @@
         private WindowsFormsControlLibrary1.BunifuThinButton btn_join_class;
         private WindowsFormsControlLibrary1.BunifuThinButton btn_create;
         private WindowsFormsControlLibrary1.BunifuThinButton bunifuThinButton1;
+        private Bunifu.Framework.UI.BunifuTextbox tb_join_pw_class;
+        private Bunifu.Framework.UI.BunifuTextbox tb_class_pw_class;
     }
 }

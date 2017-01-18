@@ -94,9 +94,10 @@ namespace academic
         {
             String name = tb_class_name.text;
             String pw = tb_class_pw.text;
+            String class_pw = tb_class_pw_class.text;
             if (!Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + name.Trim() + "'", Program.connection))
             {
-                Program.runMYSQL("INSERT INTO CLASSES (	class_name,class_pw,class_school,class_teacher,created_date,class_id,teachers) VALUES ('" + name.Trim() + "','" + pw.Trim() + "','" + TEACHER_OBJ.get_teacher_school().Trim() + "','" + TEACHER_OBJ.name.Trim() + "','"+ System.DateTime.Now.ToShortDateString().Trim() + "','" + TEACHER_OBJ.get_tid().Trim() + "','')", Program.connection);
+                Program.runMYSQL("INSERT INTO CLASSES (	class_name,class_pw,class_school,class_teacher,created_date,class_id,teachers,teacher_calss_pw) VALUES ('" + name.Trim() + "','" + pw.Trim() + "','" + TEACHER_OBJ.get_teacher_school().Trim() + "','" + TEACHER_OBJ.name.Trim() + "','"+ System.DateTime.Now.ToShortDateString().Trim() + "','" + TEACHER_OBJ.get_tid().Trim() + "','','" + class_pw.Trim() + "')", Program.connection);
                 Program.runMYSQL("UPDATE TEACHER SET user_class='" + name.Trim() + "',user_class_pw='" + pw.Trim() + "' WHERE user_name='" + TEACHER_OBJ.name.Trim() + "'", Program.connection);
                 Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name.Trim() + "' OR teachers LIKE '%" + TEACHER_OBJ.name.Trim() + "%'");
                 btn_create_class.Hide();
@@ -143,7 +144,8 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuThinButton1_Click(object sender, EventArgs e)
         {
-            if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND class_pw = '" + tb_join_pw.text.Trim() + "'", Program.connection))
+            if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND class_pw = '" + tb_join_pw.text.Trim() + "'", Program.connection) && 
+                Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND teacher_calss_pw = '" + tb_join_pw_class.text.Trim() + "'", Program.connection))
             {
                 t_join_class_alert.Text = "Joined! Please Update list to see the class.";
                 Program.runMYSQL("UPDATE CLASSES SET teachers= CONCAT(teachers,'" + TEACHER_OBJ.name.Trim() + "." + "') WHERE class_name='" + tb_join_name.text.Trim() + "' AND class_pw='" + tb_join_pw.text.Trim() + "'", Program.connection);
@@ -169,9 +171,14 @@ namespace academic
         /// <param name="e"></param>
         private void pb_class_delet_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Deleting: " + getSelectedClass());
-            Program.runMYSQL("UPDATE CLASSES SET teachers=REPLACE(teachers,'"+TEACHER_OBJ.name+"."+ "','') WHERE class_name='" + getSelectedClass() + "'", Program.connection);
-            Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
+            if(getSelectedClass() == TEACHER_OBJ.get_teacher_class())
+            {
+                Console.WriteLine("You cannot delete your own class!");
+            } else
+            {
+                Program.runMYSQL("UPDATE CLASSES SET teachers=REPLACE(teachers,'" + TEACHER_OBJ.name + "." + "','') WHERE class_name='" + getSelectedClass() + "'", Program.connection);
+                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
+            }
         }
 
         /// <summary>
@@ -290,6 +297,14 @@ namespace academic
                 tb_pw = true;
         }
 
+        bool tb_pw_class = false;
+        private void tb_join_pw_classEnter(object sender, EventArgs e)
+        {
+            if (!tb_pw_class)
+                tb_join_pw_class.text = "";
+            tb_pw_class = true;
+        }
+
         bool tb_create_name = false;
         private void tb_class_name_Enter(object sender, EventArgs e)
         {
@@ -304,6 +319,14 @@ namespace academic
             if (!tb_create_pw)
                 tb_class_pw.text = "";
                 tb_create_pw = true;
+        }
+
+        bool tb_create_pw_class = false;
+        private void tb_class_pw_class_Enter(object sender, EventArgs e)
+        {
+            if (!tb_create_pw_class)
+                tb_class_pw_class.text = "";
+            tb_create_pw_class = true;
         }
 
         private void btn_send_msg_name_Click(object sender, EventArgs e)
@@ -329,6 +352,21 @@ namespace academic
         }
 
         private void t_selected_class_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuTextbox1_OnTextChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_join_pw_OnTextChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_join_name_OnTextChange(object sender, EventArgs e)
         {
 
         }

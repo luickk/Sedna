@@ -68,13 +68,16 @@ namespace academic
                     //Table for teachers
                     runMYSQL("CREATE TABLE IF NOT EXISTS TEACHER(id INT NOT NULL AUTO_INCREMENT, user_name VARCHAR (128) default NULL, user_pass VARCHAR (64) default NULL, user_class VARCHAR (64) default NULL , user_class_pw VARCHAR (64) default NULL, user_age VARCHAR (64) default NULL, user_school VARCHAR (64) default NULL, email VARCHAR (64) default NULL, tel VARCHAR (64) default NULL, email_seeable VARCHAR (64) default NULL, tel_seeable VARCHAR (64) default NULL, tid VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
                     //Table for classes
-                    runMYSQL("CREATE TABLE IF NOT EXISTS CLASSES(id INT NOT NULL AUTO_INCREMENT, class_name VARCHAR (128) default NULL, class_pw VARCHAR (64) default NULL, class_school VARCHAR (64) default NULL , class_teacher VARCHAR (64) default NULL, created_date VARCHAR (64) default NULL, class_id VARCHAR (64) default NULL, teachers VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
+                    runMYSQL("CREATE TABLE IF NOT EXISTS CLASSES(id INT NOT NULL AUTO_INCREMENT, class_name VARCHAR (128) default NULL, class_pw VARCHAR (64) default NULL, class_school VARCHAR (64) default NULL , class_teacher VARCHAR (64) default NULL, created_date VARCHAR (64) default NULL, class_id VARCHAR (64) default NULL, teachers VARCHAR (64) default NULL, teacher_calss_pw VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
                     //Table for chat
                     runMYSQL("CREATE TABLE IF NOT EXISTS CHAT(id INT NOT NULL AUTO_INCREMENT, class VARCHAR (128) default NULL, msg VARCHAR (64) default NULL , sender VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
                     //Table for msg system
                     runMYSQL("CREATE TABLE IF NOT EXISTS MSG_SYS(id INT NOT NULL AUTO_INCREMENT, sender VARCHAR (128) default NULL, msg VARCHAR (64) default NULL , reciever VARCHAR (64) default NULL, checked VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
                     //Table for homeworkss
                     runMYSQL("CREATE TABLE IF NOT EXISTS HOMEWORK(id INT NOT NULL AUTO_INCREMENT, hw VARCHAR (128) default NULL, class_name VARCHAR (64) default NULL , PRIMARY KEY (id))", connection);
+
+                    //TEMP
+
 
                 //RUN -> OK
             }

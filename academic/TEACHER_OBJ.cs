@@ -37,14 +37,14 @@ namespace academic
         /// <summary>
         /// Methode for getting teacher_class_pw
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return Teacher PW</returns>
         public static String get_teacher_class_pw()
         {
             teacher_class_pw = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "user_class_pw");
             Console.WriteLine(teacher_class_pw);
             return teacher_class_pw;
         }
-
+        
         /// <summary>
         /// Methode for getting teacher_school
         /// </summary>
