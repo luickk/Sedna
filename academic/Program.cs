@@ -73,6 +73,8 @@ namespace academic
                     runMYSQL("CREATE TABLE IF NOT EXISTS CHAT(id INT NOT NULL AUTO_INCREMENT, class VARCHAR (128) default NULL, msg VARCHAR (64) default NULL , sender VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
                     //Table for msg system
                     runMYSQL("CREATE TABLE IF NOT EXISTS MSG_SYS(id INT NOT NULL AUTO_INCREMENT, sender VARCHAR (128) default NULL, msg VARCHAR (64) default NULL , reciever VARCHAR (64) default NULL, checked VARCHAR (64) default NULL, PRIMARY KEY (id))", connection);
+                    //Table for WHITELISTS
+                    runMYSQL("CREATE TABLE IF NOT EXISTS WHITELIST(id INT NOT NULL AUTO_INCREMENT, teacher_name VARCHAR (128) default NULL, class_name VARCHAR (128) default NULL, objects VARCHAR (500) default NULL , PRIMARY KEY (id))", connection);
                     //Table for homeworkss
                     runMYSQL("CREATE TABLE IF NOT EXISTS HOMEWORK(id INT NOT NULL AUTO_INCREMENT, hw VARCHAR (128) default NULL, class_name VARCHAR (64) default NULL , PRIMARY KEY (id))", connection);
 
@@ -146,12 +148,12 @@ namespace academic
         {
             bool b = false;
             no_internet no_internet = new no_internet();
-          
+                MySqlCommand check_User_Name;
                 if (Program.CheckForInternetConnection())
                 {
                 //RUN -> OK
 
-                MySqlCommand check_User_Name = new MySqlCommand(cmd, connection);
+                    check_User_Name = new MySqlCommand(cmd, connection);
                     int UserExist = Convert.ToInt32(check_User_Name.ExecuteScalar());
                     if (UserExist > 0)
                     {
@@ -172,8 +174,7 @@ namespace academic
             {
                 System.Windows.Forms.MessageBox.Show("No internet!");
             }
-           
-
+                
             return b;
         }
 
@@ -352,6 +353,63 @@ namespace academic
             }
         }
 
+
+
+        /// <summary>
+        /// Methode to insert Mysqldata into pupil ListView
+        /// </summary>
+        /// <param name="myListView"></param>
+        /// <param name="query"></param>
+        public static void INSERT_INTO_WHITE_LIST(ListView myListView)
+        {
+            myListView.Items.Clear();
+            myListView.Columns.Clear();
+            myListView.View = View.Details;
+            try
+            {
+                    String class_name;
+                    String teacher_name;
+                    if (PUPIL_OBJ.checkIfIsPupil())
+                    {
+                        class_name = PUPIL_OBJ.get_user_class();
+                        teacher_name = PUPIL_OBJ.name;
+                    }
+                    else
+                    {
+                        class_name = dashboard_mod_teacher.selected;
+                        teacher_name = TEACHER_OBJ.name;
+                    }
+
+                    String obj_list = runMYSQL_GET("SELECT * FROM WHITELIST WHERE class_name='"+class_name+"'", Program.connection, "objects");
+                    myListView.Columns.Add("ID", 0, HorizontalAlignment.Left);
+                    myListView.Columns.Add("Name", 0, HorizontalAlignment.Left);
+                
+                    ListViewItem lv = new ListViewItem();
+                
+                    char[] delimiterChars = {'.'};
+
+                    string[] words = obj_list.Split(delimiterChars);
+
+                    foreach (string s in words)
+                    {
+                        System.Console.WriteLine(s);
+                        lv = myListView.Items.Add("",s);
+                        lv.SubItems.Add(s);
+                }
+
+
+
+
+                for (int i = 1; i < myListView.Columns.Count; i++)
+                    myListView.Columns[i].Width = -2;
+
+                myListView.View = View.Details;
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
 
 
 

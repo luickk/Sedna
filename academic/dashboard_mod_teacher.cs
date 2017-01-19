@@ -144,9 +144,25 @@ namespace academic
         /// <param name="e"></param>
         private void bunifuThinButton1_Click(object sender, EventArgs e)
         {
+            String class_name;
+            String teacher_name;
+            if (PUPIL_OBJ.checkIfIsPupil())
+            {
+                class_name = PUPIL_OBJ.get_user_class();
+                teacher_name = PUPIL_OBJ.name;
+            }
+            else
+            {
+                class_name = dashboard_mod_teacher.selected;
+                teacher_name = TEACHER_OBJ.name;
+            }
+
             if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND class_pw = '" + tb_join_pw.text.Trim() + "'", Program.connection) && 
                 Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND teacher_calss_pw = '" + tb_join_pw_class.text.Trim() + "'", Program.connection))
             {
+                if (Program.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE objects LIKE '%" + teacher_name.Trim()  + "%' AND class_name='" + tb_join_name.text.Trim() + "'", Program.connection))
+                {
+
                 t_join_class_alert.Text = "Joined! Please Update list to see the class.";
                 Program.runMYSQL("UPDATE CLASSES SET teachers= CONCAT(teachers,'" + TEACHER_OBJ.name.Trim() + "." + "') WHERE class_name='" + tb_join_name.text.Trim() + "' AND class_pw='" + tb_join_pw.text.Trim() + "'", Program.connection);
                 //FINISH OK
@@ -157,6 +173,12 @@ namespace academic
                 btn_join_class.Show();
                 //FINISH
                 Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name.Trim() + "' OR teachers LIKE '%" + TEACHER_OBJ.name.Trim() + "%'");
+                }
+                else
+                {
+                    t_join_class_alert.Text = "You are not whitelisted!";
+                    Console.WriteLine(teacher_name);
+                }
             }
             else
             {
@@ -179,19 +201,6 @@ namespace academic
                 Program.runMYSQL("UPDATE CLASSES SET teachers=REPLACE(teachers,'" + TEACHER_OBJ.name + "." + "','') WHERE class_name='" + getSelectedClass() + "'", Program.connection);
                 Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
             }
-        }
-
-        /// <summary>
-        /// Event-> Selecting class
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pb_join_class_Click(object sender, EventArgs e)
-        {
-            ListViewItem selectedItem = tv_classes.SelectedItems[0];
-            selected = selectedItem.SubItems[1].Text;
-            //Console.WriteLine(selected);
-
         }
         private void dashboard_mod_Load(object sender, EventArgs e)
         {

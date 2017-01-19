@@ -39,8 +39,8 @@
             this.bunifuCustomLabel_err.AutoSize = true;
             this.bunifuCustomLabel_err.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuCustomLabel_err.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel_err.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(131)))), ((int)(((byte)(0)))));
-            this.bunifuCustomLabel_err.Location = new System.Drawing.Point(853, 558);
+            this.bunifuCustomLabel_err.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.bunifuCustomLabel_err.Location = new System.Drawing.Point(539, 279);
             this.bunifuCustomLabel_err.Name = "bunifuCustomLabel_err";
             this.bunifuCustomLabel_err.Size = new System.Drawing.Size(218, 19);
             this.bunifuCustomLabel_err.TabIndex = 10;
@@ -49,7 +49,7 @@
             // class_pic
             // 
             this.class_pic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("class_pic.BackgroundImage")));
-            this.class_pic.Location = new System.Drawing.Point(880, 427);
+            this.class_pic.Location = new System.Drawing.Point(582, 148);
             this.class_pic.Name = "class_pic";
             this.class_pic.Size = new System.Drawing.Size(127, 128);
             this.class_pic.TabIndex = 9;

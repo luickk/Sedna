@@ -174,6 +174,18 @@
       <DependentUpon>show_msg.cs</DependentUpon>
     </Compile>
     <Compile Include="TEACHER_OBJ.cs" />
+    <Compile Include="WHITE_LIST_PUPIL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WHITE_LIST_PUPIL.Designer.cs">
+      <DependentUpon>WHITE_LIST_PUPIL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WHITE_LIST_TEACHER.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WHITE_LIST_TEACHER.Designer.cs">
+      <DependentUpon>WHITE_LIST_TEACHER.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="chat_mod.resx">
       <DependentUpon>chat_mod.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +242,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="show_msg.resx">
       <DependentUpon>show_msg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WHITE_LIST_PUPIL.resx">
+      <DependentUpon>WHITE_LIST_PUPIL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WHITE_LIST_TEACHER.resx">
+      <DependentUpon>WHITE_LIST_TEACHER.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

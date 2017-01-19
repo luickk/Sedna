@@ -115,17 +115,7 @@ namespace academic
             {
                 if (dashboard_mod_teacher.selected == "")
                 {
-
-                    if (!CONTENT.Controls.Contains(class_mod.Instance))
-                    {
-                        CONTENT.Controls.Add(class_mod.Instance);
-                        class_mod.Instance.Dock = DockStyle.Fill;
-                        class_mod.Instance.BringToFront();
-                    }
-                    else
-                    {
-                        class_mod_pupil.Instance.BringToFront();
-                    }
+                    
                 }
                 //If is not teacher
                 else
@@ -181,16 +171,7 @@ namespace academic
                     }
                 } else
                 {
-                    if (!CONTENT.Controls.Contains(chat_mod.Instance))
-                    {
-                        CONTENT.Controls.Add(chat_mod.Instance);
-                        chat_mod.Instance.Dock = DockStyle.Fill;
-                        chat_mod.Instance.BringToFront();
-                    }
-                    else
-                    {
-                        chat_mod.Instance.BringToFront();
-                    }
+                   
                 }
             } else
             {
@@ -253,16 +234,7 @@ namespace academic
                 if (dashboard_mod_teacher.selected == "")
                 {
 
-                    if (!CONTENT.Controls.Contains(homework.Instance))
-                    {
-                        CONTENT.Controls.Add(homework.Instance);
-                        homework.Instance.Dock = DockStyle.Fill;
-                        homework.Instance.BringToFront();
-                    }
-                    else
-                    {
-                        homework.Instance.BringToFront();
-                    }
+                   
 
                 } else
                 {
@@ -321,6 +293,124 @@ namespace academic
 
             }
         }
+
+
+
+        private void btn_white_list_Click(object sender, EventArgs e)
+        {
+            hideall();
+            bunifuSeparator8.Show();
+
+
+            if (TEACHER_OBJ.checkIfIsTeacher())
+            {
+
+                if (dashboard_mod_teacher.selected == "")
+                {
+
+
+                    }
+                    else
+                    {
+
+
+                    //MYSQL -> IF WHITE_LIST NOT INSERTETED? -> INSERT
+
+
+
+                    String class_name;
+                    String teacher_name;
+                    if (PUPIL_OBJ.checkIfIsPupil())
+                    {
+                        class_name = PUPIL_OBJ.get_user_class();
+                        teacher_name = PUPIL_OBJ.name;
+                    }
+                    else
+                    {
+                        class_name = dashboard_mod_teacher.selected;
+                        teacher_name = TEACHER_OBJ.name;
+                    }
+
+
+                    if (Program.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE class_name = '" + class_name.Trim() + "'", Program.connection))
+                    {
+                        Console.WriteLine("CLASS ALREADY CREATED");
+                    }
+                    else
+                    {
+                        Program.runMYSQL("INSERT INTO WHITELIST (teacher_name, class_name, objects) VALUES ('" + teacher_name + "','" + class_name + "','" + teacher_name + ".')", Program.connection);
+                    }
+
+
+                    //MYSQL -> IF WHITE_LIST NOT INSERTETED? -> INSERT
+
+
+
+                    CONTENT.Controls.Remove(WHITE_LIST_TEACHER.Instance);
+                    if (!CONTENT.Controls.Contains(WHITE_LIST_TEACHER.Instance))
+                    {
+                        CONTENT.Controls.Add(WHITE_LIST_TEACHER.Instance);
+                        WHITE_LIST_TEACHER.Instance.Dock = DockStyle.Fill;
+                        WHITE_LIST_TEACHER.Instance.BringToFront();
+                    }
+                    else
+                    {
+                        WHITE_LIST_TEACHER.Instance.BringToFront();
+                    }
+
+                }
+            }
+            else
+            {
+
+
+                //MYSQL -> IF WHITE_LIST NOT INSERTETED? -> INSERT
+
+
+
+                String class_name;
+                String teacher_name;
+                if (PUPIL_OBJ.checkIfIsPupil())
+                {
+                    class_name = PUPIL_OBJ.get_user_class();
+                    teacher_name = PUPIL_OBJ.name;
+                }
+                else
+                {
+                    class_name = dashboard_mod_teacher.selected;
+                    teacher_name = TEACHER_OBJ.name;
+                }
+
+
+                if (Program.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE class_name = '" + class_name.Trim() + "'", Program.connection))
+                {
+                    Console.WriteLine("CLASS ALREADY CREATED");
+                }
+                else
+                {
+                    Program.runMYSQL("INSERT INTO WHITELIST (teacher_name, class_name, objects) VALUES ('" + teacher_name + "','" + class_name + "','" + teacher_name + ".')", Program.connection);
+                }
+
+
+                //MYSQL -> IF WHITE_LIST NOT INSERTETED? -> INSERT
+
+
+                CONTENT.Controls.Remove(WHITE_LIST_PUPIL.Instance);
+                if (!CONTENT.Controls.Contains(WHITE_LIST_PUPIL.Instance))
+                {
+                    CONTENT.Controls.Add(WHITE_LIST_PUPIL.Instance);
+                    WHITE_LIST_PUPIL.Instance.Dock = DockStyle.Fill;
+                    WHITE_LIST_PUPIL.Instance.BringToFront();
+                }
+                else
+                {
+                    WHITE_LIST_PUPIL.Instance.BringToFront();
+                }
+
+            }
+        }
+
+
         private void CONTENT_Paint(object sender, PaintEventArgs e)
         {
 
@@ -583,7 +673,6 @@ namespace academic
         {
 
         }
-
         /// <summary>
         /// Methode for loaing messages into expanded message view
         /// </summary>
@@ -614,6 +703,7 @@ namespace academic
             bunifuSeparator4.Hide();
             bunifuSeparator5.Hide();
             bunifuSeparator6.Hide();
+            bunifuSeparator8.Hide();
         }
     }
 }

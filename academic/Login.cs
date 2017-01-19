@@ -276,10 +276,19 @@ namespace academic
                         {
                             if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + user_class.Trim() + "' AND class_pw = '" + user_class_pw.Trim() + "'", Program.connection))
                             {
-                                Program.runMYSQL("INSERT INTO USER (user_name,user_pass,user_class,user_class_pw,user_age,user_school,email,chat_ban) VALUES ('" + name.Trim() + "','" + pw1.Trim() + "','" + user_class.Trim() + "','" + user_class_pw.Trim() + "','" + age.Trim() + "','" + school.Trim() + "','" + email.Trim() + "','off')", Program.connection);
+
+                                if (Program.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE objects LIKE '%" + name.Trim() + "%' AND class_name='" + user_class.Trim() + "'", Program.connection))
+                                {
+                                    Program.runMYSQL("INSERT INTO USER (user_name,user_pass,user_class,user_class_pw,user_age,user_school,email,chat_ban) VALUES ('" + name.Trim() + "','" + pw1.Trim() + "','" + user_class.Trim() + "','" + user_class_pw.Trim() + "','" + age.Trim() + "','" + school.Trim() + "','" + email.Trim() + "','off')", Program.connection);
                                 reg_alert.Text = "Registered successfully";
                                 toLogin();
-                                } else
+                                }
+                                else
+                                {
+                                    reg_alert.Text = "You are not whitelisted!";
+                                }
+                            }
+                            else
                             {
                                 reg_alert.Text = "Class Pw or Name wrong!";
                             }
