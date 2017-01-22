@@ -8,6 +8,6 @@ namespace academic
     class data
     {
         //MYSQL Password
-        public static String pw = "";
+        public static String pw = "test";
     }
 }
