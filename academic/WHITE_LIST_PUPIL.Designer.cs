@@ -37,7 +37,9 @@
             // tv_user
             // 
             this.tv_user.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.tv_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tv_user.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tv_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tv_user.FullRowSelect = true;
             this.tv_user.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.tv_user.HideSelection = false;

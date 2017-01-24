@@ -40,7 +40,7 @@
             // 
             // tb_send_msg
             // 
-            this.tb_send_msg.BackColor = System.Drawing.Color.White;
+            this.tb_send_msg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_send_msg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_send_msg.BackgroundImage")));
             this.tb_send_msg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tb_send_msg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
@@ -55,7 +55,7 @@
             // 
             // btn_send_msg
             // 
-            this.btn_send_msg.BackColor = System.Drawing.Color.White;
+            this.btn_send_msg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btn_send_msg.Image = ((System.Drawing.Image)(resources.GetObject("btn_send_msg.Image")));
             this.btn_send_msg.ImageActive = null;
             this.btn_send_msg.Location = new System.Drawing.Point(595, 402);
@@ -69,22 +69,22 @@
             // 
             // lb_msgs
             // 
-            this.lb_msgs.BackColor = System.Drawing.Color.White;
-            this.lb_msgs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lb_msgs.Font = new System.Drawing.Font("Source Code Pro", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_msgs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.lb_msgs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lb_msgs.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_msgs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.lb_msgs.FormattingEnabled = true;
-            this.lb_msgs.ItemHeight = 22;
+            this.lb_msgs.ItemHeight = 21;
             this.lb_msgs.Location = new System.Drawing.Point(324, 86);
             this.lb_msgs.Name = "lb_msgs";
-            this.lb_msgs.Size = new System.Drawing.Size(515, 310);
+            this.lb_msgs.Size = new System.Drawing.Size(515, 294);
             this.lb_msgs.TabIndex = 2;
             this.lb_msgs.SelectedIndexChanged += new System.EventHandler(this.lb_msgs_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(324, 52);
+            this.pictureBox1.Location = new System.Drawing.Point(806, 388);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(33, 28);
             this.pictureBox1.TabIndex = 27;

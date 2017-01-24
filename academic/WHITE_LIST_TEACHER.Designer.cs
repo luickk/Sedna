@@ -47,7 +47,9 @@
             // tv_user
             // 
             this.tv_user.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.tv_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tv_user.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tv_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tv_user.FullRowSelect = true;
             this.tv_user.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.tv_user.HideSelection = false;
@@ -128,7 +130,7 @@
             // 
             // tb_last_name
             // 
-            this.tb_last_name.BackColor = System.Drawing.Color.White;
+            this.tb_last_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_last_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_last_name.BackgroundImage")));
             this.tb_last_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tb_last_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
@@ -142,7 +144,7 @@
             // 
             // tb_first_name
             // 
-            this.tb_first_name.BackColor = System.Drawing.Color.White;
+            this.tb_first_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_first_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_first_name.BackgroundImage")));
             this.tb_first_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tb_first_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));

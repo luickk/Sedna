@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.MENU2 = new System.Windows.Forms.Panel();
+            this.bunifuSeparator8 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panel_alert = new System.Windows.Forms.Panel();
             this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
             this.lb_msgs_alert = new System.Windows.Forms.ListBox();
             this.btn_sendMSG_alert = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_white_list = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -46,27 +48,20 @@
             this.btn_mail = new Bunifu.Framework.UI.BunifuFlatButton();
             this.t_user_name = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.line = new Bunifu.Framework.UI.BunifuSeparator();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btn_settings = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_homework = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_chat = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_class = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_dashboard = new Bunifu.Framework.UI.BunifuFlatButton();
             this.CONTENT = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.top_bar = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bunifuSeparator8 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.btn_white_list = new Bunifu.Framework.UI.BunifuFlatButton();
             this.MENU2.SuspendLayout();
             this.panel_alert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_alert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel2.SuspendLayout();
             this.CONTENT.SuspendLayout();
             this.top_bar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -76,8 +71,9 @@
             // 
             // MENU2
             // 
-            this.MENU2.BackColor = System.Drawing.Color.White;
+            this.MENU2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.MENU2.Controls.Add(this.bunifuSeparator8);
+            this.MENU2.Controls.Add(this.panel_alert);
             this.MENU2.Controls.Add(this.btn_white_list);
             this.MENU2.Controls.Add(this.bunifuSeparator7);
             this.MENU2.Controls.Add(this.bunifuSeparator6);
@@ -91,19 +87,28 @@
             this.MENU2.Controls.Add(this.btn_mail);
             this.MENU2.Controls.Add(this.t_user_name);
             this.MENU2.Controls.Add(this.pictureBox4);
-            this.MENU2.Controls.Add(this.panel2);
-            this.MENU2.Controls.Add(this.panel1);
             this.MENU2.Controls.Add(this.btn_settings);
             this.MENU2.Controls.Add(this.btn_homework);
             this.MENU2.Controls.Add(this.btn_chat);
             this.MENU2.Controls.Add(this.btn_class);
             this.MENU2.Controls.Add(this.btn_dashboard);
-            this.MENU2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MENU2.Location = new System.Drawing.Point(0, 0);
+            this.MENU2.Location = new System.Drawing.Point(0, 42);
             this.MENU2.Name = "MENU2";
-            this.MENU2.Size = new System.Drawing.Size(230, 602);
+            this.MENU2.Size = new System.Drawing.Size(230, 560);
             this.MENU2.TabIndex = 2;
             this.MENU2.Paint += new System.Windows.Forms.PaintEventHandler(this.MENU2_Paint);
+            // 
+            // bunifuSeparator8
+            // 
+            this.bunifuSeparator8.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator8.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.bunifuSeparator8.LineThickness = 1;
+            this.bunifuSeparator8.Location = new System.Drawing.Point(66, 345);
+            this.bunifuSeparator8.Name = "bunifuSeparator8";
+            this.bunifuSeparator8.Size = new System.Drawing.Size(109, 10);
+            this.bunifuSeparator8.TabIndex = 36;
+            this.bunifuSeparator8.Transparency = 255;
+            this.bunifuSeparator8.Vertical = false;
             // 
             // panel_alert
             // 
@@ -111,7 +116,7 @@
             this.panel_alert.Controls.Add(this.bunifuSeparator5);
             this.panel_alert.Controls.Add(this.lb_msgs_alert);
             this.panel_alert.Controls.Add(this.btn_sendMSG_alert);
-            this.panel_alert.Location = new System.Drawing.Point(405, 72);
+            this.panel_alert.Location = new System.Drawing.Point(3, 78);
             this.panel_alert.Name = "panel_alert";
             this.panel_alert.Size = new System.Drawing.Size(210, 228);
             this.panel_alert.TabIndex = 1;
@@ -170,14 +175,40 @@
             this.btn_sendMSG_alert.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sendMSG_alert.Click += new System.EventHandler(this.btn_sendMSG_alert_Click);
             // 
+            // btn_white_list
+            // 
+            this.btn_white_list.Activecolor = System.Drawing.Color.Empty;
+            this.btn_white_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_white_list.BorderRadius = 5;
+            this.btn_white_list.ButtonText = "WHITE";
+            this.btn_white_list.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_white_list.Iconcolor = System.Drawing.Color.Turquoise;
+            this.btn_white_list.Iconimage = null;
+            this.btn_white_list.Iconimage_right = null;
+            this.btn_white_list.Iconimage_right_Selected = null;
+            this.btn_white_list.Iconimage_Selected = null;
+            this.btn_white_list.IconZoom = 90D;
+            this.btn_white_list.IsTab = false;
+            this.btn_white_list.Location = new System.Drawing.Point(66, 316);
+            this.btn_white_list.Name = "btn_white_list";
+            this.btn_white_list.Normalcolor = System.Drawing.Color.Empty;
+            this.btn_white_list.OnHovercolor = System.Drawing.Color.Empty;
+            this.btn_white_list.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.btn_white_list.selected = false;
+            this.btn_white_list.Size = new System.Drawing.Size(109, 39);
+            this.btn_white_list.TabIndex = 35;
+            this.btn_white_list.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.btn_white_list.TextFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_white_list.Click += new System.EventHandler(this.btn_white_list_Click);
+            // 
             // bunifuSeparator7
             // 
             this.bunifuSeparator7.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.bunifuSeparator7.LineThickness = 1;
-            this.bunifuSeparator7.Location = new System.Drawing.Point(214, 0);
+            this.bunifuSeparator7.Location = new System.Drawing.Point(217, -6);
             this.bunifuSeparator7.Name = "bunifuSeparator7";
-            this.bunifuSeparator7.Size = new System.Drawing.Size(10, 602);
+            this.bunifuSeparator7.Size = new System.Drawing.Size(10, 563);
             this.bunifuSeparator7.TabIndex = 34;
             this.bunifuSeparator7.Transparency = 255;
             this.bunifuSeparator7.Vertical = true;
@@ -314,7 +345,7 @@
             this.t_user_name.Cursor = System.Windows.Forms.Cursors.Default;
             this.t_user_name.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.t_user_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.t_user_name.Location = new System.Drawing.Point(51, 42);
+            this.t_user_name.Location = new System.Drawing.Point(51, 53);
             this.t_user_name.Name = "t_user_name";
             this.t_user_name.Size = new System.Drawing.Size(166, 19);
             this.t_user_name.TabIndex = 10;
@@ -329,35 +360,6 @@
             this.pictureBox4.TabIndex = 27;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.line);
-            this.panel2.Location = new System.Drawing.Point(296, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 2000);
-            this.panel2.TabIndex = 1;
-            // 
-            // line
-            // 
-            this.line.BackColor = System.Drawing.Color.Transparent;
-            this.line.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.line.LineThickness = 1;
-            this.line.Location = new System.Drawing.Point(-41, 42);
-            this.line.Name = "line";
-            this.line.Size = new System.Drawing.Size(87, 548);
-            this.line.TabIndex = 10;
-            this.line.Transparency = 255;
-            this.line.Vertical = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(301, 36);
-            this.panel1.TabIndex = 1;
             // 
             // btn_settings
             // 
@@ -495,9 +497,7 @@
             // 
             // CONTENT
             // 
-            this.CONTENT.BackColor = System.Drawing.Color.White;
-            this.CONTENT.Controls.Add(this.panel_alert);
-            this.CONTENT.Controls.Add(this.panel3);
+            this.CONTENT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.CONTENT.Controls.Add(this.top_bar);
             this.CONTENT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CONTENT.Location = new System.Drawing.Point(0, 0);
@@ -505,13 +505,6 @@
             this.CONTENT.Size = new System.Drawing.Size(1271, 602);
             this.CONTENT.TabIndex = 4;
             this.CONTENT.Paint += new System.Windows.Forms.PaintEventHandler(this.CONTENT_Paint);
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(-15, -15);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 100);
-            this.panel3.TabIndex = 1;
             // 
             // top_bar
             // 
@@ -523,7 +516,7 @@
             this.top_bar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.top_bar.Location = new System.Drawing.Point(0, 0);
             this.top_bar.Name = "top_bar";
-            this.top_bar.Size = new System.Drawing.Size(1271, 33);
+            this.top_bar.Size = new System.Drawing.Size(1271, 36);
             this.top_bar.TabIndex = 0;
             this.top_bar.Paint += new System.Windows.Forms.PaintEventHandler(this.top_bar_Paint);
             this.top_bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.top_bar_MouseDown);
@@ -536,7 +529,7 @@
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox3.Location = new System.Drawing.Point(1182, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 33);
+            this.pictureBox3.Size = new System.Drawing.Size(29, 36);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
@@ -547,7 +540,7 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox2.Location = new System.Drawing.Point(1211, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox2.Size = new System.Drawing.Size(30, 36);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -558,48 +551,10 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox1.Location = new System.Drawing.Point(1241, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 33);
+            this.pictureBox1.Size = new System.Drawing.Size(30, 36);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // bunifuSeparator8
-            // 
-            this.bunifuSeparator8.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator8.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.bunifuSeparator8.LineThickness = 1;
-            this.bunifuSeparator8.Location = new System.Drawing.Point(66, 345);
-            this.bunifuSeparator8.Name = "bunifuSeparator8";
-            this.bunifuSeparator8.Size = new System.Drawing.Size(109, 10);
-            this.bunifuSeparator8.TabIndex = 36;
-            this.bunifuSeparator8.Transparency = 255;
-            this.bunifuSeparator8.Vertical = false;
-            // 
-            // btn_white_list
-            // 
-            this.btn_white_list.Activecolor = System.Drawing.Color.Empty;
-            this.btn_white_list.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_white_list.BorderRadius = 5;
-            this.btn_white_list.ButtonText = "WHITE";
-            this.btn_white_list.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_white_list.Iconcolor = System.Drawing.Color.Turquoise;
-            this.btn_white_list.Iconimage = null;
-            this.btn_white_list.Iconimage_right = null;
-            this.btn_white_list.Iconimage_right_Selected = null;
-            this.btn_white_list.Iconimage_Selected = null;
-            this.btn_white_list.IconZoom = 90D;
-            this.btn_white_list.IsTab = false;
-            this.btn_white_list.Location = new System.Drawing.Point(66, 316);
-            this.btn_white_list.Name = "btn_white_list";
-            this.btn_white_list.Normalcolor = System.Drawing.Color.Empty;
-            this.btn_white_list.OnHovercolor = System.Drawing.Color.Empty;
-            this.btn_white_list.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.btn_white_list.selected = false;
-            this.btn_white_list.Size = new System.Drawing.Size(109, 39);
-            this.btn_white_list.TabIndex = 35;
-            this.btn_white_list.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.btn_white_list.TextFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btn_white_list.Click += new System.EventHandler(this.btn_white_list_Click);
             // 
             // Main
             // 
@@ -619,7 +574,6 @@
             this.panel_alert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_alert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.CONTENT.ResumeLayout(false);
             this.top_bar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -642,8 +596,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private Bunifu.Framework.UI.BunifuCustomLabel t_user_name;
         private Bunifu.Framework.UI.BunifuFlatButton btn_dashboard;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pb_alert;
         private System.Windows.Forms.Panel panel_alert;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -651,8 +603,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btn_sendMSG_alert;
         private System.Windows.Forms.ListBox lb_msgs_alert;
         private Bunifu.Framework.UI.BunifuFlatButton btn_mail;
-        private System.Windows.Forms.Panel panel3;
-        private Bunifu.Framework.UI.BunifuSeparator line;
         private Bunifu.Framework.UI.BunifuSeparator line_btn;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;

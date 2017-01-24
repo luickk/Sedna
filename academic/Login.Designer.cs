@@ -195,7 +195,7 @@
             // 
             // tb_tel
             // 
-            this.tb_tel.BackColor = System.Drawing.Color.White;
+            this.tb_tel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_tel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_tel.BackgroundImage")));
             this.tb_tel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_tel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -209,7 +209,7 @@
             // 
             // tb_email
             // 
-            this.tb_email.BackColor = System.Drawing.Color.White;
+            this.tb_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_email.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_email.BackgroundImage")));
             this.tb_email.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -235,7 +235,7 @@
             // tb_age
             // 
             this.tb_age.AccessibleName = "tb_class";
-            this.tb_age.BackColor = System.Drawing.Color.White;
+            this.tb_age.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_age.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_age.BackgroundImage")));
             this.tb_age.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_age.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -279,7 +279,7 @@
             // 
             // tb_school
             // 
-            this.tb_school.BackColor = System.Drawing.Color.White;
+            this.tb_school.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_school.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_school.BackgroundImage")));
             this.tb_school.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_school.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -293,7 +293,7 @@
             // 
             // tb_class_pw
             // 
-            this.tb_class_pw.BackColor = System.Drawing.Color.White;
+            this.tb_class_pw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_class_pw.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_class_pw.BackgroundImage")));
             this.tb_class_pw.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_class_pw.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -308,7 +308,7 @@
             // tb_class
             // 
             this.tb_class.AccessibleName = "tb_class";
-            this.tb_class.BackColor = System.Drawing.Color.White;
+            this.tb_class.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_class.BackgroundImage")));
             this.tb_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_class.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -341,7 +341,7 @@
             // 
             // tb_pw2
             // 
-            this.tb_pw2.BackColor = System.Drawing.Color.White;
+            this.tb_pw2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_pw2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_pw2.BackgroundImage")));
             this.tb_pw2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_pw2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -355,7 +355,7 @@
             // 
             // tb_ln
             // 
-            this.tb_ln.BackColor = System.Drawing.Color.White;
+            this.tb_ln.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_ln.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_ln.BackgroundImage")));
             this.tb_ln.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_ln.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -381,7 +381,7 @@
             // 
             // tb_fn
             // 
-            this.tb_fn.BackColor = System.Drawing.Color.White;
+            this.tb_fn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_fn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_fn.BackgroundImage")));
             this.tb_fn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_fn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -396,7 +396,7 @@
             // 
             // tb_pw1
             // 
-            this.tb_pw1.BackColor = System.Drawing.Color.White;
+            this.tb_pw1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_pw1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_pw1.BackgroundImage")));
             this.tb_pw1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_pw1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -428,7 +428,7 @@
             // 
             // tb_pw
             // 
-            this.tb_pw.BackColor = System.Drawing.Color.White;
+            this.tb_pw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_pw.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_pw.BackgroundImage")));
             this.tb_pw.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_pw.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -444,7 +444,7 @@
             // 
             // tb_login_first_name
             // 
-            this.tb_login_first_name.BackColor = System.Drawing.Color.White;
+            this.tb_login_first_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_login_first_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_login_first_name.BackgroundImage")));
             this.tb_login_first_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_login_first_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -472,7 +472,7 @@
             // 
             // tb_login_last_name
             // 
-            this.tb_login_last_name.BackColor = System.Drawing.Color.White;
+            this.tb_login_last_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tb_login_last_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tb_login_last_name.BackgroundImage")));
             this.tb_login_last_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tb_login_last_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
@@ -548,7 +548,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(474, 624);
             this.Controls.Add(this.btn_login_sel);
             this.Controls.Add(this.btn_reg_sel);
@@ -563,6 +563,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_Paint);
             this.top_bar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

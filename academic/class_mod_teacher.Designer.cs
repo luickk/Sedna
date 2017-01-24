@@ -32,6 +32,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tv_user = new System.Windows.Forms.ListView();
             this.panel_teacher_pupil_info_popup = new System.Windows.Forms.Panel();
+            this.btn_send_msg_name = new System.Windows.Forms.PictureBox();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.btn_chatban = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tb_msg = new System.Windows.Forms.TextBox();
             this.t_chat_ban_text = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -43,13 +46,10 @@
             this.panel_pop = new System.Windows.Forms.Panel();
             this.t_pop_msg = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.t_head_line = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.btn_send_msg_name = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_teacher_pupil_info_popup.SuspendLayout();
-            this.panel_pop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_send_msg_name)).BeginInit();
+            this.panel_pop.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -65,7 +65,9 @@
             // tv_user
             // 
             this.tv_user.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.tv_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tv_user.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tv_user.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
             this.tv_user.FullRowSelect = true;
             this.tv_user.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.tv_user.HideSelection = false;
@@ -95,6 +97,41 @@
             this.panel_teacher_pupil_info_popup.Name = "panel_teacher_pupil_info_popup";
             this.panel_teacher_pupil_info_popup.Size = new System.Drawing.Size(407, 461);
             this.panel_teacher_pupil_info_popup.TabIndex = 36;
+            // 
+            // btn_send_msg_name
+            // 
+            this.btn_send_msg_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_send_msg_name.BackgroundImage")));
+            this.btn_send_msg_name.Location = new System.Drawing.Point(277, 147);
+            this.btn_send_msg_name.Name = "btn_send_msg_name";
+            this.btn_send_msg_name.Size = new System.Drawing.Size(24, 24);
+            this.btn_send_msg_name.TabIndex = 47;
+            this.btn_send_msg_name.TabStop = false;
+            this.btn_send_msg_name.Click += new System.EventHandler(this.btn_send_msg_name_Click);
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(3, 27);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(15, 215);
+            this.bunifuSeparator1.TabIndex = 46;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = true;
+            this.bunifuSeparator1.Load += new System.EventHandler(this.bunifuSeparator1_Load);
+            // 
+            // bunifuSeparator6
+            // 
+            this.bunifuSeparator6.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator6.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
+            this.bunifuSeparator6.LineThickness = 1;
+            this.bunifuSeparator6.Location = new System.Drawing.Point(13, 11);
+            this.bunifuSeparator6.Name = "bunifuSeparator6";
+            this.bunifuSeparator6.Size = new System.Drawing.Size(342, 10);
+            this.bunifuSeparator6.TabIndex = 45;
+            this.bunifuSeparator6.Transparency = 255;
+            this.bunifuSeparator6.Vertical = false;
             // 
             // btn_chatban
             // 
@@ -240,41 +277,6 @@
             this.t_head_line.TabIndex = 12;
             this.t_head_line.Text = "HL";
             // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(3, 27);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(15, 215);
-            this.bunifuSeparator1.TabIndex = 46;
-            this.bunifuSeparator1.Transparency = 255;
-            this.bunifuSeparator1.Vertical = true;
-            this.bunifuSeparator1.Load += new System.EventHandler(this.bunifuSeparator1_Load);
-            // 
-            // bunifuSeparator6
-            // 
-            this.bunifuSeparator6.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator6.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(137)))), ((int)(((byte)(193)))));
-            this.bunifuSeparator6.LineThickness = 1;
-            this.bunifuSeparator6.Location = new System.Drawing.Point(13, 11);
-            this.bunifuSeparator6.Name = "bunifuSeparator6";
-            this.bunifuSeparator6.Size = new System.Drawing.Size(342, 10);
-            this.bunifuSeparator6.TabIndex = 45;
-            this.bunifuSeparator6.Transparency = 255;
-            this.bunifuSeparator6.Vertical = false;
-            // 
-            // btn_send_msg_name
-            // 
-            this.btn_send_msg_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_send_msg_name.BackgroundImage")));
-            this.btn_send_msg_name.Location = new System.Drawing.Point(277, 147);
-            this.btn_send_msg_name.Name = "btn_send_msg_name";
-            this.btn_send_msg_name.Size = new System.Drawing.Size(24, 24);
-            this.btn_send_msg_name.TabIndex = 47;
-            this.btn_send_msg_name.TabStop = false;
-            this.btn_send_msg_name.Click += new System.EventHandler(this.btn_send_msg_name_Click);
-            // 
             // class_mod_teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,9 +290,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_teacher_pupil_info_popup.ResumeLayout(false);
             this.panel_teacher_pupil_info_popup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_send_msg_name)).EndInit();
             this.panel_pop.ResumeLayout(false);
             this.panel_pop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_send_msg_name)).EndInit();
             this.ResumeLayout(false);
 
         }

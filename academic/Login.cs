@@ -567,6 +567,11 @@ namespace academic
 
         }
 
+        private void Login_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(Pens.Black, this.Bounds);
+        }
+
         //<----------Clear TextBoxes when clicked------------->
 
 

@@ -200,21 +200,33 @@ namespace academic
 
             if (TEACHER_OBJ.checkIfIsTeacher())
             {
-
-            }
-            else
-            {
-            if (!CONTENT.Controls.Contains(settings_mod.Instance))
-            {
-                CONTENT.Controls.Add(settings_mod.Instance);
-                settings_mod.Instance.Dock = DockStyle.Fill;
-                settings_mod.Instance.BringToFront();
-            }
-            else
-            {
-                settings_mod.Instance.BringToFront();
+                //LOAD USERCONTROL
+                if (!CONTENT.Controls.Contains(settings_teacher.Instance))
+                {
+                    CONTENT.Controls.Add(settings_teacher.Instance);
+                    settings_teacher.Instance.Dock = DockStyle.Fill;
+                    settings_teacher.Instance.BringToFront();
                 }
-
+                else
+                {
+                    settings_teacher.Instance.BringToFront();
+                }
+                //LOAD USERCONTROL
+            }
+            else
+            {
+            //LOAD USERCONTROL
+                if (!CONTENT.Controls.Contains(settings_pupil.Instance))
+            {
+                CONTENT.Controls.Add(settings_pupil.Instance);
+                    settings_pupil.Instance.Dock = DockStyle.Fill;
+                    settings_pupil.Instance.BringToFront();
+                }
+                else
+                {
+                   settings_pupil.Instance.BringToFront();
+                }
+            //LOAD USERCONTROL
             }
 
         }
@@ -413,7 +425,31 @@ namespace academic
 
         private void CONTENT_Paint(object sender, PaintEventArgs e)
         {
+            CONTENT.Paint += dropShadow;
+        }
 
+        private void dropShadow(object sender, PaintEventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            Color[] shadow = new Color[3];
+            shadow[0] = Color.FromArgb(181, 181, 181);
+            shadow[1] = Color.FromArgb(195, 195, 195);
+            shadow[2] = Color.FromArgb(211, 211, 211);
+            Pen pen = new Pen(shadow[0]);
+            using (pen)
+            {
+                foreach (Panel p in panel.Controls.OfType<Panel>())
+                {
+                    Point pt = p.Location;
+                    pt.Y += p.Height;
+                    for (var sp = 0; sp < 3; sp++)
+                    {
+                        pen.Color = shadow[sp];
+                        e.Graphics.DrawLine(pen, pt.X, pt.Y, pt.X + p.Width - 1, pt.Y);
+                        pt.Y++;
+                    }
+                }
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -451,7 +487,7 @@ namespace academic
         {
             if (mousDown)
             {
-                mousesX = MousePosition.X-300;
+                mousesX = MousePosition.X;
                 mousesY = MousePosition.Y;
 
                 this.SetDesktopLocation(mousesX-MX, mousesY-MY);
@@ -468,17 +504,6 @@ namespace academic
             mousDown = true;
             MX = e.X;
             MY = e.Y;
-        }
-
-        private void top_bar2_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mousDown)
-            {
-                mousesX = MousePosition.X;
-                mousesY = MousePosition.Y;
-
-                this.SetDesktopLocation(mousesX, mousesY);
-            }
         }
 
         private void top_bar_Paint(object sender, PaintEventArgs e)
