@@ -100,6 +100,7 @@
             this.panel_pop.Name = "panel_pop";
             this.panel_pop.Size = new System.Drawing.Size(303, 87);
             this.panel_pop.TabIndex = 38;
+            this.panel_pop.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_pop_Paint);
             // 
             // t_pop_msg
             // 
