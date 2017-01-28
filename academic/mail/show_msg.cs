@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using academic.mail;
 
 namespace academic
 {
@@ -73,7 +74,7 @@ namespace academic
             if (msg.Equals(""))
             {} else
             {
-                Program.send_MSG(name, msg);
+                mail_methods.send_MSG(name, msg);
                 rtb_answer_val.Text = "";
             }
             msg = "";

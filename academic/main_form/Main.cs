@@ -1,4 +1,7 @@
-﻿using System;
+﻿using academic.mail;
+using academic.main_form;
+using academic.mysql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -344,13 +347,13 @@ namespace academic
                     }
 
 
-                    if (Program.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE class_name = '" + class_name.Trim() + "'", Program.connection))
+                    if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE class_name = '" + class_name.Trim() + "'", mysql_connection_manager.connection))
                     {
                         Console.WriteLine("CLASS ALREADY CREATED");
                     }
                     else
                     {
-                        Program.runMYSQL("INSERT INTO WHITELIST (teacher_name, class_name, objects) VALUES ('" + teacher_name + "','" + class_name + "','" + teacher_name + ".')", Program.connection);
+                        mysql_basic_methods.runMYSQL("INSERT INTO WHITELIST (teacher_name, class_name, objects) VALUES ('" + teacher_name + "','" + class_name + "','" + teacher_name + ".')", mysql_connection_manager.connection);
                     }
 
 
@@ -394,13 +397,13 @@ namespace academic
                 }
 
 
-                if (Program.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE class_name = '" + class_name.Trim() + "'", Program.connection))
+                if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE class_name = '" + class_name.Trim() + "'", mysql_connection_manager.connection))
                 {
                     Console.WriteLine("CLASS ALREADY CREATED");
                 }
                 else
                 {
-                    Program.runMYSQL("INSERT INTO WHITELIST (teacher_name, class_name, objects) VALUES ('" + teacher_name + "','" + class_name + "','" + teacher_name + ".')", Program.connection);
+                    mysql_basic_methods.runMYSQL("INSERT INTO WHITELIST (teacher_name, class_name, objects) VALUES ('" + teacher_name + "','" + class_name + "','" + teacher_name + ".')", mysql_connection_manager.connection);
                 }
 
 
@@ -527,8 +530,8 @@ namespace academic
                 {
                     name = PUPIL_OBJ.name;
                 }
-                Program.INSERT_LB_MSG_ALERT(lb_msgs_alert, "SELECT * FROM MSG_SYS WHERE reciever='" + name + "' ORDER BY id");
-                Program.runMYSQL("UPDATE MSG_SYS SET checked='1' WHERE reciever='"+name+"'", Program.connection);
+                main_form_methods.INSERT_LB_MSG_ALERT(lb_msgs_alert, "SELECT * FROM MSG_SYS WHERE reciever='" + name + "' ORDER BY id");
+                mysql_basic_methods.runMYSQL("UPDATE MSG_SYS SET checked='1' WHERE reciever='"+name+"'", mysql_connection_manager.connection);
                 REFRESH_ALERT_MSG();
             } else {
                 panel_alert.Hide();
@@ -538,7 +541,7 @@ namespace academic
         }
         public void REFRESH_ALERT_MSG()
         {
-            int t = Program.checkMSGS_AVAILABLE();
+            int t = mail_methods.checkMSGS_AVAILABLE();
             if (t > 0)
             {
                 t_alert_count.Text = t.ToString();

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Diagnostics;
+using academic.mail;
 
 namespace academic
 {
@@ -57,7 +58,7 @@ namespace academic
             { }
             else
             {
-                Program.send_MSG(name, msg);
+                mail_methods.send_MSG(name, msg);
                 load_popup("Message sent!", "You sent the MSG to " + name);
                 msg = "";
                 name = "";

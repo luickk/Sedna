@@ -76,172 +76,182 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="chat_mod.cs">
+    <Compile Include="chat\chat_methods.cs" />
+    <Compile Include="chat\chat_mod.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="chat_mod.Designer.cs">
+    <Compile Include="chat\chat_mod.Designer.cs">
       <DependentUpon>chat_mod.cs</DependentUpon>
     </Compile>
-    <Compile Include="chat_mod_all.cs">
+    <Compile Include="chat\chat_mod_all.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="chat_mod_all.Designer.cs">
+    <Compile Include="chat\chat_mod_all.Designer.cs">
       <DependentUpon>chat_mod_all.cs</DependentUpon>
     </Compile>
-    <Compile Include="CLASSORJOIN.cs">
+    <Compile Include="class_v\cl_methods.cs" />
+    <Compile Include="dashboard\dash_methods.cs" />
+    <Compile Include="login\login_methods.cs" />
+    <Compile Include="mail\mail_methods.cs" />
+    <Compile Include="main_form\main_form_methods.cs" />
+    <Compile Include="mysql\mysql_basic_methods.cs" />
+    <Compile Include="mysql\mysql_connection_manager.cs" />
+    <Compile Include="settings\settings_methods.cs" />
+    <Compile Include="temp\CLASSORJOIN.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CLASSORJOIN.Designer.cs">
+    <Compile Include="temp\CLASSORJOIN.Designer.cs">
       <DependentUpon>CLASSORJOIN.cs</DependentUpon>
     </Compile>
-    <Compile Include="class_mod.cs">
+    <Compile Include="class_v\class_mod.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="class_mod.Designer.cs">
+    <Compile Include="class_v\class_mod.Designer.cs">
       <DependentUpon>class_mod.cs</DependentUpon>
     </Compile>
-    <Compile Include="class_mod_pupil.cs">
+    <Compile Include="class_v\class_mod_pupil.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="class_mod_pupil.Designer.cs">
+    <Compile Include="class_v\class_mod_pupil.Designer.cs">
       <DependentUpon>class_mod_pupil.cs</DependentUpon>
     </Compile>
-    <Compile Include="class_mod_teacher.cs">
+    <Compile Include="class_v\class_mod_teacher.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="class_mod_teacher.Designer.cs">
+    <Compile Include="class_v\class_mod_teacher.Designer.cs">
       <DependentUpon>class_mod_teacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="dashboard_mod_teacher.cs">
+    <Compile Include="dashboard\dashboard_mod_teacher.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="dashboard_mod_teacher.Designer.cs">
+    <Compile Include="dashboard\dashboard_mod_teacher.Designer.cs">
       <DependentUpon>dashboard_mod_teacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="main_form\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="main_form\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="homework.cs">
+    <Compile Include="homework\homework.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="homework.Designer.cs">
+    <Compile Include="homework\homework.Designer.cs">
       <DependentUpon>homework.cs</DependentUpon>
     </Compile>
-    <Compile Include="homework_pupil.cs">
+    <Compile Include="homework\homework_pupil.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="homework_pupil.Designer.cs">
+    <Compile Include="homework\homework_pupil.Designer.cs">
       <DependentUpon>homework_pupil.cs</DependentUpon>
     </Compile>
-    <Compile Include="homework_teacher.cs">
+    <Compile Include="homework\homework_teacher.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="homework_teacher.Designer.cs">
+    <Compile Include="homework\homework_teacher.Designer.cs">
       <DependentUpon>homework_teacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="hw_meths.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="homework\hw_meths.cs" />
+    <Compile Include="login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="mails.cs">
+    <Compile Include="mail\mails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="mails.Designer.cs">
+    <Compile Include="mail\mails.Designer.cs">
       <DependentUpon>mails.cs</DependentUpon>
     </Compile>
-    <Compile Include="no_internet.cs">
+    <Compile Include="temp\no_internet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="no_internet.Designer.cs">
+    <Compile Include="temp\no_internet.Designer.cs">
       <DependentUpon>no_internet.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PUPIL_OBJ.cs" />
-    <Compile Include="settings_mod.cs">
+    <Compile Include="objects\PUPIL_OBJ.cs" />
+    <Compile Include="settings\settings_mod.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="settings_mod.Designer.cs">
+    <Compile Include="settings\settings_mod.Designer.cs">
       <DependentUpon>settings_mod.cs</DependentUpon>
     </Compile>
-    <Compile Include="datas.cs" />
-    <Compile Include="settings_pupil.cs">
+    <Compile Include="mysq_data\datas.cs" />
+    <Compile Include="settings\settings_pupil.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="settings_pupil.Designer.cs">
+    <Compile Include="settings\settings_pupil.Designer.cs">
       <DependentUpon>settings_pupil.cs</DependentUpon>
     </Compile>
-    <Compile Include="settings_teacher.cs">
+    <Compile Include="settings\settings_teacher.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="settings_teacher.Designer.cs">
+    <Compile Include="settings\settings_teacher.Designer.cs">
       <DependentUpon>settings_teacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="show_msg.cs">
+    <Compile Include="mail\show_msg.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="show_msg.Designer.cs">
+    <Compile Include="mail\show_msg.Designer.cs">
       <DependentUpon>show_msg.cs</DependentUpon>
     </Compile>
-    <Compile Include="TEACHER_OBJ.cs" />
-    <Compile Include="WHITE_LIST_PUPIL.cs">
+    <Compile Include="objects\TEACHER_OBJ.cs" />
+    <Compile Include="white_list\white_list_methods.cs" />
+    <Compile Include="white_list\WHITE_LIST_PUPIL.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WHITE_LIST_PUPIL.Designer.cs">
+    <Compile Include="white_list\WHITE_LIST_PUPIL.Designer.cs">
       <DependentUpon>WHITE_LIST_PUPIL.cs</DependentUpon>
     </Compile>
-    <Compile Include="WHITE_LIST_TEACHER.cs">
+    <Compile Include="white_list\WHITE_LIST_TEACHER.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WHITE_LIST_TEACHER.Designer.cs">
+    <Compile Include="white_list\WHITE_LIST_TEACHER.Designer.cs">
       <DependentUpon>WHITE_LIST_TEACHER.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="chat_mod.resx">
+    <EmbeddedResource Include="chat\chat_mod.resx">
       <DependentUpon>chat_mod.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="chat_mod_all.resx">
+    <EmbeddedResource Include="chat\chat_mod_all.resx">
       <DependentUpon>chat_mod_all.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CLASSORJOIN.resx">
+    <EmbeddedResource Include="temp\CLASSORJOIN.resx">
       <DependentUpon>CLASSORJOIN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="class_mod.resx">
+    <EmbeddedResource Include="class_v\class_mod.resx">
       <DependentUpon>class_mod.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="class_mod_pupil.resx">
+    <EmbeddedResource Include="class_v\class_mod_pupil.resx">
       <DependentUpon>class_mod_pupil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="class_mod_teacher.resx">
+    <EmbeddedResource Include="class_v\class_mod_teacher.resx">
       <DependentUpon>class_mod_teacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dashboard_mod_teacher.resx">
+    <EmbeddedResource Include="dashboard\dashboard_mod_teacher.resx">
       <DependentUpon>dashboard_mod_teacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="main_form\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="homework.resx">
+    <EmbeddedResource Include="homework\homework.resx">
       <DependentUpon>homework.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="homework_pupil.resx">
+    <EmbeddedResource Include="homework\homework_pupil.resx">
       <DependentUpon>homework_pupil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="homework_teacher.resx">
+    <EmbeddedResource Include="homework\homework_teacher.resx">
       <DependentUpon>homework_teacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mails.resx">
+    <EmbeddedResource Include="mail\mails.resx">
       <DependentUpon>mails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="no_internet.resx">
+    <EmbeddedResource Include="temp\no_internet.resx">
       <DependentUpon>no_internet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -253,22 +263,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="settings_mod.resx">
+    <EmbeddedResource Include="settings\settings_mod.resx">
       <DependentUpon>settings_mod.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="settings_pupil.resx">
+    <EmbeddedResource Include="settings\settings_pupil.resx">
       <DependentUpon>settings_pupil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="settings_teacher.resx">
+    <EmbeddedResource Include="settings\settings_teacher.resx">
       <DependentUpon>settings_teacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="show_msg.resx">
+    <EmbeddedResource Include="mail\show_msg.resx">
       <DependentUpon>show_msg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WHITE_LIST_PUPIL.resx">
+    <EmbeddedResource Include="white_list\WHITE_LIST_PUPIL.resx">
       <DependentUpon>WHITE_LIST_PUPIL.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WHITE_LIST_TEACHER.resx">
+    <EmbeddedResource Include="white_list\WHITE_LIST_TEACHER.resx">
       <DependentUpon>WHITE_LIST_TEACHER.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

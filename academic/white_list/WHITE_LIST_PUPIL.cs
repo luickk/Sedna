@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using academic.white_list;
 
 namespace academic
 {
@@ -49,7 +50,7 @@ namespace academic
         /// </summary>
         public void reload()
         {
-            Program.INSERT_INTO_WHITE_LIST(tv_user);
+            white_list_methods.INSERT_INTO_WHITE_LIST(tv_user);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

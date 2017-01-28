@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using academic.mysql;
+using academic.white_list;
 
 namespace academic
 {
@@ -51,7 +53,7 @@ namespace academic
         /// </summary>
         public void reload()
         {
-            Program.INSERT_INTO_WHITE_LIST(tv_user);
+            white_list_methods.INSERT_INTO_WHITE_LIST(tv_user);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -108,7 +110,7 @@ namespace academic
         {
             String name;
             name = tb_first_name.text.Trim() + "," + tb_last_name.text.Trim();
-            Program.runMYSQL("UPDATE WHITELIST SET objects= CONCAT(objects,'" + name + "." + "')", Program.connection);
+            mysql_basic_methods.runMYSQL("UPDATE WHITELIST SET objects= CONCAT(objects,'" + name + "." + "')", mysql_connection_manager.connection);
             tb_last_name.text = "";
             tb_first_name.text = "";
             load_popup("ADDED!", "Added: "+name);
@@ -143,7 +145,7 @@ namespace academic
                 load_popup("No user selected!", "No user selected!");
             } else
             {
-                Program.runMYSQL("UPDATE WHITELIST SET objects=REPLACE(objects,'" + selected.Trim() + "." + "','') WHERE class_name='" + class_name.Trim() + "'", Program.connection);
+                mysql_basic_methods.runMYSQL("UPDATE WHITELIST SET objects=REPLACE(objects,'" + selected.Trim() + "." + "','') WHERE class_name='" + class_name.Trim() + "'", mysql_connection_manager.connection);
                 load_popup("User removed!", "Removed: " + selected);
                 reload();
                 selected = "";

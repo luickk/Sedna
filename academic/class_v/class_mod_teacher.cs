@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using academic.mysql;
+using academic.class_v;
+using academic.mail;
 
 namespace academic
 {
@@ -76,7 +79,7 @@ namespace academic
         /// </summary>
         public void reload()
         {
-                Program.INSERT_LIST_VIEW_USER(tv_user, "SELECT * FROM USER WHERE user_class = '" + dashboard_mod_teacher.selected + "'");
+                cl_methods.INSERT_LIST_VIEW_USER(tv_user, "SELECT * FROM USER WHERE user_class = '" + dashboard_mod_teacher.selected + "'");
         }
 
         private void t_selected_user_Click(object sender, EventArgs e)
@@ -101,17 +104,17 @@ namespace academic
         public void load_popup_teacher_info(String name)
         {
             t__popup_user_name.Text = name;
-            String t_class = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_class");
-            String t_school = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_school");
-            String t_email = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "email");
-            String t_tel = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "tel");
-            String t_chat_ban = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "chat_ban");
+            String t_class = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_class");
+            String t_school = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_school");
+            String t_email = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "email");
+            String t_tel = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "tel");
+            String t_chat_ban = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "chat_ban");
             t_info_class.Text = t_class;
             t_info_school.Text = t_school;
             t_info_tel.Text = t_tel;
             t_info_email.Text = t_email;
             t_chat_ban_text.Text = t_chat_ban;
-            if (Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "chat_ban") == "on")
+            if (mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "chat_ban") == "on")
             {
                 btn_chatban.ButtonText = "ChatBan ON";
             }
@@ -145,7 +148,7 @@ namespace academic
             selected = selectedItem.SubItems[1].Text;
 
             load_popup_teacher_info(selected);
-            if (Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='"+selected+"'", Program.connection, "chat_ban") == "on")
+            if (mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='"+selected+"'", mysql_connection_manager.connection, "chat_ban") == "on")
             {
                 btn_chatban.ButtonText = "ChatBan OFF";
             }
@@ -162,14 +165,14 @@ namespace academic
         /// <param name="e"></param>
         private void btn_chatban_Click(object sender, EventArgs e)
         {
-            if (Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + selected + "'", Program.connection, "chat_ban") == "on")
+            if (mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + selected + "'", mysql_connection_manager.connection, "chat_ban") == "on")
             {
-                Program.runMYSQL("UPDATE USER SET chat_ban='off' WHERE user_name='" + selected + "'", Program.connection);
+                mysql_basic_methods.runMYSQL("UPDATE USER SET chat_ban='off' WHERE user_name='" + selected + "'", mysql_connection_manager.connection);
                 btn_chatban.ButtonText = "ChatBan ON";
                 load_popup("User ban removed!", "You unbanned: " + selected);
             } else
             {
-                Program.runMYSQL("UPDATE USER SET chat_ban='on' WHERE user_name='" + selected + "'", Program.connection);
+                mysql_basic_methods.runMYSQL("UPDATE USER SET chat_ban='on' WHERE user_name='" + selected + "'", mysql_connection_manager.connection);
                 btn_chatban.ButtonText = "ChatBan OFF";
                 load_popup("User banned!", "You banned: " + selected);
             }
@@ -179,7 +182,7 @@ namespace academic
         {
             String name = getSelectedTeacher();
             String msg = tb_msg.Text;
-            Program.send_MSG(getSelectedTeacher(),msg);
+            mail_methods.send_MSG(getSelectedTeacher(),msg);
             load_popup("MSGS sent!", "MSG sent to: " + getSelectedTeacher());
 
             tb_msg.Text = "";

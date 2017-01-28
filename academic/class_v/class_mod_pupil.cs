@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using academic.mysql;
+using academic.class_v;
+using academic.mail;
 
 namespace academic
 {
@@ -52,7 +55,7 @@ namespace academic
         /// </summary>
         public void reload_pupil()
         {
-           Program.INSERT_LIST_VIEW_USER(tv_user, "SELECT * FROM USER WHERE user_class = '" + PUPIL_OBJ.get_user_class() + "'");
+            cl_methods.INSERT_LIST_VIEW_USER(tv_user, "SELECT * FROM USER WHERE user_class = '" + PUPIL_OBJ.get_user_class() + "'");
         }
 
         /// <summary>
@@ -74,12 +77,12 @@ namespace academic
         {
             isteacher = teacher;
             t__popup_user_name.Text = name;
-            String t_class = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='"+name+"'", Program.connection, "user_class");
-            String t_school = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "user_school");
-            String t_email = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "email");
-            String t_tel = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "tel");
-            String t_tel_seeable = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "tel_seeable");
-            String t_email_seeable = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "email_seeable");
+            String t_class = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='"+name+"'", mysql_connection_manager.connection, "user_class");
+            String t_school = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_school");
+            String t_email = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "email");
+            String t_tel = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "tel");
+            String t_tel_seeable = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "tel_seeable");
+            String t_email_seeable = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "email_seeable");
             t_info_class.Text = t_class;
             t_info_school.Text = t_school;
 
@@ -110,8 +113,8 @@ namespace academic
 
             lv_teacher.Items.Clear();
             lv_teacher.Columns.Clear();
-            String teachers = Program.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='"+PUPIL_OBJ.get_user_class()+"'", Program.connection,"teachers");
-            String main_teacher = Program.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='" + PUPIL_OBJ.get_user_class() + "'", Program.connection, "class_teacher");
+            String teachers = mysql_basic_methods.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='"+PUPIL_OBJ.get_user_class()+"'", mysql_connection_manager.connection,"teachers");
+            String main_teacher = mysql_basic_methods.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='" + PUPIL_OBJ.get_user_class() + "'", mysql_connection_manager.connection, "class_teacher");
             teachers = teachers+"."+main_teacher;
             Char delimiter = '.';
             substrings = teachers.Split(delimiter);
@@ -171,11 +174,11 @@ namespace academic
         {
             isteacher = b;
             t__popup_user_name.Text = name;
-            String t_class = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_class");
-            String t_school = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_school");
-            String t_email = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "email");
-            String t_tel = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "tel");
-            String t_chat_ban = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "chat_ban");
+            String t_class = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_class");
+            String t_school = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_school");
+            String t_email = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "email");
+            String t_tel = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "tel");
+            String t_chat_ban = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "chat_ban");
             t_info_class.Text = t_class;
             t_info_school.Text = t_school;
             t_info_tel.Text = t_tel;
@@ -205,7 +208,7 @@ namespace academic
             {
                 name = getSelectedPupil();
             }
-            Program.send_MSG(name, msg);
+            mail_methods.send_MSG(name, msg);
             load_popup("MSG sent!", "You sent MSG to:" + name);
             tb_msg.Text = "";
         }

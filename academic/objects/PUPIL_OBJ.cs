@@ -1,4 +1,5 @@
-﻿using System;
+﻿using academic.mysql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace academic
         /// <returns></returns>
         public static String get_user_class()
         {
-            user_class = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_class");
+            user_class = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_class");
             Console.WriteLine(user_class);
             return user_class;
         }
@@ -42,7 +43,7 @@ namespace academic
         /// <returns></returns>
         public static String get_user_class_pw()
         {
-            user_class_pw = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_class_pw");
+            user_class_pw = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_class_pw");
             Console.WriteLine(user_class_pw);
 
             return user_class_pw;
@@ -54,7 +55,7 @@ namespace academic
         /// <returns></returns>
         public static String get_user_school()
         {
-            user_school = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_school");
+            user_school = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_school");
             Console.WriteLine(user_school);
             return user_school;
         }
@@ -65,7 +66,7 @@ namespace academic
         /// <returns></returns>
         public static String get_user_age()
         {
-            user_age = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "user_age");
+            user_age = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_age");
             Console.WriteLine(user_age);
             return user_age;
         }
@@ -76,7 +77,7 @@ namespace academic
         /// <returns></returns>
         public static String get_user_email()
         {
-            user_email = Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", Program.connection, "email");
+            user_email = mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "email");
             Console.WriteLine(user_email);
             return user_email;
         }

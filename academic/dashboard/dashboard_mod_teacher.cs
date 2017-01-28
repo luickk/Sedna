@@ -6,6 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using academic.mysql;
+using academic.dashboard;
+using academic.chat;
 
 namespace academic
 {
@@ -49,7 +52,7 @@ namespace academic
             InitializeComponent();
             if (TEACHER_OBJ.checkIfIsTeacher())
                 {
-                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
+                dash_methods.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
                 if (TEACHER_OBJ.checkHasClass())
                     {
                         btn_create_class.Hide();
@@ -95,11 +98,11 @@ namespace academic
             String name = tb_class_name.text;
             String pw = tb_class_pw.text;
             String class_pw = tb_class_pw_class.text;
-            if (!Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + name.Trim() + "'", Program.connection))
+            if (!mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + name.Trim() + "'", mysql_connection_manager.connection))
             {
-                Program.runMYSQL("INSERT INTO CLASSES (	class_name,class_pw,class_school,class_teacher,created_date,class_id,teachers,teacher_calss_pw) VALUES ('" + name.Trim() + "','" + pw.Trim() + "','" + TEACHER_OBJ.get_teacher_school().Trim() + "','" + TEACHER_OBJ.name.Trim() + "','"+ System.DateTime.Now.ToShortDateString().Trim() + "','" + TEACHER_OBJ.get_tid().Trim() + "','','" + class_pw.Trim() + "')", Program.connection);
-                Program.runMYSQL("UPDATE TEACHER SET user_class='" + name.Trim() + "',user_class_pw='" + pw.Trim() + "' WHERE user_name='" + TEACHER_OBJ.name.Trim() + "'", Program.connection);
-                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name.Trim() + "' OR teachers LIKE '%" + TEACHER_OBJ.name.Trim() + "%'");
+                mysql_basic_methods.runMYSQL("INSERT INTO CLASSES (	class_name,class_pw,class_school,class_teacher,created_date,class_id,teachers,teacher_calss_pw) VALUES ('" + name.Trim() + "','" + pw.Trim() + "','" + TEACHER_OBJ.get_teacher_school().Trim() + "','" + TEACHER_OBJ.name.Trim() + "','"+ System.DateTime.Now.ToShortDateString().Trim() + "','" + TEACHER_OBJ.get_tid().Trim() + "','','" + class_pw.Trim() + "')", mysql_connection_manager.connection);
+                mysql_basic_methods.runMYSQL("UPDATE TEACHER SET user_class='" + name.Trim() + "',user_class_pw='" + pw.Trim() + "' WHERE user_name='" + TEACHER_OBJ.name.Trim() + "'", mysql_connection_manager.connection);
+                dash_methods.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name.Trim() + "' OR teachers LIKE '%" + TEACHER_OBJ.name.Trim() + "%'");
                 btn_create_class.Hide();
                 pan_create_class.Hide();
             }
@@ -116,7 +119,7 @@ namespace academic
         /// <param name="e"></param>
         private void btn_dash_update_Click(object sender, EventArgs e)
         {
-            Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" +TEACHER_OBJ.name+ "' OR teachers LIKE '%" + TEACHER_OBJ.name+ "%'");
+            dash_methods.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" +TEACHER_OBJ.name+ "' OR teachers LIKE '%" + TEACHER_OBJ.name+ "%'");
         }
 
 
@@ -157,22 +160,22 @@ namespace academic
                 teacher_name = TEACHER_OBJ.name;
             }
 
-            if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND class_pw = '" + tb_join_pw.text.Trim() + "'", Program.connection) && 
-                Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND teacher_calss_pw = '" + tb_join_pw_class.text.Trim() + "'", Program.connection))
+            if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND class_pw = '" + tb_join_pw.text.Trim() + "'", mysql_connection_manager.connection) &&
+                mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + tb_join_name.text.Trim() + "' AND teacher_calss_pw = '" + tb_join_pw_class.text.Trim() + "'", mysql_connection_manager.connection))
             {
-                if (Program.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE objects LIKE '%" + teacher_name.Trim()  + "%' AND class_name='" + tb_join_name.text.Trim() + "'", Program.connection))
+                if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE objects LIKE '%" + teacher_name.Trim()  + "%' AND class_name='" + tb_join_name.text.Trim() + "'", mysql_connection_manager.connection))
                 {
 
                 t_join_class_alert.Text = "Joined! Please Update list to see the class.";
-                Program.runMYSQL("UPDATE CLASSES SET teachers= CONCAT(teachers,'" + TEACHER_OBJ.name.Trim() + "." + "') WHERE class_name='" + tb_join_name.text.Trim() + "' AND class_pw='" + tb_join_pw.text.Trim() + "'", Program.connection);
+                    mysql_basic_methods.runMYSQL("UPDATE CLASSES SET teachers= CONCAT(teachers,'" + TEACHER_OBJ.name.Trim() + "." + "') WHERE class_name='" + tb_join_name.text.Trim() + "' AND class_pw='" + tb_join_pw.text.Trim() + "'", mysql_connection_manager.connection);
                 //FINISH OK
                 t_join_class_alert.Text = "Join a random class!";
                 tb_join_name.text = "Class name";
                 tb_join_pw.text = "Class Password";
                 pan_join.Hide();
                 btn_join_class.Show();
-                //FINISH
-                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name.Trim() + "' OR teachers LIKE '%" + TEACHER_OBJ.name.Trim() + "%'");
+                    //FINISH
+                    dash_methods.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name.Trim() + "' OR teachers LIKE '%" + TEACHER_OBJ.name.Trim() + "%'");
                 }
                 else
                 {
@@ -198,8 +201,8 @@ namespace academic
                 Console.WriteLine("You cannot delete your own class!");
             } else
             {
-                Program.runMYSQL("UPDATE CLASSES SET teachers=REPLACE(teachers,'" + TEACHER_OBJ.name + "." + "','') WHERE class_name='" + getSelectedClass() + "'", Program.connection);
-                Program.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
+                mysql_basic_methods.runMYSQL("UPDATE CLASSES SET teachers=REPLACE(teachers,'" + TEACHER_OBJ.name + "." + "','') WHERE class_name='" + getSelectedClass() + "'", mysql_connection_manager.connection);
+                dash_methods.INSERT_LIST_VIEW(tv_classes, "SELECT * FROM CLASSES WHERE class_teacher = '" + TEACHER_OBJ.name + "' OR teachers LIKE '%" + TEACHER_OBJ.name + "%'");
             }
         }
         private void dashboard_mod_Load(object sender, EventArgs e)
@@ -247,9 +250,9 @@ namespace academic
         public void load_popup_teacher_info(String name)
         {
             t_class_name.Text = name;
-            String school = Program.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='"+name+"'", Program.connection, "class_school");
-            String date = Program.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='" + name + "'", Program.connection, "created_date");
-            String cl_email = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_class='" + name + "'", Program.connection, "email");
+            String school = mysql_basic_methods.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='"+name+"'", mysql_connection_manager.connection, "class_school");
+            String date = mysql_basic_methods.runMYSQL_GET("SELECT * FROM CLASSES WHERE class_name='" + name + "'", mysql_connection_manager.connection, "created_date");
+            String cl_email = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_class='" + name + "'", mysql_connection_manager.connection, "email");
             t_info_school.Text = school;
             t_info_email.Text = cl_email;
         }
@@ -341,7 +344,7 @@ namespace academic
         private void btn_send_msg_name_Click(object sender, EventArgs e)
         {
             String msg = tb_msg.Text;
-            Program.sendMSG_SPE(msg, getSelectedClass());
+            chat_methods.sendMSG_SPE(msg, getSelectedClass());
             tb_msg.Text = "";
         }
 

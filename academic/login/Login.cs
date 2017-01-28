@@ -1,4 +1,5 @@
-﻿using System;
+﻿using academic.mysql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,7 +98,7 @@ namespace academic
             //dd_login
             if (teacher_login)
             {
-                if (Program.runMYSQL_EXISTS("SELECT count(*) FROM TEACHER WHERE user_name = '" + user_username.Trim() + "' AND user_pass='" + user_pw.Trim() + "'", Program.connection))
+                if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM TEACHER WHERE user_name = '" + user_username.Trim() + "' AND user_pass='" + user_pw.Trim() + "'", mysql_connection_manager.connection))
                 {
                     TEACHER_OBJ.name = user_username;
                     TEACHER_OBJ.pass= user_pw;
@@ -112,7 +113,7 @@ namespace academic
             }
             else
             {
-                if (Program.runMYSQL_EXISTS("SELECT count(*) FROM USER WHERE user_name = '" + user_username.Trim() + "' AND user_pass='" + user_pw.Trim() + "'", Program.connection))
+                if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM USER WHERE user_name = '" + user_username.Trim() + "' AND user_pass='" + user_pw.Trim() + "'", mysql_connection_manager.connection))
                 {
                     
                     PUPIL_OBJ.name = user_username;
@@ -240,20 +241,20 @@ namespace academic
                         if (teacher)
                     {
                         //////////////////////TEACHER REG
-                        if (!Program.runMYSQL_EXISTS("SELECT count(*) FROM TEACHER WHERE user_name = '" + name.Trim() + "'", Program.connection))
+                        if (!mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM TEACHER WHERE user_name = '" + name.Trim() + "'", mysql_connection_manager.connection))
                         {
                         user_class_pw = "";
                             age = "0";
-                            if (Program.runMYSQL_EXISTS("SELECT count(*) FROM IDs WHERE tid = '" + teacher_id.Trim() + "'", Program.connection))
+                            if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM IDs WHERE tid = '" + teacher_id.Trim() + "'", mysql_connection_manager.connection))
                             {
-                                if(Program.runMYSQL_EXISTS("SELECT count(*) FROM IDs WHERE tid = '" + teacher_id.Trim() + "' AND used=1", Program.connection))
+                                if(mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM IDs WHERE tid = '" + teacher_id.Trim() + "' AND used=1", mysql_connection_manager.connection))
                                 {
                                     reg_alert.Text = "ID Already in use";
                                 } else
                                 {
-                                    Program.runMYSQL("UPDATE IDs SET name='" + name.Trim() + "',school='" + school.Trim() + "',tid='" + teacher_id.Trim() + "',used='1',blocked='0' WHERE tid='" + teacher_id.Trim() + "'", Program.connection);
+                                    mysql_basic_methods.runMYSQL("UPDATE IDs SET name='" + name.Trim() + "',school='" + school.Trim() + "',tid='" + teacher_id.Trim() + "',used='1',blocked='0' WHERE tid='" + teacher_id.Trim() + "'", mysql_connection_manager.connection);
                                     //UPDATE sss SET lastname='Doe'                                                                            WHERE id=2
-                                    Program.runMYSQL("INSERT INTO TEACHER (user_name,user_pass,user_class,user_class_pw,user_age,user_school,email,tel,email_seeable,tel_seeable,tid) VALUES ('" + name + "','" + pw1 + "','" + user_class + "','" + user_class_pw + "','" + age + "','" + school + "','" + email + "','" + tel + "','off','off','" + teacher_id + "')", Program.connection);
+                                    mysql_basic_methods.runMYSQL("INSERT INTO TEACHER (user_name,user_pass,user_class,user_class_pw,user_age,user_school,email,tel,email_seeable,tel_seeable,tid) VALUES ('" + name + "','" + pw1 + "','" + user_class + "','" + user_class_pw + "','" + age + "','" + school + "','" + email + "','" + tel + "','off','off','" + teacher_id + "')", mysql_connection_manager.connection);
                                     reg_alert.Text = "Registered successfully";
                                     toLogin();
                                 }
@@ -272,14 +273,14 @@ namespace academic
                     else
                     {
                         //////////////////////PUPIL REG
-                        if (!Program.runMYSQL_EXISTS("SELECT count(*) FROM USER WHERE user_name = '" + name.Trim() + "'", Program.connection))
+                        if (!mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM USER WHERE user_name = '" + name.Trim() + "'", mysql_connection_manager.connection))
                         {
-                            if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + user_class.Trim() + "' AND class_pw = '" + user_class_pw.Trim() + "'", Program.connection))
+                            if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + user_class.Trim() + "' AND class_pw = '" + user_class_pw.Trim() + "'", mysql_connection_manager.connection))
                             {
 
-                                if (Program.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE objects LIKE '%" + name.Trim() + "%' AND class_name='" + user_class.Trim() + "'", Program.connection))
+                                if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM WHITELIST WHERE objects LIKE '%" + name.Trim() + "%' AND class_name='" + user_class.Trim() + "'", mysql_connection_manager.connection))
                                 {
-                                    Program.runMYSQL("INSERT INTO USER (user_name,user_pass,user_class,user_class_pw,user_age,user_school,email,chat_ban) VALUES ('" + name.Trim() + "','" + pw1.Trim() + "','" + user_class.Trim() + "','" + user_class_pw.Trim() + "','" + age.Trim() + "','" + school.Trim() + "','" + email.Trim() + "','off')", Program.connection);
+                                    mysql_basic_methods.runMYSQL("INSERT INTO USER (user_name,user_pass,user_class,user_class_pw,user_age,user_school,email,chat_ban) VALUES ('" + name.Trim() + "','" + pw1.Trim() + "','" + user_class.Trim() + "','" + user_class_pw.Trim() + "','" + age.Trim() + "','" + school.Trim() + "','" + email.Trim() + "','off')", mysql_connection_manager.connection);
                                 reg_alert.Text = "Registered successfully";
                                 toLogin();
                                 }

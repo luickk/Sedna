@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Windows.Threading;
+using academic.mysql;
+using academic.chat;
 
 namespace academic
 {
@@ -60,7 +62,7 @@ namespace academic
                 //Is no teacher
 
                 //If is pupil and blocked
-                if (Program.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + PUPIL_OBJ.name + "'", Program.connection, "chat_ban") == "on")
+                if (mysql_basic_methods.runMYSQL_GET("SELECT * FROM USER WHERE user_name='" + PUPIL_OBJ.name + "'", mysql_connection_manager.connection, "chat_ban") == "on")
                 {   
                     //blocked-> Show "You are BLOCKED" text and not send MSGs.
                     t_alert_login.Show();
@@ -111,7 +113,7 @@ namespace academic
                     oclass = PUPIL_OBJ.get_user_class();
                 }
                 //Insert MSGs into Chat(ListBox)
-                Program.INSERT_LB_CHAT(lb_msgs, "SELECT * FROM CHAT WHERE class='" + oclass + "'");
+                chat_methods.INSERT_LB_CHAT(lb_msgs, "SELECT * FROM CHAT WHERE class='" + oclass + "'");
                 //Get int-> visible items
                 int visibleItems = lb_msgs.ClientSize.Height / lb_msgs.ItemHeight;
                 //Scroll down
@@ -144,8 +146,8 @@ namespace academic
                     //Define name
                     oname = PUPIL_OBJ.name;
                 }
-                  //Insert into MYSQL database
-                  Program.runMYSQL("INSERT INTO CHAT (class,msg,sender) VALUES ('" + oclass + "','" + msg + "','" + oname + "')", Program.connection);
+                //Insert into MYSQL database
+                mysql_basic_methods.runMYSQL("INSERT INTO CHAT (class,msg,sender) VALUES ('" + oclass + "','" + msg + "','" + oname + "')", mysql_connection_manager.connection);
                 //Program.runMYSQL("INSERT INTO TEAC (tel_seeable,tidf) VALUES ('" + name + "','" + pw1 + "','" + user_class + "','" + user_class_pw + "','" + age + "','" + school + "','" + email + "','" + tel + "',' ',' ','" + teacher_id + "')", Program.connection);
                 //Set Text box -> ""
                 tb_send_msg.text = "";

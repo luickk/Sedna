@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace academic
+namespace academic.settings
 {
-    class data
+    class settings_methods
     {
-        //MYSQL Password
-        public static String pw = "";
     }
 }

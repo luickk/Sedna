@@ -1,4 +1,5 @@
-﻿using System;
+﻿using academic.mysql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace academic
         /// <returns></returns>
         public static String get_teacher_class()
         {
-            teacher_class = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "user_class");
+            teacher_class = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_class");
             Console.WriteLine(teacher_class);
             return teacher_class;
         }
@@ -40,7 +41,7 @@ namespace academic
         /// <returns>Return Teacher PW</returns>
         public static String get_teacher_class_pw()
         {
-            teacher_class_pw = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "user_class_pw");
+            teacher_class_pw = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_class_pw");
             Console.WriteLine(teacher_class_pw);
             return teacher_class_pw;
         }
@@ -51,7 +52,7 @@ namespace academic
         /// <returns></returns>
         public static String get_teacher_school()
         {
-            teacher_school = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "user_school");
+            teacher_school = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "user_school");
             Console.WriteLine(teacher_school);
             return teacher_school;
         }
@@ -62,7 +63,7 @@ namespace academic
         /// <returns></returns>
         public static String get_tid()
         {
-            tid = Program.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", Program.connection, "tid");
+            tid = mysql_basic_methods.runMYSQL_GET("SELECT * FROM TEACHER WHERE user_name='" + name + "'", mysql_connection_manager.connection, "tid");
             Console.WriteLine(tid);
             return tid;
         }

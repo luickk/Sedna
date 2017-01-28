@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using academic.mysql;
 
 namespace academic
 {
@@ -102,9 +103,9 @@ namespace academic
                 name = PUPIL_OBJ.name;
             }
 
-            if (Program.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + user_class.Trim() + "' AND class_pw = '" + user_class_pw.Trim() + "'", Program.connection))
+            if (mysql_basic_methods.runMYSQL_EXISTS("SELECT count(*) FROM CLASSES WHERE class_name = '" + user_class.Trim() + "' AND class_pw = '" + user_class_pw.Trim() + "'", mysql_connection_manager.connection))
             {
-                Program.runMYSQL("UPDATE USER SET user_class='" + user_class.Trim() + "' WHERE user_name='" + name.Trim() + "'", Program.connection);
+                mysql_basic_methods.runMYSQL("UPDATE USER SET user_class='" + user_class.Trim() + "' WHERE user_name='" + name.Trim() + "'", mysql_connection_manager.connection);
                 load_popup("Changed class!", "Changed class to" + user_class);
                 pan_join.Hide();
                 tb_join_name.text = "";
