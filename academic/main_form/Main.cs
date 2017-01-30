@@ -701,6 +701,12 @@ namespace academic
         {
 
         }
+
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
         /// <summary>
         /// Methode for loaing messages into expanded message view
         /// </summary>
